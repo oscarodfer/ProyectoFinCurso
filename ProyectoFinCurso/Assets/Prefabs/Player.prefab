@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4979075287954206826}
   - component: {fileID: 4979075287954206830}
   - component: {fileID: 4979075287954206831}
+  - component: {fileID: 6805178426148901819}
+  - component: {fileID: 5099041094105257514}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -98,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfba4005f49408c4e834e60c15846648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 5
   canMove: 1
 --- !u!95 &4979075287954206826
 Animator:
@@ -132,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.014447957, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -143,7 +145,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 1}
+  m_Size: {x: 0.78575283, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &4979075287954206831
 Rigidbody2D:
@@ -166,3 +168,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6805178426148901819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979075287954206806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b806042d0d60044199caa6de4be029d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  flashActive: 0
+  flashLength: 1.5
+  expWhenDefeated: 0
+--- !u!114 &5099041094105257514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979075287954206806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4648ef8d51016c4693fca8fa595d267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  exp: 0
+  expToLevelUp: 000000000a00000019000000320000005a0000009600000022010000f401000084030000dc050000c4090000
+  hpLevels: 6400000096000000d20000000e0100004f0100009a010000f401000058020000b2020000070300005c030000
+  strengthLevels: 00000000010000000200000005000000080000000c0000000d00000012000000140000001600000019000000
+  defenseLevels: 000000000100000002000000030000000500000007000000090000000c0000000f0000001400000019000000
+  speedLevels: 000000000100000002000000060000000700000008000000090000000c0000000d0000000e00000014000000
+  luckLevels: 00000000010000000a00000004000000070000000a0000000f000000120000001e0000001600000019000000
+  accuracyLevels: 3200000032000000340000003500000035000000370000003a0000003c0000003e0000004000000041000000
