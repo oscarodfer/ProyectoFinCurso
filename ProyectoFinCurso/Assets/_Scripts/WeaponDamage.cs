@@ -22,11 +22,21 @@ public class WeaponDamage : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Enemy"))
         {
-            int totalDamage = damage * (1 + stats.strengthLevels[stats.level] / CharacterStats.MAX_STAT_VALUE);
+            CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
+            float plaFac = (1 + stats.strengthLevels[stats.level] / CharacterStats.MAX_STAT_VALUE);
+            float eneFac = (1 - enemyStats.defenseLevels[enemyStats.level] / CharacterStats.MAX_STAT_VALUE);
+            int totalDamage = (int)(damage * eneFac* plaFac);
 
             if (Random.Range(0, CharacterStats.MAX_STAT_VALUE) < stats.accuracyLevels[stats.level]) 
             {
-                totalDamage = 0;
+                if (Random.Range(0,CharacterStats.MAX_STAT_VALUE) < enemyStats.luckLevels[enemyStats.level]) 
+                {
+                    totalDamage = 0;
+                }
+                else 
+                { 
+                    totalDamage *= 5;
+                }
             }
 
             if (bloodAnimation != null && hitPoint!=null) 

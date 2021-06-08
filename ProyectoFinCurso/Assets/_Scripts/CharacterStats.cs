@@ -34,6 +34,12 @@ public class CharacterStats : MonoBehaviour
     {
         healthManager = GetComponent<HealthManager>();
         playerController = GetComponent<PlayerController>();
+        healthManager.UpdateMaxHealth(hpLevels[level]);
+        if (gameObject.tag.Equals("Enemy")) 
+        {
+            EnemyBehaviour controller = GetComponent<EnemyBehaviour>();
+            controller.speed += speedLevels[level] / MAX_STAT_VALUE;
+        }
     }
 
     public void AddExperience(int exp) 

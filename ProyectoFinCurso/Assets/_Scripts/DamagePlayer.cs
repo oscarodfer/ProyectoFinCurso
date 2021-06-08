@@ -12,21 +12,30 @@ public class DamagePlayer : MonoBehaviour
    */
     [Tooltip("Daño que hace el enemigo")]
     public int damage;
-    private CharacterStats stats;
+    private CharacterStats playerStats;
+    private CharacterStats enemyStats;
 
     private void Start()
     {
-        stats = GameObject.Find("Player").GetComponent<CharacterStats>();
+        playerStats = GameObject.Find("Player").GetComponent<CharacterStats>();
+        enemyStats = GetComponent<CharacterStats>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("Player")) 
         {
-            int totalDamage = Mathf.Clamp(damage * (1 - stats.defenseLevels[stats.level] / CharacterStats.MAX_STAT_VALUE), CharacterStats.MIN_HEALTH_VALUE, CharacterStats.MAX_HEALTH_VALUE);
+            float FacEnemy = 1 + enemyStats.strengthLevels[enemyStats.level] / CharacterStats.MAX_STAT_VALUE;
+            float FacPlayer = 1 - playerStats.defenseLevels[playerStats.level] / CharacterStats.MAX_STAT_VALUE;
 
-            if (Random.Range(0, CharacterStats.MAX_STAT_VALUE) < stats.luckLevels[stats.level]) {
-                totalDamage = 0;
+            int totalDamage = Mathf.Clamp((int)(damage * FacEnemy * FacPlayer), CharacterStats.MIN_HEALTH_VALUE, CharacterStats.MAX_HEALTH_VALUE);
+
+            if (Random.Range(0, CharacterStats.MAX_STAT_VALUE) < playerStats.luckLevels[playerStats.level]) 
+            {
+                if (Random.Range(0, CharacterStats.MAX_STAT_VALUE) > enemyStats.accuracyLevels[enemyStats.level]) 
+                {
+                    totalDamage = 0;
+                }
             }
     
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);

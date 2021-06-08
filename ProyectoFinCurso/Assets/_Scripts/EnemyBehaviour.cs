@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(CharacterStats))]
+[RequireComponent(typeof(HealthManager))]
 public class EnemyBehaviour : MonoBehaviour
 {
     [Tooltip("Velocidad de movimiento del enemigo")]
