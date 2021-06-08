@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5.0f;
 
+    private Animator _animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();   
     }
 
     // Update is called once per frame
@@ -29,5 +31,11 @@ public class PlayerController : MonoBehaviour
             Vector3 translation = new Vector3(0, Input.GetAxisRaw(AXIS_V) * speed * Time.deltaTime, 0);
             this.transform.Translate(translation);
         }
+    }
+
+    private void LateUpdate()
+    {
+        _animator.SetFloat(AXIS_H, Input.GetAxisRaw(AXIS_H));
+        _animator.SetFloat(AXIS_V, Input.GetAxisRaw(AXIS_V));
     }
 }
