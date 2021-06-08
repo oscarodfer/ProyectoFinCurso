@@ -22,7 +22,7 @@ public class WeaponDamage : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Enemy"))
         {
-            int totalDamage = damage + stats.strengthLevels[stats.level];
+            int totalDamage = damage * (1 + stats.strengthLevels[stats.level] / CharacterStats.MAX_STAT_VALUE);
 
             if (Random.Range(0, CharacterStats.MAX_STAT_VALUE) < stats.accuracyLevels[stats.level]) 
             {

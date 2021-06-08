@@ -23,7 +23,7 @@ public class DamagePlayer : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Player")) 
         {
-            int totalDamage = Mathf.Clamp(damage / stats.defenseLevels[stats.level], CharacterStats.MIN_HEALTH_VALUE, CharacterStats.MAX_HEALTH_VALUE);
+            int totalDamage = Mathf.Clamp(damage * (1 - stats.defenseLevels[stats.level] / CharacterStats.MAX_STAT_VALUE), CharacterStats.MIN_HEALTH_VALUE, CharacterStats.MAX_HEALTH_VALUE);
 
             if (Random.Range(0, CharacterStats.MAX_STAT_VALUE) < stats.luckLevels[stats.level]) {
                 totalDamage = 0;
