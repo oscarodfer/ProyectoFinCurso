@@ -19,6 +19,8 @@ public class HealthManager : MonoBehaviour
     private float flashCounter;
     private SpriteRenderer _characterRenderer;
 
+    public int expWhenDefeated;
+
 
     void Start()
     {
@@ -32,11 +34,16 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0) 
         {
+            if (gameObject.tag.Equals("Enemy")) 
+            {
+                GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
+            }
+
             gameObject.SetActive(false);
         }
         if (flashLength > 0) 
         {
-            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<PlayerController>().canMove = false;
             flashActive = true;
             flashCounter = flashLength;
@@ -75,7 +82,7 @@ public class HealthManager : MonoBehaviour
             {
                 ToggleColor(true);
                 flashActive = false;
-                GetComponent<CapsuleCollider2D>().enabled = true;
+                GetComponent<BoxCollider2D>().enabled = true;
                 GetComponent<PlayerController>().canMove = true;
             }
         }

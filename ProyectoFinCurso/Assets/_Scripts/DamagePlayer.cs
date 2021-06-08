@@ -12,12 +12,24 @@ public class DamagePlayer : MonoBehaviour
    */
     [Tooltip("Daño que hace el enemigo")]
     public int damage;
+    private CharacterStats stats;
+
+    private void Start()
+    {
+        stats = GameObject.Find("Player").GetComponent<CharacterStats>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("Player")) 
         {
-            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
+            int totalDamage = Mathf.Clamp(damage / stats.defenseLevels[stats.level], CharacterStats.MIN_HEALTH_VALUE, CharacterStats.MAX_HEALTH_VALUE);
+
+            if (Random.Range(0, CharacterStats.MAX_STAT_VALUE) < stats.luckLevels[stats.level]) {
+                totalDamage = 0;
+            }
+    
+            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);
         }
     }
 
