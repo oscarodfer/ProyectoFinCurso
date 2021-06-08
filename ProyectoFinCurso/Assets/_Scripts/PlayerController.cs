@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         if (!canMove)
         {
             return;
+            this.isWalking = false;
         }
 
         if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f)
@@ -50,6 +51,15 @@ public class PlayerController : MonoBehaviour
             this.transform.Translate(translation);
             this.isWalking = true;
             this.lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision collision)
+    {
+        if(collision.gameObject.tag == "Boundary" || collision.gameObject.tag == "Enemy")
+        {
+            this.isWalking = false;
+            this.canMove = false;
         }
     }
 
