@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class WeaponDamage : MonoBehaviour
 {
+    [Tooltip("Cantidad de daño que hace el arma")]
+    public int damage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Enemy")) 
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
+            
         }
     }
 }

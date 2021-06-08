@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    [Tooltip("Tiempo que tarda el jugador en poder revivir")]
+   /* [Tooltip("Tiempo que tarda el jugador en poder revivir")]
     public float timeToRevivePlayer;
     private float timeRevivalCounter;
     private bool playerReviving;
     private GameObject thePlayer;
+   */
     [Tooltip("Daño que hace el enemigo")]
     public int damage;
 
@@ -20,7 +21,7 @@ public class DamagePlayer : MonoBehaviour
         }
     }
 
-    void Update()
+   /* void Update()
     {
         if (playerReviving) 
         {
@@ -36,4 +37,5 @@ public class DamagePlayer : MonoBehaviour
             }
         }
     }
+   */
 }
