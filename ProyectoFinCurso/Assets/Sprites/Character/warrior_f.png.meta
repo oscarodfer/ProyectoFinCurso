@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: 3baf97099872ab547bc388bfc64f11f9
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3694648313708241127
+    second: warrior_f_0
+  - first:
+      213: -7659155921775934063
+    second: warrior_f_1
+  - first:
+      213: 6730087108305350471
+    second: warrior_f_2
+  - first:
+      213: 6690613103496536143
+    second: warrior_f_3
+  - first:
+      213: -5687132517292331793
+    second: warrior_f_4
+  - first:
+      213: -3604710589824222454
+    second: warrior_f_5
+  - first:
+      213: 5903993464927812147
+    second: warrior_f_6
+  - first:
+      213: -8577137889024614267
+    second: warrior_f_7
+  - first:
+      213: 8466442426975870541
+    second: warrior_f_8
+  - first:
+      213: -8332999212890778104
+    second: warrior_f_9
+  - first:
+      213: -2253093198236269749
+    second: warrior_f_10
+  - first:
+      213: -1671035206280977516
+    second: warrior_f_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,7 +137,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: warrior_f_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 108
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f9c6b0fe8f9bcc0800000000000000
+      internalID: -3694648313708241127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 108
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1954733e44635b590800000000000000
+      internalID: -7659155921775934063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 108
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74fe9f54192166d50800000000000000
+      internalID: 6730087108305350471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 72
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f402c735b25d9dc50800000000000000
+      internalID: 6690613103496536143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_4
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 72
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feca7347b1f3311b0800000000000000
+      internalID: -5687132517292331793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_5
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 72
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b307f21de79fdc0800000000000000
+      internalID: -3604710589824222454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 36
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33aff3196c23fe150800000000000000
+      internalID: 5903993464927812147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_7
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 36
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580e4279882e7f880800000000000000
+      internalID: -8577137889024614267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 36
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e513bb788de7570800000000000000
+      internalID: 8466442426975870541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8061902bd5d3b5c80800000000000000
+      internalID: -8332999212890778104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4347417ca76bb0e0800000000000000
+      internalID: -2253093198236269749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warrior_f_11
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493637a555a4fc8e0800000000000000
+      internalID: -1671035206280977516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
