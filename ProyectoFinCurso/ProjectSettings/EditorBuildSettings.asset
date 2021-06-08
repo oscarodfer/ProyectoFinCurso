@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OscarScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 58886e368a0012d449660bf9402451c7
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: c3ee5c891ab375c48a41d00754745da3
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 2219d096d93dd4044a0dfe9d788ac4c2
   m_configObjects: {}

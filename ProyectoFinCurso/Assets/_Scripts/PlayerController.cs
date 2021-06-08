@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f)
         {
-            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.6f, Input.GetAxisRaw(AXIS_V) * speed * 0.6f);
+            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.5f, Input.GetAxisRaw(AXIS_V) * speed * 0.5f);
             isWalking = true;
             lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
         }
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         */
     }
 
-    private void OnCollisionEnter2D(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Boundary" || collision.gameObject.tag == "Enemy")
         {
