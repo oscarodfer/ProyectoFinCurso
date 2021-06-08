@@ -23,8 +23,9 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        timeBetweenStepsCounter = timeBetweenSteps;
-        timeToMakeStepCounter = timeToMakeStep;
+        //Multiplicamos por RandomRange para que sea aleatorio el arranque.
+        timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
+        timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
     }
 
 
