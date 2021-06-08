@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5.0f;
 
+    public bool canMove = true;
+
     //Métodos
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,12 @@ public class PlayerController : MonoBehaviour
     {
         this.isWalking = false;
 
-        if(Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f)
+        if (!canMove)
+        {
+            return;
+        }
+
+        if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f)
         {
             Vector3 translation = new Vector3(Input.GetAxisRaw(AXIS_H) * speed * Time.deltaTime, 0, 0);
             this.transform.Translate(translation);
