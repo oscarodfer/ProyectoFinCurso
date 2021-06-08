@@ -7,11 +7,22 @@ public class HealthManager : MonoBehaviour
     public int maxHealth;
     [SerializeField]
     private int currentHealth;
+    public int Health
+    {
+        get {
+            return currentHealth;
+        }
+    }
 
+    public bool flashActive;
+    public float flashLength;
+    private float flashCounter;
+    private SpriteRenderer _characterRenderer;
 
 
     void Start()
     {
+        _characterRenderer = GetComponent<SpriteRenderer>();
         UpdateMaxHealth(maxHealth);
     }
 
@@ -23,11 +34,51 @@ public class HealthManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        if (flashLength > 0) 
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<PlayerController>().enabled = false;
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            flashActive = true;
+            flashCounter = flashLength;
+        }
     }
 
     public void UpdateMaxHealth(int newMaxHealth) 
     {
         maxHealth = newMaxHealth;
         currentHealth = maxHealth;
+    }
+
+    void ToggleColor(bool visible) 
+    {
+        _characterRenderer.color = new Color(_characterRenderer.color.r, _characterRenderer.color.g, _characterRenderer.color.b, (visible ? 1 : 0));
+    }
+
+    private void Update()
+    {
+        if (flashActive) 
+        {
+            flashCounter -= Time.deltaTime;
+            if (flashCounter > flashLength * 0.66f)
+            {
+                ToggleColor(false);
+            }
+            else if (flashCounter > flashLength * 0.33f)
+            {
+                ToggleColor(true);
+            }
+            else if (flashCounter > 0)
+            {
+                ToggleColor(false);
+            }
+            else 
+            {
+                ToggleColor(true);
+                flashActive = false;
+                GetComponent<CapsuleCollider2D>().enabled = true;
+                GetComponent<PlayerController>().enabled = true;
+            }
+        }
     }
 }
