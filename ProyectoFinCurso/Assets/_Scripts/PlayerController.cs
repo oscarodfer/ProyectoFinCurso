@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f)
         {
-            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * (speed / 2), Input.GetAxisRaw(AXIS_V) * (speed / 2));
+            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.6f, Input.GetAxisRaw(AXIS_V) * speed * 0.6f);
             isWalking = true;
             lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
         }
