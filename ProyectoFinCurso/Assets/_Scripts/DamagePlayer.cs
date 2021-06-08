@@ -9,19 +9,14 @@ public class DamagePlayer : MonoBehaviour
     private float timeRevivalCounter;
     private bool playerReviving;
     private GameObject thePlayer;
+    [Tooltip("Daño que hace el enemigo")]
+    public int damage;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("Player")) 
         {
-            //Desactivamos al jugador
-            collision.gameObject.SetActive(false);
-            //Le indicamos que está reviviendo
-            playerReviving = true;
-            //iniciamos el contador de revivir
-            timeRevivalCounter = timeToRevivePlayer;
-            //Guardamos una referencia
-            thePlayer = collision.gameObject;
+            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
         }
     }
 
