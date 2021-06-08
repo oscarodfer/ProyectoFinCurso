@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
         if (!canMove)
         {
+            this.isWalking = false;
             return;
             this.isWalking = false;
         }
