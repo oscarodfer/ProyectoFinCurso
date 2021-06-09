@@ -10,6 +10,7 @@ TagManager:
   - Teleporter
   - Vision
   - BulletEnemy
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -58,4 +59,7 @@ TagManager:
     locked: 0
   - name: Foreground details
     uniqueID: 2066395409
+    locked: 0
+  - name: UI
+    uniqueID: 1523597805
     locked: 0

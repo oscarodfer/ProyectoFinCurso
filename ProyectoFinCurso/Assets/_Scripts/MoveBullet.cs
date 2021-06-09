@@ -26,7 +26,7 @@ public class MoveBullet : MonoBehaviour
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.tag.Equals("NPC"))
+        if (collision.gameObject.tag.Equals("NPC") || collision.gameObject.tag.Equals("Boundary"))
         {
             Destroy(this.gameObject);
         }
