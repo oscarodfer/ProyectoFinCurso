@@ -7,26 +7,27 @@ public class GoToNewPlace : MonoBehaviour
 {
     public string newPlaceName = "New scene name here";
     public bool needsAction = false;
+    public string destinationUuid;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            if(!needsAction)
-            {
-                SceneManager.LoadScene(newPlaceName);
-            }
-        }
+        TeleportByTag(collision.gameObject.tag);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        TeleportByTag(collision.gameObject.tag);
+    }
+
+    private void TeleportByTag(string collisionTag)
+    {
+        if (collisionTag == "Player")
         {
-            if (needsAction && Input.GetKey(KeyCode.E))
+            if (!needsAction || (needsAction && Input.GetKey(KeyCode.E)))
             {
+                FindObjectOfType<PlayerController>().nextUuid = this.destinationUuid;
                 SceneManager.LoadScene(newPlaceName);
             }
-        }
+        }    
     }
 }
