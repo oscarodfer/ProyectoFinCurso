@@ -22,6 +22,7 @@ public class HealthManager : MonoBehaviour
 
     public int expWhenDefeated;
 
+    public bool inmune = false;
 
     void Start()
     {
@@ -32,10 +33,19 @@ public class HealthManager : MonoBehaviour
 
     public void DamageCharacter(int damage) 
     {
-        currentHealth -= damage;
+        if(inmune)
+        {
+            return;
+        }
+
+        if(!inmune)
+        {
+            currentHealth -= damage;
+        } 
 
         if (currentHealth <= 0) 
         {
+            inmune = true;
             if (gameObject.tag.Equals("Enemy")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
@@ -62,32 +72,77 @@ public class HealthManager : MonoBehaviour
 
     void ToggleColor(bool visible) 
     {
-        _characterRenderer.color = new Color(_characterRenderer.color.r, _characterRenderer.color.g, _characterRenderer.color.b, (visible ? 1 : 0));
+        _characterRenderer.color = new Color(255, 0, 0, (visible ? 1 : 0));
     }
 
     private void Update()
     {
         if (flashActive) 
         {
+            inmune = true;
+            ToggleColor(true);
             flashCounter -= Time.deltaTime;
-            if (flashCounter > flashLength * 0.66f)
-            {
-                ToggleColor(false);
-            }
-            else if (flashCounter > flashLength * 0.33f)
+
+            if (flashCounter < flashLength && flashCounter >= flashLength * 0.8f)
             {
                 ToggleColor(true);
+
+                PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+                Vector2 lastPlayerMovement = player.lastMovement;
+                Vector3 currentPosition = player.transform.position;
+                Vector3 endPosition = currentPosition;
+
+                if (lastPlayerMovement.x == 1.0f && lastPlayerMovement.y == 0.0f)
+                {
+                    endPosition.x = endPosition.x - 0.05f;
+                }
+                else if (lastPlayerMovement.x == -1.0f && lastPlayerMovement.y == 0.0f)
+                {
+                    endPosition.x = endPosition.x + 0.05f;
+                }
+                else if (lastPlayerMovement.x == -0.0f && lastPlayerMovement.y == 1.0f)
+                {
+                    endPosition.y = endPosition.y - 0.05f;
+                }
+                else if (lastPlayerMovement.x == 0.0f && lastPlayerMovement.y == -1.0f)
+                {
+                    endPosition.y = endPosition.y + 0.05f;
+                }
+
+                GameObject.Find("Player").GetComponent<PlayerController>().transform.position = Vector3.Lerp(currentPosition, endPosition, 30.0f);
             }
-            else if (flashCounter > 0)
+            else if (flashCounter < flashLength * 0.8f && flashCounter >= flashLength * 0.6f)
             {
                 ToggleColor(false);
+            }
+            else if (flashCounter < flashLength * 0.6f && flashCounter >= flashLength * 0.4f)
+            {
+                ToggleColor(true);               
+            }
+            else if (flashCounter < flashLength * 0.4f && flashCounter >= flashLength * 0.2f)
+            {
+                ToggleColor(false);
+                GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;         
+            }
+            else if (flashCounter < flashLength * 0.2f && flashCounter > 0.0f)
+            {
+                ToggleColor(true);
             }
             else 
             {
-                ToggleColor(true);
+                _characterRenderer.color = new Color(255, 255, 255, 1);
                 flashActive = false;
                 GetComponent<BoxCollider2D>().enabled = true;
+                GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
             }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (!flashActive)
+        {
+            inmune = false;
         }
     }
 }
