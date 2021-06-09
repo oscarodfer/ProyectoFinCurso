@@ -18,6 +18,7 @@ public class HealthManager : MonoBehaviour
     public float flashLength;
     private float flashCounter;
     private SpriteRenderer _characterRenderer;
+    public GameObject shot;
 
     public int expWhenDefeated;
 
@@ -26,6 +27,7 @@ public class HealthManager : MonoBehaviour
     {
         _characterRenderer = GetComponent<SpriteRenderer>();
         UpdateMaxHealth(maxHealth);
+        shot = GameObject.Find("Enemy3");
     }
 
     public void DamageCharacter(int damage) 
@@ -38,7 +40,7 @@ public class HealthManager : MonoBehaviour
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
             }
-
+            Destroy(shot);
             gameObject.SetActive(false);
         }
         if (flashLength > 0) 

@@ -9,11 +9,11 @@ public class WeaponEnemy : MonoBehaviour
     public Transform shotSpawn;
     public float delay;
     public float fireRate;
+    public bool characterVision = false;
     
     void Start()
     {
-        //Repetimos el método Fire.
-        InvokeRepeating("Fire", delay, fireRate);
+
     }
 
     
@@ -24,7 +24,27 @@ public class WeaponEnemy : MonoBehaviour
 
     void Fire() 
     {
-        //Instanciamos el gameObject, su posición y rotación.
-        Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            //Instanciamos el gameObject, su posición y rotación.
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            characterVision = true;
+            if(characterVision == true) 
+            {
+                InvokeRepeating("Fire", delay, fireRate);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        characterVision = false;
+        CancelInvoke();
+    }
+
+   
 }

@@ -24,6 +24,7 @@ public class MoveBullet : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
+            Destroy(this.gameObject);
         }
     }
 }
