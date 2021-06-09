@@ -9,9 +9,8 @@ public class MoveBullet : MonoBehaviour
     public int direction;
     public float speed = 1.5f;
     public int damage = 20;
+    public GameObject canvasDamage;
 
-    private CharacterStats playerStats;
-    private CharacterStats enemyStats;
 
     void Start()
     {
@@ -29,14 +28,17 @@ public class MoveBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player"))
-        {
-            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
-            Destroy(this.gameObject);
-        }
         if (collision.gameObject.tag.Equals("NPC") || collision.gameObject.tag.Equals("Boundary"))
         {
             Destroy(this.gameObject);
         }
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            var clone = (GameObject)Instantiate(canvasDamage, collision.gameObject.transform.position, Quaternion.Euler(Vector3.zero));
+            clone.GetComponent<DamageNumber>().damagePoint = damage;
+            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
+            Destroy(this.gameObject);
+        }
+       
     }
 }

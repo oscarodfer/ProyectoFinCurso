@@ -14,6 +14,7 @@ public class DamagePlayer : MonoBehaviour
     public int damage;
     private CharacterStats playerStats;
     private CharacterStats enemyStats;
+    public GameObject canvasDamage;
 
     private void Start()
     {
@@ -37,7 +38,9 @@ public class DamagePlayer : MonoBehaviour
                     totalDamage = 0;
                 }
             }
-    
+
+            var clone = (GameObject)Instantiate(canvasDamage, collision.gameObject.transform.position, Quaternion.Euler(Vector3.zero));
+            clone.GetComponent<DamageNumber>().damagePoint = damage;
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);
         }
     }

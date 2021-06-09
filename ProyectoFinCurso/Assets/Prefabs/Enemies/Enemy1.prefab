@@ -54,6 +54,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2770597973988605542, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: canvasDamage
+      value: 
+      objectReference: {fileID: 4548729616114375039, guid: ecf0838e09297e848a73fb7b40e7a47d, type: 3}
     - target: {fileID: 2770597973988605543, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: level
       value: 1
