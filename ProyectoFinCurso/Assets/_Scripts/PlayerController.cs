@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Constantes y variables
+    public static bool playerCreated;
+
     private const string AXIS_H = "Horizontal";
     private const string AXIS_V = "Vertical";
     private const string LAST_H = "LastH";
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+        playerCreated = true;
     }
 
     // Update is called once per frame
