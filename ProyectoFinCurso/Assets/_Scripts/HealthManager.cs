@@ -45,7 +45,6 @@ public class HealthManager : MonoBehaviour
         }
         if (flashLength > 0) 
         {
-            GetComponent<BoxCollider2D>().enabled = false;
             flashActive = true;
             flashCounter = flashLength;
         }
