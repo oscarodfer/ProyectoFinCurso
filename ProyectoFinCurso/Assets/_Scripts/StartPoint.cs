@@ -5,21 +5,25 @@ using UnityEngine;
 public class StartPoint : MonoBehaviour
 {
     private PlayerController player;
-    private CameraController camera;
+    private CameraController theCamera;
+
+    public Vector2 facingDirection = Vector2.zero;
+    public string startUuid;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        camera = FindObjectOfType<CameraController>();
+        theCamera = FindObjectOfType<CameraController>();
+
+        if (!player.nextUuid.Equals(startUuid))
+        {
+            return;
+        }
 
         player.transform.position = this.transform.position;
-        camera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, camera.transform.position.z);
-    }
+        theCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        player.lastMovement = facingDirection;
+    } 
 }

@@ -16,10 +16,11 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Animator _animator;
-    private Vector2 lastMovement;
+    public Vector2 lastMovement;
 
     private bool isWalking = false;
     public float speed = 5.0f;
+    public string nextUuid;
 
     //Métodos
     // Start is called before the first frame update
