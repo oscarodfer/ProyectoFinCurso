@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private Vector2 lastMovement;
-    private bool isWalking = false;
 
+    private bool isWalking = false;
     public float speed = 5.0f;
 
     //Métodos

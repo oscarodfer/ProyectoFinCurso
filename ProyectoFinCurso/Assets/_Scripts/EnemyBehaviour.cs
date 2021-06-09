@@ -22,7 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Tooltip("Dirección en la que se mueve el enemigo, se genera aleatoriamente")]
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-    private int currentDirection;
+    public int currentDirection = 0;
 
 
     void Start()

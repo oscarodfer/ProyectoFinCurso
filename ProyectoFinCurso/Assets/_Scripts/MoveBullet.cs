@@ -15,6 +15,7 @@ public class MoveBullet : MonoBehaviour
 
     void Start()
     {
+        /*currentDirection = GetComponent<EnemyBehaviour>().currentDirection;*/
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.velocity = walkingDirections[currentDirection] * speed;
     }
