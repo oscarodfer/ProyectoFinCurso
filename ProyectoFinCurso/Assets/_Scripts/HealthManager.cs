@@ -22,7 +22,7 @@ public class HealthManager : MonoBehaviour
 
     public int expWhenDefeated;
 
-    private bool inmune = false;
+    public bool inmune = false;
 
     void Start()
     {
@@ -38,10 +38,14 @@ public class HealthManager : MonoBehaviour
             return;
         }
 
-        currentHealth -= damage;
+        if(!inmune)
+        {
+            currentHealth -= damage;
+        } 
 
         if (currentHealth <= 0) 
         {
+            inmune = true;
             if (gameObject.tag.Equals("Enemy")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
@@ -81,7 +85,7 @@ public class HealthManager : MonoBehaviour
 
             if (flashCounter < flashLength && flashCounter >= flashLength * 0.8f)
             {
-                ToggleColor(false);
+                ToggleColor(true);
 
                 PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
                 Vector2 lastPlayerMovement = player.lastMovement;
@@ -105,24 +109,24 @@ public class HealthManager : MonoBehaviour
                     endPosition.y = endPosition.y + 0.05f;
                 }
 
-                GameObject.Find("Player").GetComponent<PlayerController>().transform.position = Vector3.Lerp(currentPosition, endPosition, 1.0f);
+                GameObject.Find("Player").GetComponent<PlayerController>().transform.position = Vector3.Lerp(currentPosition, endPosition, 30.0f);
             }
             else if (flashCounter < flashLength * 0.8f && flashCounter >= flashLength * 0.6f)
             {
-                ToggleColor(true);
+                ToggleColor(false);
             }
             else if (flashCounter < flashLength * 0.6f && flashCounter >= flashLength * 0.4f)
             {
-                ToggleColor(false);               
+                ToggleColor(true);               
             }
             else if (flashCounter < flashLength * 0.4f && flashCounter >= flashLength * 0.2f)
             {
-                ToggleColor(true);
+                ToggleColor(false);
                 GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;         
             }
             else if (flashCounter < flashLength * 0.2f && flashCounter > 0.0f)
             {
-                ToggleColor(false);
+                ToggleColor(true);
             }
             else 
             {

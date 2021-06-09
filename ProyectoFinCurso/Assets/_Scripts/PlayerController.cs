@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Boundary" || collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Boundary" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "BulletEnemy")
         {
             _rb.velocity = Vector2.zero;
             isWalking = false;
