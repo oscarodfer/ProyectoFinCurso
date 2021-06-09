@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3908403579412356156, guid: 62f936ec38a6c6f4288ceafd1bef8bf3, type: 3}
       propertyPath: m_Name
-      value: NPC_Captain
+      value: NPC_Captain Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3908403579412356159, guid: 62f936ec38a6c6f4288ceafd1bef8bf3, type: 3}
       propertyPath: m_Controller

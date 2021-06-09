@@ -26,5 +26,9 @@ public class MoveBullet : MonoBehaviour
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
             Destroy(this.gameObject);
         }
+        if (collision.gameObject.tag.Equals("NPC"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3908403579412356154}
   m_Layer: 0
   m_Name: NPC_Geo
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,3 +167,4 @@ MonoBehaviour:
   speed: 1.5
   timeBetweenSteps: 1.5
   timeToMakeStep: 3
+  mapZone: {fileID: 0}
