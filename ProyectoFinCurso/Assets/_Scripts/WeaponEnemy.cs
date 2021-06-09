@@ -7,8 +7,8 @@ public class WeaponEnemy : MonoBehaviour
 
     public GameObject shot;
     public Transform shotSpawn;
-    public float delay;
-    public float fireRate;
+    public float delay = 2.0f;
+    public float fireRate = 2.0f;
     public bool characterVision = false;
     
     void Start()
@@ -28,7 +28,7 @@ public class WeaponEnemy : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
@@ -36,6 +36,7 @@ public class WeaponEnemy : MonoBehaviour
             if(characterVision == true) 
             {
                 InvokeRepeating("Fire", delay, fireRate);
+                
             }
         }
     }
