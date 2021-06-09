@@ -9,6 +9,7 @@ public class WeaponDamage : MonoBehaviour
 
     public GameObject bloodAnimation;
     private GameObject hitPoint;
+    public GameObject canvasDamage;
 
     private CharacterStats stats;
 
@@ -41,8 +42,12 @@ public class WeaponDamage : MonoBehaviour
 
             if (bloodAnimation != null && hitPoint!=null) 
             {
-                Instantiate(bloodAnimation, hitPoint.transform.position, hitPoint.transform.rotation);
+                Destroy(Instantiate(bloodAnimation, hitPoint.transform.position, hitPoint.transform.rotation),0.5f);
             }
+
+            var clone = (GameObject)Instantiate(canvasDamage, hitPoint.transform.position, Quaternion.Euler(Vector3.zero));
+            clone.GetComponent<DamageNumber>().damagePoint = damage;
+
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);
             
         }

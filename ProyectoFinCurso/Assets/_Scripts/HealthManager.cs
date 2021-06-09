@@ -40,7 +40,7 @@ public class HealthManager : MonoBehaviour
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
 
-                if (gameObject.name.Equals("Enemy3")) 
+                if (gameObject.name.Equals("Enemy3") && currentHealth <= 0) 
                 {
                     Destroy(shot);
                 }
