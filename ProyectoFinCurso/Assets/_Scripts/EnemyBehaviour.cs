@@ -22,20 +22,23 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Tooltip("Dirección en la que se mueve el enemigo, se genera aleatoriamente")]
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-    public int currentDirection = 0;
+    public int currentDirection;
 
 
     void Start()
     {
+        StarWalking();
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
-        timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
+        //timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
+        //timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
     }
+
 
 
     private void FixedUpdate()
     {
+        
         if (isWalking)
         {
             _rigidbody.velocity = walkingDirections[currentDirection] * speed;
@@ -61,6 +64,7 @@ public class EnemyBehaviour : MonoBehaviour
         _animator.SetBool("Walking", isWalking);
         _animator.SetFloat("Horizontal", walkingDirections[currentDirection].x);
         _animator.SetFloat("Vertical", walkingDirections[currentDirection].y);
+        
     }
 
     public void StarWalking()
