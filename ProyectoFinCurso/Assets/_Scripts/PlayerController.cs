@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 lastMovement;
 
     private bool isWalking = false;
+    public bool canMove = true;
     public float speed = 5.0f;
     public string nextUuid;
 
@@ -34,6 +35,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         isWalking = false;
 
         if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) <= 0.2f)
@@ -82,6 +88,11 @@ public class PlayerController : MonoBehaviour
         {
             _rb.velocity = Vector2.zero;
             isWalking = false;
+
+            if (collision.gameObject.tag == "Enemy")
+            {
+                canMove = false;
+            }       
         }
     }
 
