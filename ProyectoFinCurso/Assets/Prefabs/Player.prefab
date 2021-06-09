@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  canMove: 1
 --- !u!95 &4979075287954206826
 Animator:
   serializedVersion: 3
@@ -145,7 +144,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.78575283, y: 1}
+  m_Size: {x: 0.78575283, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &4979075287954206831
 Rigidbody2D:
