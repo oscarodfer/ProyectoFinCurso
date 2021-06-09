@@ -6,10 +6,11 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     [Tooltip("Velocidad de movimiento del enemigo")]
-    public float speed = 1;
+    public float speed = 1.5f;
     private Rigidbody2D _rigidbody;
+    private Animator _animator;
 
-    private bool isMoving;
+    private bool isWalking = false;
 
     [Tooltip("Tiempo que tarda el enemigo entre pasos sucesivos")]
     public float timeBetweenSteps;
@@ -18,43 +19,80 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("Tiempo que tarda el enemigo en dar un paso")]
     public float timeToMakeStep;
     private float timeToMakeStepCounter;
+
     [Tooltip("Dirección en la que se mueve el enemigo, se genera aleatoriamente")]
-    public Vector2 directionToMove;
+    private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
+    private int currentDirection;
+
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        //Multiplicamos por RandomRange para que sea aleatorio el arranque.
-        timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
+        _animator = GetComponent<Animator>();
         timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
+        timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
     }
 
 
-    void Update()
+    private void FixedUpdate()
     {
-        if (isMoving){
-
-            timeToMakeStepCounter -= Time.deltaTime;
-            _rigidbody.velocity = directionToMove * speed;
-            //Cuando me quedo sin tiempo de movimiento, paramos al enemigo.
-            if (timeToMakeStepCounter < 0) {
-                isMoving = false;
-                timeBetweenStepsCounter = timeBetweenSteps;
-                _rigidbody.velocity = Vector2.zero;
+        if (isWalking)
+        {
+            _rigidbody.velocity = walkingDirections[currentDirection] * speed;
+            timeBetweenStepsCounter -= Time.fixedDeltaTime;
+            if (timeBetweenStepsCounter < 0)
+            {
+                StopWalking();
             }
         }
-        else {
-            timeBetweenStepsCounter -= Time.deltaTime;
-            //Cuando me quedo sin tiempo de estar parado, arrancamos al enemigo para que de un paso.
-            if (timeBetweenStepsCounter < 0) {
-                isMoving = true;
-                timeToMakeStepCounter = timeToMakeStep;
-                //El movimiento del enemigo lo realizamos aleatoriamente.
-                directionToMove = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
+        else
+        {
+            _rigidbody.velocity = Vector2.zero;
+            timeToMakeStepCounter -= Time.fixedDeltaTime;
+            if (timeToMakeStepCounter < 0)
+            {
+                StarWalking();
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        _animator.SetBool("Walking", isWalking);
+        _animator.SetFloat("Horizontal", walkingDirections[currentDirection].x);
+        _animator.SetFloat("Vertical", walkingDirections[currentDirection].y);
+    }
+
+    public void StarWalking()
+    {
+
+        currentDirection = Random.Range(0, walkingDirections.Length);
+        isWalking = true;
+        timeBetweenStepsCounter = timeBetweenSteps;
+    }
+
+    public void StopWalking()
+    {
+        isWalking = false;
+        timeToMakeStepCounter = timeToMakeStep;
+        _rigidbody.velocity = Vector2.zero;
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.name == "Player")
+        {
+            Debug.Log("Jugador detectado - Voy a por ti!!!");
+            //_agent.SetDestination(player.position);
+        }
+    }
 
 
-
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.name == "Player")
+        {
+            Debug.Log("Jugador fuera de rango, me vuelvo a patrullar");
+        }
     }
 }
