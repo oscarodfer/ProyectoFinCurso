@@ -27,16 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
-
-        if(!playerCreated)
-        {
-            DontDestroyOnLoad(this.transform.gameObject);
-            playerCreated = true;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        playerCreated = true;
     }
 
     // Update is called once per frame

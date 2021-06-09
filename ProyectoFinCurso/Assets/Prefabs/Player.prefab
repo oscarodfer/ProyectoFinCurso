@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4979075287954206827}
   - component: {fileID: 4979075287954206804}
-  - component: {fileID: 4979075287954206805}
   - component: {fileID: 4979075287954206826}
   - component: {fileID: 4979075287954206830}
   - component: {fileID: 4979075287954206831}
+  - component: {fileID: 4979075287954206805}
   - component: {fileID: 6805178426148901819}
   - component: {fileID: 5099041094105257514}
+  - component: {fileID: 261532018050641805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -88,19 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4979075287954206805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4979075287954206806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfba4005f49408c4e834e60c15846648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!95 &4979075287954206826
 Animator:
   serializedVersion: 3
@@ -167,6 +155,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4979075287954206805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979075287954206806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfba4005f49408c4e834e60c15846648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!114 &6805178426148901819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +184,7 @@ MonoBehaviour:
   currentHealth: 0
   flashActive: 0
   flashLength: 1.5
+  shot: {fileID: 0}
   expWhenDefeated: 0
 --- !u!114 &5099041094105257514
 MonoBehaviour:
@@ -205,3 +207,15 @@ MonoBehaviour:
   speedLevels: 000000000100000002000000060000000700000008000000090000000c0000000d0000000e00000014000000
   luckLevels: 00000000010000000a00000004000000070000000a0000000f000000120000001e0000001600000019000000
   accuracyLevels: 3200000032000000340000003500000035000000370000003a0000003c0000003e0000004000000041000000
+--- !u!114 &261532018050641805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979075287954206806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710ad48c91aac63479b7acbf6c6decca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
