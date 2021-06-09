@@ -44,7 +44,6 @@ public class HealthManager : MonoBehaviour
         if (flashLength > 0) 
         {
             GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<PlayerController>().canMove = false;
             flashActive = true;
             flashCounter = flashLength;
         }
@@ -83,7 +82,6 @@ public class HealthManager : MonoBehaviour
                 ToggleColor(true);
                 flashActive = false;
                 GetComponent<BoxCollider2D>().enabled = true;
-                GetComponent<PlayerController>().canMove = true;
             }
         }
     }

@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     private bool isWalking = false;
 
     public float speed = 5.0f;
-    public bool canMove = true;
 
     //Métodos
     // Start is called before the first frame update
@@ -32,12 +31,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isWalking = false;
-
-        if (!canMove)
-        {
-            isWalking = false;
-            return;
-        }
 
         if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) <= 0.2f)
         {
@@ -55,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f)
         {
-            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.5f, Input.GetAxisRaw(AXIS_V) * speed * 0.5f);
+            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.6f, Input.GetAxisRaw(AXIS_V) * speed * 0.6f);
             isWalking = true;
             lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
         }
@@ -85,7 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             _rb.velocity = Vector2.zero;
             isWalking = false;
-            canMove = false;
         }
     }
 
