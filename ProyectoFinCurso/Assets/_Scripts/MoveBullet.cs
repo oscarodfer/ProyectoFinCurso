@@ -8,7 +8,10 @@ public class MoveBullet : MonoBehaviour
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
     private int currentDirection;
     public float speed = 1.5f;
+    public int damage = 20;
 
+    private CharacterStats playerStats;
+    private CharacterStats enemyStats;
 
     void Start()
     {
@@ -16,9 +19,11 @@ public class MoveBullet : MonoBehaviour
         _rigidbody.velocity = walkingDirections[currentDirection] * speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
+        }
     }
 }

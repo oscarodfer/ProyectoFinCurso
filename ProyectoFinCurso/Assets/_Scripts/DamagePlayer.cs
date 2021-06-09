@@ -42,21 +42,22 @@ public class DamagePlayer : MonoBehaviour
         }
     }
 
-   /* void Update()
-    {
-        if (playerReviving) 
-        {
-            //Cuentra atrás para revivir.
-            timeRevivalCounter -= Time.deltaTime;
-            //Si la cuenta atrás ha finalizado
-            if (timeRevivalCounter < 0) 
-            {
-                //Le indicamos que ha revivido
-                playerReviving = false;
-                //Reactivamos al jugador.
-                thePlayer.SetActive(true);
-            }
-        }
-    }
-   */
+
+    /* void Update()
+     {
+         if (playerReviving) 
+         {
+             //Cuentra atrás para revivir.
+             timeRevivalCounter -= Time.deltaTime;
+             //Si la cuenta atrás ha finalizado
+             if (timeRevivalCounter < 0) 
+             {
+                 //Le indicamos que ha revivido
+                 playerReviving = false;
+                 //Reactivamos al jugador.
+                 thePlayer.SetActive(true);
+             }
+         }
+     }
+    */
 }

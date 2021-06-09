@@ -12,4 +12,5 @@ public class DestroyAfterTime : MonoBehaviour
     {
         Destroy(this.gameObject, destroyDelay);
     }
+
 }

@@ -9,6 +9,7 @@ TagManager:
   - Boundary
   - Teleporter
   - Vision
+  - BulletEnemy
   layers:
   - Default
   - TransparentFX
