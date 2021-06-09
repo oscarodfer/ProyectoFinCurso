@@ -39,8 +39,12 @@ public class HealthManager : MonoBehaviour
             if (gameObject.tag.Equals("Enemy")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
+
+                if (gameObject.name.Equals("Enemy3")) 
+                {
+                    Destroy(shot);
+                }
             }
-            Destroy(shot);
             gameObject.SetActive(false);
         }
         if (flashLength > 0) 

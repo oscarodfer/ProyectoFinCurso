@@ -83,7 +83,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.name == "Player")
         {
             Debug.Log("Jugador detectado - Voy a por ti!!!");
-            //_agent.SetDestination(player.position);
+            
         }
     }
 
