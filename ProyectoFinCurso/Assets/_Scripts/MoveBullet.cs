@@ -6,7 +6,7 @@ public class MoveBullet : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-    private int currentDirection;
+    public int direction;
     public float speed = 1.5f;
     public int damage = 20;
 
@@ -15,11 +15,18 @@ public class MoveBullet : MonoBehaviour
 
     void Start()
     {
-        /*currentDirection = GetComponent<EnemyBehaviour>().currentDirection;*/
+        direction = GameObject.Find("Enemy3").GetComponent<EnemyBehaviour>().currentDirection;
         _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.velocity = walkingDirections[currentDirection] * speed;
     }
 
+    private void Update()
+    {
+   
+    }
+    private void FixedUpdate()
+    {
+        _rigidbody.velocity = walkingDirections[direction] * speed;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
