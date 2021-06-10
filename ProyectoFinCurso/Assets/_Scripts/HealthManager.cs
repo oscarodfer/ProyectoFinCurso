@@ -33,6 +33,7 @@ public class HealthManager : MonoBehaviour
 
     public void DamageCharacter(int damage) 
     {
+        
         if(inmune)
         {
             return;
@@ -40,6 +41,7 @@ public class HealthManager : MonoBehaviour
 
         if(!inmune)
         {
+            if(damage != 1)
             currentHealth -= damage;
         } 
 

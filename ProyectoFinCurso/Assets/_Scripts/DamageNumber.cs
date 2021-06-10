@@ -25,7 +25,7 @@ public class DamageNumber : MonoBehaviour
         {
             damageText.text = "" + damagePoint;
         }
-        else
+        if(damagePoint == 0)
         {
             damageText.text = "Miss";
         }
