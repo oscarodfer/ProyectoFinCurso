@@ -19,6 +19,14 @@ public class WeaponDamage : MonoBehaviour
         stats = GameObject.Find("Player").GetComponent<CharacterStats>();
     }
 
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }*/
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Enemy"))
