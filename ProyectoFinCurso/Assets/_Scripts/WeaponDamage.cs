@@ -44,7 +44,7 @@ public class WeaponDamage : MonoBehaviour
                 }
                 else 
                 { 
-                    totalDamage *= 5;
+                    totalDamage *= 2;
                 }
             }
 
@@ -54,7 +54,7 @@ public class WeaponDamage : MonoBehaviour
             }
 
             var clone = (GameObject)Instantiate(canvasDamage, hitPoint.transform.position, Quaternion.Euler(Vector3.zero));
-            clone.GetComponent<DamageNumber>().damagePoint = damage;
+            clone.GetComponent<DamageNumber>().damagePoint = totalDamage;
 
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);
             
