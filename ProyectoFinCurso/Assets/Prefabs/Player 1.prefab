@@ -131,7 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfba4005f49408c4e834e60c15846648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastMovement: {x: 0, y: 0}
+  canMove: 1
   speed: 5
+  nextUuid: 
 --- !u!95 &3912908615000584487
 Animator:
   serializedVersion: 3
@@ -165,7 +168,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -190,6 +193,7 @@ MonoBehaviour:
   flashLength: 1.5
   shot: {fileID: 0}
   expWhenDefeated: 0
+  inmune: 0
 --- !u!61 &3912908615000584484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -362,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   bloodAnimation: {fileID: 8144189146994727505, guid: 7fed8fcef32e1654d96ba8ba76ae12bf, type: 3}
+  canvasDamage: {fileID: 0}
 --- !u!1 &3912908615295560107
 GameObject:
   m_ObjectHideFlags: 0

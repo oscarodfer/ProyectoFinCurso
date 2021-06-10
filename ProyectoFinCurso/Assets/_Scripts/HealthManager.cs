@@ -75,7 +75,7 @@ public class HealthManager : MonoBehaviour
         _characterRenderer.color = new Color(255, 0, 0, (visible ? 1 : 0));
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (flashActive) 
         {
