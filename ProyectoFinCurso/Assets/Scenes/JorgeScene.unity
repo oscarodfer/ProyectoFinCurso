@@ -244,6 +244,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2770597973988605542, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605549, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -18321,9 +18325,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3912908615025466885, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615025466885, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
       propertyPath: canvasDamage
       value: 
-      objectReference: {fileID: 4548729616114375039, guid: ecf0838e09297e848a73fb7b40e7a47d, type: 3}
+      objectReference: {fileID: 8190432178748370827, guid: c43cc0227b637bf42b45368ec6efef03, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
 --- !u!114 &1524413228 stripped

@@ -21,9 +21,13 @@ public class DamageNumber : MonoBehaviour
             direction *= -1;
             timeToChangeDirectionCounter += timeToChangeDirection;
         }
-        if (damageText != null) 
+        if (damageText != null && damagePoint!= 0) 
         {
             damageText.text = "" + damagePoint;
+        }
+        else
+        {
+            damageText.text = "Miss";
         }
         this.transform.position = new Vector3(this.transform.position.x + direction.x * damageSpeed * Time.deltaTime, this.transform.position.y + damageSpeed * Time.deltaTime, 0);
         this.transform.localScale = this.transform.localScale * (1 - Time.deltaTime / 3);
