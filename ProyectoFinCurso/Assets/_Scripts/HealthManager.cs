@@ -125,6 +125,7 @@ public class HealthManager : MonoBehaviour
             {
                 ToggleColor(false);
                 GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
+                GameObject.Find("Player").GetComponent<PlayerController>().isDamaged = false;
             }
             else if (flashCounter < flashLength * 0.2f && flashCounter > 0.0f)
             {
@@ -136,6 +137,7 @@ public class HealthManager : MonoBehaviour
                 flashActive = false;
                 GetComponent<BoxCollider2D>().enabled = true;
                 GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
+                GameObject.Find("Player").GetComponent<PlayerController>().isDamaged = false;
                 inmune = false;
             }
         } 
