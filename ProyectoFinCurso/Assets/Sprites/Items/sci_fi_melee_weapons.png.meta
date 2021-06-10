@@ -4,31 +4,31 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 8643916540016755371
-    second: sci_fi_melee_weapons_0
+    second: sword
   - first:
       213: 5561988807049567142
-    second: sci_fi_melee_weapons_1
+    second: broadsword
   - first:
       213: 2908274639080298720
-    second: sci_fi_melee_weapons_2
+    second: trident
   - first:
       213: 5858173451923331386
-    second: sci_fi_melee_weapons_3
+    second: lance
   - first:
       213: 3984460742226280553
-    second: sci_fi_melee_weapons_4
+    second: hammer
   - first:
       213: -6094984630625760918
-    second: sci_fi_melee_weapons_5
+    second: morning
   - first:
       213: 3953370300322225091
     second: sci_fi_melee_weapons_6
   - first:
       213: 2146589944569207743
-    second: sci_fi_melee_weapons_7
+    second: longsword
   - first:
       213: 2752613327428152343
-    second: sci_fi_melee_weapons_8
+    second: maul
   - first:
       213: -2359758559732572598
     second: sci_fi_melee_weapons_9
@@ -139,15 +139,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sci_fi_melee_weapons_0
+      name: sword
       rect:
         serializedVersion: 2
         x: 66
         y: 180
         width: 15
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,15 +160,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sci_fi_melee_weapons_1
+      name: broadsword
       rect:
         serializedVersion: 2
         x: 138
         y: 180
         width: 15
         height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,15 +181,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sci_fi_melee_weapons_2
+      name: trident
       rect:
         serializedVersion: 2
         x: 195
         y: 180
         width: 63
         height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.05, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,15 +202,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sci_fi_melee_weapons_3
+      name: lance
       rect:
         serializedVersion: 2
         x: 9
         y: 96
         width: 63
         height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.05, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,15 +223,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sci_fi_melee_weapons_4
+      name: hammer
       rect:
         serializedVersion: 2
         x: 99
         y: 102
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.05, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,15 +244,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sci_fi_melee_weapons_5
+      name: morning
       rect:
         serializedVersion: 2
         x: 180
         y: 105
         width: 27
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,7 +273,7 @@ TextureImporter:
         width: 21
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,14 +286,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sci_fi_melee_weapons_7
+      name: longsword
       rect:
         serializedVersion: 2
         x: 15
         y: 24
         width: 54
         height: 54
-      alignment: 0
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -307,15 +307,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sci_fi_melee_weapons_8
+      name: maul
       rect:
         serializedVersion: 2
         x: 72
         y: 24
         width: 69
         height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.05, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,7 +336,7 @@ TextureImporter:
         width: 39
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,7 +357,7 @@ TextureImporter:
         width: 39
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -378,7 +378,7 @@ TextureImporter:
         width: 54
         height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 45, z: 21, w: 0}
       outline: []
       physicsShape: []

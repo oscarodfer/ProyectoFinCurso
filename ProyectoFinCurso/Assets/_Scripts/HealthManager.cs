@@ -77,11 +77,11 @@ public class HealthManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (flashActive) 
+        if (flashActive)
         {
             inmune = true;
             ToggleColor(true);
-            flashCounter -= Time.deltaTime;
+            flashCounter -= Time.fixedDeltaTime;
 
             if (flashCounter < flashLength && flashCounter >= flashLength * 0.8f)
             {
@@ -117,32 +117,25 @@ public class HealthManager : MonoBehaviour
             }
             else if (flashCounter < flashLength * 0.6f && flashCounter >= flashLength * 0.4f)
             {
-                ToggleColor(true);               
+                ToggleColor(true);
             }
             else if (flashCounter < flashLength * 0.4f && flashCounter >= flashLength * 0.2f)
             {
                 ToggleColor(false);
-                GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;         
+                GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
             }
             else if (flashCounter < flashLength * 0.2f && flashCounter > 0.0f)
             {
                 ToggleColor(true);
             }
-            else 
+            else
             {
                 _characterRenderer.color = new Color(255, 255, 255, 1);
                 flashActive = false;
                 GetComponent<BoxCollider2D>().enabled = true;
                 GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
+                inmune = false;
             }
-        }
-    }
-
-    private void LateUpdate()
-    {
-        if (!flashActive)
-        {
-            inmune = false;
-        }
+        } 
     }
 }
