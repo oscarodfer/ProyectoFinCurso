@@ -81,6 +81,7 @@ public class HealthManager : MonoBehaviour
     {
         if (flashActive)
         {
+            GameObject.Find("Player").GetComponent<PlayerController>().isAttacking = false;
             inmune = true;
             ToggleColor(true);
             flashCounter -= Time.fixedDeltaTime;

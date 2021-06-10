@@ -29,7 +29,7 @@ public class WeaponDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy"))
+        if (collision.gameObject.tag.Equals("Enemy") && GameObject.Find("Player").GetComponent<PlayerController>().isAttacking)
         {
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             float plaFac = (1 + stats.strengthLevels[stats.level] / CharacterStats.MAX_STAT_VALUE);
@@ -56,8 +56,7 @@ public class WeaponDamage : MonoBehaviour
             var clone = (GameObject)Instantiate(canvasDamage, hitPoint.transform.position, Quaternion.Euler(Vector3.zero));
             clone.GetComponent<DamageNumber>().damagePoint = totalDamage;
 
-            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);
-            
+            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);            
         }
     }
 }

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 lastMovement;
 
     private bool isWalking = false;
-    private bool isAttacking = false;
+    public bool isAttacking = false;
     public bool canMove = true;
     public bool isDamaged = false;
     public float speed = 5.0f;
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = Vector3.zero;
             isWalking = false;
 
-            if (collision.gameObject.tag == "Enemy")
+            if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "BulletEnemy")
             {
                 canMove = false;
                 isDamaged = true;
