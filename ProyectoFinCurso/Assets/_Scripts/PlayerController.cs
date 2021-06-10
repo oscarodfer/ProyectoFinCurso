@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private const string AXIS_V = "Vertical";
     private const string LAST_H = "LastH";
     private const string LAST_V = "LastV";
+    private const string ATT = "IsAttacking";
     private const string IS_WALKING = "IsWalking";
 
     private Rigidbody2D _rb;
@@ -19,16 +20,19 @@ public class PlayerController : MonoBehaviour
     public Vector2 lastMovement;
 
     private bool isWalking = false;
+    private bool isAttacking = false;
     public bool canMove = true;
     public float speed = 5.0f;
     public string nextUuid;
+    public float attackTime;
+    private float attackTimeCounter;
 
     //Métodos
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
-        _rb = GetComponent<Rigidbody2D>();
+        _animator = this.GetComponent<Animator>();
+        _rb = this.GetComponent<Rigidbody2D>();
         playerCreated = true;
     }
 
@@ -41,6 +45,27 @@ public class PlayerController : MonoBehaviour
         }
 
         isWalking = false;
+
+        if(isAttacking)
+        {
+            attackTimeCounter -= Time.deltaTime;
+
+            if(attackTimeCounter <= 0)
+            {
+                isAttacking = false;
+                _animator.SetBool(ATT, false);
+            }
+        }
+        else 
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                isAttacking = true;
+                attackTimeCounter = attackTime;
+                _rb.velocity = Vector2.zero; 
+                _animator.SetBool(ATT, true);
+            }   
+        }
 
         if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) <= 0.2f)
         {
