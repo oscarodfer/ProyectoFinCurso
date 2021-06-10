@@ -34,7 +34,7 @@ public class CharacterStats : MonoBehaviour
     {
         healthManager = GetComponent<HealthManager>();
         playerController = GetComponent<PlayerController>();
-        healthManager.UpdateMaxHealth(hpLevels[level -1]);
+        healthManager.UpdateMaxHealth(hpLevels[level]);
         if (gameObject.tag.Equals("Enemy")) 
         {
             EnemyBehaviour controller = GetComponent<EnemyBehaviour>();

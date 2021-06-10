@@ -18297,7 +18297,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
       propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[0]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[1]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[2]
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[3]
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[4]
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[5]
+      value: 335
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[6]
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[7]
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[8]
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[9]
+      value: 690
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912908615000584483, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
+      propertyPath: hpLevels.Array.data[10]
+      value: 775
       objectReference: {fileID: 0}
     - target: {fileID: 3912908615000584486, guid: cfe67bb0c5d333a4c81304abf350c53a, type: 3}
       propertyPath: m_RootOrder
