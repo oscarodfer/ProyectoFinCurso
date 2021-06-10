@@ -24,7 +24,6 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
     public int currentDirection;
 
-
     void Start()
     {
         StarWalking();
@@ -50,7 +49,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else
         {
-            _rigidbody.velocity = Vector2.zero;
+            //_rigidbody.velocity = Vector2.zero;
             timeToMakeStepCounter -= Time.fixedDeltaTime;
             if (timeToMakeStepCounter < 0)
             {
@@ -79,7 +78,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         isWalking = false;
         timeToMakeStepCounter = timeToMakeStep;
-        _rigidbody.velocity = Vector2.zero;
+        //_rigidbody.velocity = Vector2.zero;
     }
 
     private void OnTriggerStay2D(Collider2D other)

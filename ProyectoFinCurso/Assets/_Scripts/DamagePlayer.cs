@@ -24,7 +24,7 @@ public class DamagePlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Equals("Player")) 
+        if (collision.gameObject.name.Equals("Player") && !GameObject.Find("Player").GetComponent<HealthManager>().inmune) 
         {
             float FacEnemy = 1 + enemyStats.strengthLevels[enemyStats.level] / CharacterStats.MAX_STAT_VALUE;
             float FacPlayer = 1 - playerStats.defenseLevels[playerStats.level] / CharacterStats.MAX_STAT_VALUE;
