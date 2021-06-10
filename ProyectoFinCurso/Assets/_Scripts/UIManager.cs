@@ -15,10 +15,16 @@ public class UIManager : MonoBehaviour
     public TMP_Text playerLevelText;
     public HealthManager playerHealthManager;
     public CharacterStats playerStats;
-    public GameObject invetoryPanel;
+    public WeaponManager weaponManager;
+    public GameObject invetoryPanel, menuPanel;
     public Button inventoryButton;
 
-
+    private void Start()
+    {
+        weaponManager = FindObjectOfType<WeaponManager>();
+        invetoryPanel.SetActive(false);
+        menuPanel.SetActive(false);
+    }
 
     void Update()
     {
@@ -55,7 +61,9 @@ public class UIManager : MonoBehaviour
     //Abrir/cerrar inventario.
     public void ToggleInventory() 
     {
+        
         invetoryPanel.SetActive(!invetoryPanel.activeInHierarchy);
+        menuPanel.SetActive(!menuPanel.activeInHierarchy);
         if (invetoryPanel.activeInHierarchy) 
         {
             //Antes de rellenarlo destuimos todo lo viejo.
@@ -70,10 +78,8 @@ public class UIManager : MonoBehaviour
     // Rellenar inventario
     public void FillInventory() 
     {
-        //Llamamos al manager.
-        WeaponManager manager = FindObjectOfType<WeaponManager>();
         //Cargamos todas las armas que tenemos en el manager
-        List<GameObject> weapons = manager.GetAllWeapons();
+        List<GameObject> weapons = weaponManager.GetAllWeapons();
         int i = 0;
         //Hacemos un bucle para cada arma.
         foreach (GameObject w in weapons) 
@@ -91,4 +97,22 @@ public class UIManager : MonoBehaviour
             i++;
         }
     }
+
+    public void ShowOnly(int type) 
+    {
+        foreach (Transform t in invetoryPanel.transform) 
+        {
+            //Comparamos si el tipo del botón es del tipo que quiero mostrar.
+            t.gameObject.SetActive((int)t.GetComponent<InventoryButton>().type == type);
+        }
+    }
+
+    public void ShowAll() 
+    {
+        foreach (Transform t in invetoryPanel.transform) 
+        {
+            t.gameObject.SetActive(true);
+        }
+    }
 }
+
