@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 lastMovement;
 
     private bool isWalking = false;
+    public bool isTalking;
     public bool canMove = true;
     public float speed = 5.0f;
     public string nextUuid;
@@ -30,11 +31,17 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         playerCreated = true;
+        isTalking = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isTalking) {
+            _rb.velocity = Vector2.zero;
+            return;
+        }
+
         if (!canMove)
         {
             return;
