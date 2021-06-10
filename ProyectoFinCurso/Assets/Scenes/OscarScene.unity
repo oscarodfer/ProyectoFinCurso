@@ -83882,7 +83882,7 @@ PrefabInstance:
     - target: {fileID: 329292006, guid: 8f659d92ef1d5494886932a6a4d38972, type: 3}
       propertyPath: canvasDamage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8190432178748370827, guid: c43cc0227b637bf42b45368ec6efef03, type: 3}
     - target: {fileID: 4979075287954206806, guid: 8f659d92ef1d5494886932a6a4d38972, type: 3}
       propertyPath: m_Name
       value: Player

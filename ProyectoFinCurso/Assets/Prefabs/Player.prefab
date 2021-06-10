@@ -29,7 +29,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3425583530717289467}
   m_Father: {fileID: 351496290}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5561988807049567142, guid: 1a1db9b7f939eaa4bae179109add37b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   bloodAnimation: {fileID: 8144189146994727505, guid: 7fed8fcef32e1654d96ba8ba76ae12bf, type: 3}
-  canvasDamage: {fileID: 4548729616114375039, guid: ecf0838e09297e848a73fb7b40e7a47d, type: 3}
+  canvasDamage: {fileID: 8190432178748370827, guid: c43cc0227b637bf42b45368ec6efef03, type: 3}
 --- !u!1 &351496289
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,3 +381,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710ad48c91aac63479b7acbf6c6decca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8458803571075944699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3425583530717289467}
+  m_Layer: 0
+  m_Name: Hit Point
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3425583530717289467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458803571075944699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 329292005}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
