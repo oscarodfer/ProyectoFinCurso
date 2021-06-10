@@ -13,13 +13,13 @@ TextureImporter:
     second: trident
   - first:
       213: 5858173451923331386
-    second: lance
+    second: polearm
   - first:
       213: 3984460742226280553
     second: hammer
   - first:
       213: -6094984630625760918
-    second: morning
+    second: morningstar
   - first:
       213: 3953370300322225091
     second: sci_fi_melee_weapons_6
@@ -28,7 +28,7 @@ TextureImporter:
     second: longsword
   - first:
       213: 2752613327428152343
-    second: maul
+    second: axe
   - first:
       213: -2359758559732572598
     second: sci_fi_melee_weapons_9
@@ -202,7 +202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lance
+      name: polearm
       rect:
         serializedVersion: 2
         x: 9
@@ -244,7 +244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: morning
+      name: morningstar
       rect:
         serializedVersion: 2
         x: 180
@@ -307,7 +307,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maul
+      name: axe
       rect:
         serializedVersion: 2
         x: 72
