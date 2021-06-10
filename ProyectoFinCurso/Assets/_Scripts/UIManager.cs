@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public Slider playerHealthBar;
     public TMP_Text playerHealthText;
     public Slider playerExpBar;
+    public TMP_Text playerExpText;
     public TMP_Text playerLevelText;
     public HealthManager playerHealthManager;
     public CharacterStats playerStats;
@@ -37,5 +38,11 @@ public class UIManager : MonoBehaviour
         playerExpBar.maxValue = playerStats.expToLevelUp[playerStats.level];
         playerExpBar.minValue = playerStats.expToLevelUp[playerStats.level - 1];
         playerExpBar.value = playerStats.exp;
+        
+        StringBuilder stringBuilder2 = new StringBuilder();
+        stringBuilder2.Append("EXP: ").Append(playerStats.exp).Append(" / ").Append(playerStats.expToLevelUp[playerStats.level]);
+
+        playerExpText.text = stringBuilder2.ToString();
+
     }
 }
