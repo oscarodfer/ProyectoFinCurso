@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7625910976972995506, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
       propertyPath: newPlaceName
-      value: OscarScene
+      value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 7625910976972995506, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
       propertyPath: destinationUuid
