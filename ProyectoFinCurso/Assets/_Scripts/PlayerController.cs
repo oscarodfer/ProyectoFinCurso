@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private const string AXIS_V = "Vertical";
     private const string LAST_H = "LastH";
     private const string LAST_V = "LastV";
+    private const string ATT = "IsAttacking";
     private const string IS_WALKING = "IsWalking";
 
     private Rigidbody2D _rb;
@@ -20,15 +21,20 @@ public class PlayerController : MonoBehaviour
 
     private bool isWalking = false;
     public bool isTalking;
+    public bool isAttacking = false;
+    public bool isFirstAttack = true;
     public bool canMove = true;
+    public bool isDamaged = false;
     public float speed = 5.0f;
     public string nextUuid;
+    public float attackTime;
+    private float attackTimeCounter;
 
 
     void Start()
     {
-        _animator = GetComponent<Animator>();
-        _rb = GetComponent<Rigidbody2D>();
+        _animator = this.GetComponent<Animator>();
+        _rb = this.GetComponent<Rigidbody2D>();
         playerCreated = true;
         isTalking = false;
     }
@@ -43,31 +49,83 @@ public class PlayerController : MonoBehaviour
 
         if (!canMove)
         {
-            return;
+            if (isDamaged)
+            {
+                return;
+            }
+            else
+            {
+                canMove = true;
+            }
+            
+            if (isAttacking)
+            {              
+                return;
+            }
+            else
+            {
+                isFirstAttack = true;
+                canMove = true;
+            }
         }
 
-        isWalking = false;
-
-        if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) <= 0.2f)
+        if(isDamaged)
         {
-            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed, 0);
-            isWalking = true;
-            lastMovement = new Vector2(Input.GetAxisRaw(AXIS_H), 0);
+            isAttacking = false;
+            isFirstAttack = true;
         }
 
-        if (Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_H)) <= 0.2f)
+        if(isAttacking)
         {
-            _rb.velocity = new Vector2(0, Input.GetAxisRaw(AXIS_V) * speed);
-            isWalking = true;
-            lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
-        }
+            isWalking = false;
 
-        if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f)
-        {
-            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.6f, Input.GetAxisRaw(AXIS_V) * speed * 0.6f);
-            isWalking = true;
-            lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
+            attackTimeCounter -= Time.deltaTime;
+
+            if(attackTimeCounter <= 0.0f)
+            {
+                canMove = true;
+                isWalking = true;
+                isAttacking = false;
+                isFirstAttack = true;
+
+                _animator.SetBool(ATT, false);
+            }
         }
+        else 
+        {
+            canMove = true;
+            isWalking = false;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                canMove = false;
+                isAttacking = true;
+                isWalking = false;
+                attackTimeCounter = attackTime;
+                _animator.SetBool(ATT, true);
+            }
+
+            if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) <= 0.2f)
+            {
+                _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed, 0);
+                isWalking = true;
+                lastMovement = new Vector2(Input.GetAxisRaw(AXIS_H), 0);
+            }
+
+            if (Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_H)) <= 0.2f)
+            {
+                _rb.velocity = new Vector2(0, Input.GetAxisRaw(AXIS_V) * speed);
+                isWalking = true;
+                lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
+            }
+
+            if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f)
+            {
+                _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.6f, Input.GetAxisRaw(AXIS_V) * speed * 0.6f);
+                isWalking = true;
+                lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
+            }
+        } 
 
         /*
         if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f)
@@ -92,12 +150,13 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Boundary" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "BulletEnemy")
         {
-            _rb.velocity = Vector2.zero;
+            _rb.velocity = Vector3.zero;
             isWalking = false;
 
-            if (collision.gameObject.tag == "Enemy")
+            if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "BulletEnemy")
             {
                 canMove = false;
+                isDamaged = true;
             }       
         }
     }
@@ -106,7 +165,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isWalking)
         {
-            _rb.velocity = Vector2.zero;
+            _rb.velocity = Vector3.zero;
         }
 
         _animator.SetFloat(AXIS_H, Input.GetAxisRaw(AXIS_H));
@@ -114,5 +173,6 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat(LAST_H, this.lastMovement.x);
         _animator.SetFloat(LAST_V, this.lastMovement.y);
         _animator.SetBool(IS_WALKING, this.isWalking);
+        _animator.SetBool(ATT, this.isAttacking);
     }
 }
