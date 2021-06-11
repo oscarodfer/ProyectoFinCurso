@@ -19899,6 +19899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests: []
   itemCollected: {fileID: 0}
+  enemyKilled: {fileID: 0}
 --- !u!4 &1687335378
 Transform:
   m_ObjectHideFlags: 0
@@ -20392,6 +20393,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4979075287954206805, guid: 8f659d92ef1d5494886932a6a4d38972, type: 3}
+      propertyPath: attackTime
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4979075287954206806, guid: 8f659d92ef1d5494886932a6a4d38972, type: 3}
       propertyPath: m_Name
       value: Player

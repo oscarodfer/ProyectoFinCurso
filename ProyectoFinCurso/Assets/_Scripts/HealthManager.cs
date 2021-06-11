@@ -21,6 +21,8 @@ public class HealthManager : MonoBehaviour
     public GameObject shot;
 
     public int expWhenDefeated;
+    private QuestEnemy quest;
+    private QuestManager questManager;
 
     public bool inmune = false;
 
@@ -29,6 +31,8 @@ public class HealthManager : MonoBehaviour
         _characterRenderer = GetComponent<SpriteRenderer>();
         UpdateMaxHealth(maxHealth);
         shot = GameObject.Find("Enemy3");
+        quest = GetComponent<QuestEnemy>();
+        questManager = FindObjectOfType<QuestManager>();
     }
 
     public void DamageCharacter(int damage) 
@@ -51,6 +55,7 @@ public class HealthManager : MonoBehaviour
             if (gameObject.tag.Equals("Enemy")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
+                questManager.enemyKilled = quest;
 
                 if (gameObject.name.Equals("Enemy3") && currentHealth <= 0) 
                 {

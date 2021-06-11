@@ -12,6 +12,9 @@ public class Quest : MonoBehaviour
     public string completeText;
     public bool needsItem;
     public List<QuestItem> itemsNeeded;
+    public bool killsEnemy;
+    public List<QuestEnemy> enemies;
+    public List<int> numberOfEnemies;
 
     public void StartQuest() 
     {
@@ -36,12 +39,34 @@ public class Quest : MonoBehaviour
                 if (itemsNeeded[i].itemName == questManager.itemCollected.itemName) 
                 {
                     itemsNeeded.RemoveAt(i);
+                    questManager.itemCollected = null;
                     break;
                 }
             }
             if (itemsNeeded.Count == 0) 
             {
-                questManager.itemCollected = null;
+                CompleteQuest();
+            }
+        }
+
+        if (killsEnemy && questManager.enemyKilled != null) 
+        {
+            for (int i = 0; i < enemies.Count;i++) 
+            {
+                if (enemies[i].enemyName == questManager.enemyKilled.enemyName) 
+                {
+                    numberOfEnemies[i]--;
+                    questManager.enemyKilled= null;
+                    if (numberOfEnemies[i] <= 0) 
+                    {
+                        enemies.RemoveAt(i);
+                        numberOfEnemies.RemoveAt(i);
+                    }
+                    break;
+                }
+            }
+            if (enemies.Count == 0) 
+            {
                 CompleteQuest();
             }
         }
