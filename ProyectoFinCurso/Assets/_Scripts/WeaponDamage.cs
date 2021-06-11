@@ -13,6 +13,8 @@ public class WeaponDamage : MonoBehaviour
 
     private CharacterStats stats;
 
+    public bool isCritical = false;
+
     private void Start()
     {
         hitPoint = transform.Find("Hit Point").gameObject;
@@ -31,6 +33,7 @@ public class WeaponDamage : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Enemy") && GameObject.Find("Player").GetComponent<PlayerController>().isAttacking && GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack)
         {
+            isCritical = false;
             GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack = false;
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             float plaFac = (1 + stats.strengthLevels[stats.level] / CharacterStats.MAX_STAT_VALUE);
@@ -45,7 +48,9 @@ public class WeaponDamage : MonoBehaviour
                 }
                 else 
                 { 
+                    //Crítico
                     totalDamage *= 2;
+                    isCritical = true;
                 }
             }
 
@@ -56,7 +61,7 @@ public class WeaponDamage : MonoBehaviour
 
             var clone = (GameObject)Instantiate(canvasDamage, hitPoint.transform.position, Quaternion.Euler(Vector3.zero));
             clone.GetComponent<DamageNumber>().damagePoint = totalDamage;
-
+            clone.GetComponent<DamageNumber>().isCritical = isCritical;
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);            
         }
     }

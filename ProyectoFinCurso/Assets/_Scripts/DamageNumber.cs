@@ -12,6 +12,7 @@ public class DamageNumber : MonoBehaviour
     public Vector2 direction = new Vector2(1, 0);
     public float timeToChangeDirection = 1.0f;
     public float timeToChangeDirectionCounter = 1.0f;
+    public bool isCritical = false; 
 
     void Update()
     {
@@ -23,7 +24,15 @@ public class DamageNumber : MonoBehaviour
         }
         if (damageText != null && damagePoint!= 0) 
         {
-            damageText.text = "" + damagePoint;
+            if (!isCritical)
+            {
+                damageText.text = "" + damagePoint;
+            }
+            else
+            {
+                //Crítico
+                damageText.text = "" + damagePoint + "!";
+            }
         }
         if(damagePoint == 0)
         {

@@ -19,6 +19,7 @@ public class HealthManager : MonoBehaviour
     private float flashCounter;
     private SpriteRenderer _characterRenderer;
     public GameObject shot;
+    private GameObject enemy;
 
     public int expWhenDefeated;
     private QuestEnemy quest;
@@ -30,9 +31,11 @@ public class HealthManager : MonoBehaviour
     {
         _characterRenderer = GetComponent<SpriteRenderer>();
         UpdateMaxHealth(maxHealth);
+        currentHealth = maxHealth;
         shot = GameObject.Find("Enemy3");
         quest = GetComponent<QuestEnemy>();
         questManager = FindObjectOfType<QuestManager>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     public void DamageCharacter(int damage) 
@@ -42,8 +45,7 @@ public class HealthManager : MonoBehaviour
         {
             return;
         }
-
-        if(!inmune)
+        else
         {
             if(damage != 1)
             currentHealth -= damage;
@@ -55,14 +57,15 @@ public class HealthManager : MonoBehaviour
             if (gameObject.tag.Equals("Enemy")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
-                questManager.enemyKilled = quest;
+                //questManager.enemyKilled = quest;
 
                 if (gameObject.name.Equals("Enemy3") && currentHealth <= 0) 
                 {
                     Destroy(shot);
                 }
             }
-            gameObject.SetActive(false);
+            
+            
         }
         if (flashLength > 0) 
         {
@@ -73,8 +76,9 @@ public class HealthManager : MonoBehaviour
 
     public void UpdateMaxHealth(int newMaxHealth) 
     {
+        int offsetHealth = newMaxHealth - maxHealth;
         maxHealth = newMaxHealth;
-        currentHealth = maxHealth;
+        currentHealth += offsetHealth;
     }
 
     void ToggleColor(bool visible) 

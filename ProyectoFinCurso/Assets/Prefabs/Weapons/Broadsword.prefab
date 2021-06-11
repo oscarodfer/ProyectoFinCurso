@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 835453560972144718}
   m_Layer: 0
   m_Name: Broadsword
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   damage: 25
   bloodAnimation: {fileID: 8144189146994727505, guid: 7fed8fcef32e1654d96ba8ba76ae12bf, type: 3}
   canvasDamage: {fileID: 8190432178748370827, guid: c43cc0227b637bf42b45368ec6efef03, type: 3}
+  isCritical: 0
 --- !u!1 &9150071520980990035
 GameObject:
   m_ObjectHideFlags: 0
