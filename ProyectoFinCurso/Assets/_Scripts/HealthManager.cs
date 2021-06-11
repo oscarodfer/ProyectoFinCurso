@@ -35,7 +35,6 @@ public class HealthManager : MonoBehaviour
         shot = GameObject.Find("Enemy3");
         quest = GetComponent<QuestEnemy>();
         questManager = FindObjectOfType<QuestManager>();
-        enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     public void DamageCharacter(int damage) 
@@ -62,10 +61,9 @@ public class HealthManager : MonoBehaviour
                 if (gameObject.name.Equals("Enemy3") && currentHealth <= 0) 
                 {
                     Destroy(shot);
-                }
+                }            
             }
-            
-            
+            Destroy(gameObject);         
         }
         if (flashLength > 0) 
         {
