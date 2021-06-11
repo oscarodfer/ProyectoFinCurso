@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 lastMovement;
 
     private bool isWalking = false;
+    public bool isTalking;
     public bool isAttacking = false;
     public bool isFirstAttack = true;
     public bool canMove = true;
@@ -29,19 +30,24 @@ public class PlayerController : MonoBehaviour
     public float attackTime;
     private float attackTimeCounter;
 
-    //Métodos
-    // Start is called before the first frame update
+
     void Start()
     {
         _animator = this.GetComponent<Animator>();
         _rb = this.GetComponent<Rigidbody2D>();
         playerCreated = true;
+        isTalking = false;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if(!canMove)
+        if (isTalking) {
+            _rb.velocity = Vector2.zero;
+            return;
+        }
+
+        if (!canMove)
         {
             if (isDamaged)
             {

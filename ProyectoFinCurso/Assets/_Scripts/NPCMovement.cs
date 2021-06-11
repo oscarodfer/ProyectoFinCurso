@@ -9,7 +9,8 @@ public class NPCMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Animator _animator;
 
-    private bool isWalking = false;
+    public bool isWalking = false;
+    public bool isTalking;
 
     [Tooltip("Tiempo que tarda el enemigo entre pasos sucesivos")]
     public float timeBetweenSteps = 1.5f;
@@ -24,16 +25,26 @@ public class NPCMovement : MonoBehaviour
 
     public BoxCollider2D mapZone;
 
+    private DialogueManager dialogueManager;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         timeToMakeStepCounter = timeToMakeStep;
         timeBetweenStepsCounter = timeBetweenSteps;
+        isTalking = false;
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     private void FixedUpdate()
     {
+
+        if (isTalking) {
+            isTalking = dialogueManager.dialogueActive;
+            StopWalking();
+            return;
+        }
         if (isWalking)
         {
             if (this.transform.position.x < mapZone.bounds.min.x || this.transform.position.x > mapZone.bounds.max.x || this.transform.position.y < mapZone.bounds.min.y || this.transform.position.y > mapZone.bounds.max.y) 
