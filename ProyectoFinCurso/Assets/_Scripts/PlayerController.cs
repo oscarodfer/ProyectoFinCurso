@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isWalking = false;
     public bool isAttacking = false;
+    public bool isFirstAttack = true;
     public bool canMove = true;
     public bool isDamaged = false;
     public float speed = 5.0f;
@@ -52,13 +53,20 @@ public class PlayerController : MonoBehaviour
             }
             
             if (isAttacking)
-            {
+            {              
                 return;
             }
             else
             {
+                isFirstAttack = true;
                 canMove = true;
             }
+        }
+
+        if(isDamaged)
+        {
+            isAttacking = false;
+            isFirstAttack = true;
         }
 
         if(isAttacking)
@@ -72,7 +80,8 @@ public class PlayerController : MonoBehaviour
                 canMove = true;
                 isWalking = true;
                 isAttacking = false;
-                
+                isFirstAttack = true;
+
                 _animator.SetBool(ATT, false);
             }
         }

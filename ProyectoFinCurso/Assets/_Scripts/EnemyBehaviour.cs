@@ -24,38 +24,58 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
     public int currentDirection;
 
+    public Transform player;
+    private bool chasing = false;
+    private Vector2 movement;
+
     void Start()
     {
         StarWalking();
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = this.GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         //timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
         //timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
     }
 
-
+    private void Update()
+    {
+        if (chasing)
+        {
+            Vector3 direction = player.position - transform.position;
+            Debug.Log(direction);
+            direction.Normalize();
+            movement = direction;
+        }
+    }
 
     private void FixedUpdate()
     {
-        
-        if (isWalking)
+        if (chasing)
         {
-            _rigidbody.velocity = walkingDirections[currentDirection] * speed;
-            timeBetweenStepsCounter -= Time.fixedDeltaTime;
-            if (timeBetweenStepsCounter < 0)
-            {
-                StopWalking();
-            }
+            chasePlayer(movement);
         }
         else
         {
-            //_rigidbody.velocity = Vector2.zero;
-            timeToMakeStepCounter -= Time.fixedDeltaTime;
-            if (timeToMakeStepCounter < 0)
+            if (isWalking)
             {
-                StarWalking();
+                _rigidbody.velocity = walkingDirections[currentDirection] * speed;
+                timeBetweenStepsCounter -= Time.fixedDeltaTime;
+                if (timeBetweenStepsCounter < 0)
+                {
+                    StopWalking();
+                }
+            }
+            else
+            {
+                //_rigidbody.velocity = Vector2.zero;
+                timeToMakeStepCounter -= Time.fixedDeltaTime;
+                if (timeToMakeStepCounter < 0)
+                {
+                    StarWalking();
+                }
             }
         }
+          
     }
 
     private void LateUpdate()
@@ -63,15 +83,18 @@ public class EnemyBehaviour : MonoBehaviour
         _animator.SetBool("Walking", isWalking);
         _animator.SetFloat("Horizontal", walkingDirections[currentDirection].x);
         _animator.SetFloat("Vertical", walkingDirections[currentDirection].y);
-        
     }
 
     public void StarWalking()
     {
-
         currentDirection = Random.Range(0, walkingDirections.Length);
         isWalking = true;
         timeBetweenStepsCounter = timeBetweenSteps;
+    }
+
+    public void chasePlayer(Vector2 direction)
+    {
+        _rigidbody.MovePosition((Vector2)transform.position + (speed * Time.deltaTime * direction));
     }
 
     public void StopWalking()
@@ -85,17 +108,15 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            Debug.Log("Jugador detectado - Voy a por ti!!!");
-            
+            chasing = true;
         }
     }
-
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.name == "Player")
         {
-            Debug.Log("Jugador fuera de rango, me vuelvo a patrullar");
+            chasing = false;
         }
     }
 }
