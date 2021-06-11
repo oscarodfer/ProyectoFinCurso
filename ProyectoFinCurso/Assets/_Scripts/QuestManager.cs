@@ -6,6 +6,7 @@ public class QuestManager : MonoBehaviour
 {
     public List<Quest> quests;
     private DialogueManager dialogueManager;
+    public QuestItem itemCollected;
 
 
     void Start()
@@ -22,5 +23,18 @@ public class QuestManager : MonoBehaviour
     public void ShowQuestText(string questText) 
     {
         dialogueManager.ShowDialogue(new string[] { questText });
+    }
+
+    public Quest QuestWithID(int questID) 
+    {
+        Quest q = null;
+        foreach (Quest temp in quests) 
+        {
+            if (temp.questID == questID) 
+            {
+                q = temp;
+            }
+        }
+        return q;
     }
 }

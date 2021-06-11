@@ -24,8 +24,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5.0f;
     public string nextUuid;
 
-    //Métodos
-    // Start is called before the first frame update
+
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -34,7 +33,7 @@ public class PlayerController : MonoBehaviour
         isTalking = false;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (isTalking) {
