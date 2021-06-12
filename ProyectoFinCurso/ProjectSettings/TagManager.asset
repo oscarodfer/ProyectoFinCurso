@@ -11,6 +11,8 @@ TagManager:
   - Vision
   - BulletEnemy
   - NPC
+  - Weapon
+  - Collectible
   layers:
   - Default
   - TransparentFX

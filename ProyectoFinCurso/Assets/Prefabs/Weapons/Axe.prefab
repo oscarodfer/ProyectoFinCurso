@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Axe
       objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144714, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 835453560972144715, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.16682127

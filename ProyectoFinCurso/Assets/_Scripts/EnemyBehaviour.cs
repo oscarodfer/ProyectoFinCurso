@@ -42,7 +42,6 @@ public class EnemyBehaviour : MonoBehaviour
         if (chasing)
         {
             Vector3 direction = player.position - transform.position;
-            Debug.Log(direction);
             direction.Normalize();
             movement = direction;
         }
