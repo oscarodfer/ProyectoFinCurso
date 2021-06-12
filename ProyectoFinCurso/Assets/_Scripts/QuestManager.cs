@@ -9,7 +9,6 @@ public class QuestManager : MonoBehaviour
     public QuestItem itemCollected;
     public QuestEnemy enemyKilled;
 
-
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();

@@ -15,19 +15,30 @@ public class Quest : MonoBehaviour
     public bool killsEnemy;
     public List<QuestEnemy> enemies;
     public List<int> numberOfEnemies;
+    public Quest nextQuest;
 
     public void StartQuest() 
     {
         questManager = FindObjectOfType<QuestManager>();
-        questManager.ShowQuestText(title + "\n" + startText);
+        questManager.ShowQuestText("Misión: " + title + "\n" + startText);
     }
 
     public void CompleteQuest() 
     {
         questManager = FindObjectOfType<QuestManager>();
-        questManager.ShowQuestText(title + "\n" + completeText);
+        questManager.ShowQuestText("Misión: " + title + "\n" + completeText);
         questCompleted = true;
+        if (nextQuest != null) 
+        {
+            Invoke("ActivateNextQuest", 5.0f);
+        }
         gameObject.SetActive(false);
+    }
+
+    public void ActivateNextQuest() 
+    {
+        nextQuest.gameObject.SetActive(true);
+        nextQuest.StartQuest();
     }
 
     private void Update()
@@ -49,14 +60,15 @@ public class Quest : MonoBehaviour
             }
         }
 
-        if (killsEnemy && questManager.enemyKilled != null) 
+        if (killsEnemy && questManager.enemyKilled!=null)
         {
-            for (int i = 0; i < enemies.Count;i++) 
+            Debug.Log("Tenemos un enemigo recién matado.");
+            for (int i = 0; i < enemies.Count; i++) 
             {
                 if (enemies[i].enemyName == questManager.enemyKilled.enemyName) 
                 {
                     numberOfEnemies[i]--;
-                    questManager.enemyKilled= null;
+                    questManager.enemyKilled = null;
                     if (numberOfEnemies[i] <= 0) 
                     {
                         enemies.RemoveAt(i);

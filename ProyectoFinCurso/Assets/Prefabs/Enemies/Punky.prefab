@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 27e7c26fab2025d42b6f8ebd8804df79, type: 2}
+    - target: {fileID: 5729559762751343303, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: enemyName
+      value: Punky
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
 --- !u!4 &537257805290064438 stripped

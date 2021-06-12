@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 2770597973988605539}
   - component: {fileID: 2770597973988605543}
   - component: {fileID: 2770597975740517121}
+  - component: {fileID: 5729559762751343303}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Robot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   timeBetweenSteps: 1.5
   timeToMakeStep: 2
   currentDirection: 0
+  player: {fileID: 0}
 --- !u!50 &2770597973988605536
 Rigidbody2D:
   serializedVersion: 4
@@ -225,3 +227,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5729559762751343303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770597973988605551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a69ac4e07f0eb046ae1e5aaef2b229b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: Robot

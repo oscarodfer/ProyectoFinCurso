@@ -181,6 +181,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f9e6dcb326872eb4a9a0c48142ad0732, type: 2}
+    - target: {fileID: 5729559762751343303, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: enemyName
+      value: Escupe Babas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
 --- !u!1 &5358363822337347346 stripped
