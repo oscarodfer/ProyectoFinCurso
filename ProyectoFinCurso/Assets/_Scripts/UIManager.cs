@@ -18,12 +18,15 @@ public class UIManager : MonoBehaviour
     public WeaponManager weaponManager;
     public GameObject invetoryPanel, menuPanel;
     public Button inventoryButton;
+    private ItemsManager itemsManager;
+    public Text inventoryText;
 
     private void Start()
     {
         weaponManager = FindObjectOfType<WeaponManager>();
         invetoryPanel.SetActive(false);
         menuPanel.SetActive(false);
+        itemsManager = FindObjectOfType<ItemsManager>();
     }
 
     void Update()
@@ -64,6 +67,8 @@ public class UIManager : MonoBehaviour
         
         invetoryPanel.SetActive(!invetoryPanel.activeInHierarchy);
         menuPanel.SetActive(!menuPanel.activeInHierarchy);
+        inventoryText.text = "";
+        
         if (invetoryPanel.activeInHierarchy) 
         {
             //Antes de rellenarlo destuimos todo lo viejo.
@@ -84,18 +89,29 @@ public class UIManager : MonoBehaviour
         //Hacemos un bucle para cada arma.
         foreach (GameObject w in weapons) 
         {
-            //Instanciamos el boton procedente del prefab dentro del inventario, como hijo del inventario.
-            Button tempB = Instantiate(inventoryButton, invetoryPanel.transform);
-            //Incovamos al temporallyButton para cambiar el tipo y el index, así copiamos el valor de la i.
-            tempB.GetComponent<InventoryButton>().type = InventoryButton.ItemType.WEAPON;
-            tempB.GetComponent<InventoryButton>().itemIndex = i;
-            //Añadimos Onclick para llamar al changeweapon para cambiar de arma.
-            tempB.onClick.AddListener(()=> tempB.GetComponent<InventoryButton>().ActivateButton());
-            //Cambiamos la imagen al botón.
-            tempB.image.sprite = w.GetComponent<SpriteRenderer>().sprite;
-            //Incrementamos el valor de la i
+            AddItemToInventory(w, InventoryButton.ItemType.WEAPON, i);
             i++;
         }
+        i = 0;
+        List<GameObject> keyItems = itemsManager.GetQuestItems();
+        foreach (GameObject item in keyItems) 
+        {
+            AddItemToInventory(item, InventoryButton.ItemType.SPECIAL_ITEMS, i);
+            i++;
+        }
+    }
+
+    private void AddItemToInventory(GameObject item, InventoryButton.ItemType type, int pos) 
+    {
+        //Instanciamos el boton procedente del prefab dentro del inventario, como hijo del inventario.
+        Button tempB = Instantiate(inventoryButton, invetoryPanel.transform);
+        //Incovamos al temporallyButton para cambiar el tipo y el index, así copiamos el valor de la i.
+        tempB.GetComponent<InventoryButton>().type = type;
+        tempB.GetComponent<InventoryButton>().itemIndex = pos;
+        //Añadimos Onclick para llamar al método
+        tempB.onClick.AddListener(() => tempB.GetComponent<InventoryButton>().ActivateButton());
+        //Cambiamos la imagen al botón.
+        tempB.image.sprite = item.GetComponent<SpriteRenderer>().sprite;
     }
 
     public void ShowOnly(int type) 

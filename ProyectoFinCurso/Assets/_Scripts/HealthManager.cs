@@ -19,7 +19,6 @@ public class HealthManager : MonoBehaviour
     private float flashCounter;
     private SpriteRenderer _characterRenderer;
     public GameObject shot;
-    private GameObject enemy;
 
     public int expWhenDefeated;
     private QuestEnemy quest;
@@ -56,14 +55,14 @@ public class HealthManager : MonoBehaviour
             if (gameObject.tag.Equals("Enemy")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
-                //questManager.enemyKilled = quest;
+                questManager.enemyKilled = quest;
 
                 if (gameObject.name.Equals("Enemy3") && currentHealth <= 0) 
                 {
                     Destroy(shot);
                 }            
             }
-            Destroy(gameObject);         
+            gameObject.SetActive(false);  
         }
         if (flashLength > 0) 
         {

@@ -1,0 +1,366 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &497796428080607829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497796428080607816}
+  - component: {fileID: 497796428080607819}
+  - component: {fileID: 497796428080607818}
+  m_Layer: 0
+  m_Name: Quest Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497796428080607816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497796428080607829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 497796428225757468}
+  - {fileID: 8734124134480112131}
+  - {fileID: 8734124134442797688}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497796428080607819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497796428080607829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac03a997ab500a4191ecec2228af235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests: []
+  itemCollected: {fileID: 0}
+  enemyKilled: {fileID: 0}
+--- !u!114 &497796428080607818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497796428080607829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710ad48c91aac63479b7acbf6c6decca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &497796428943921103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 497796428080607816}
+    m_Modifications:
+    - target: {fileID: 9213609099651450292, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_Name
+      value: Quest2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: title
+      value: Acaba con los enemigos.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: questID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: needsItem
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: startText
+      value: Abrete camino hasta el laboratorio y elimina a todos los enemigos.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: killsEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: completeText
+      value: Enhorabuena!! Has acabado con todos los enemigos!! Es hora de llegar
+        al laboratorio.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 5729559762751343303, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 7963737647576612508, guid: 7cf8c4e4c826b0a478a80d85fc6cd3c1, type: 3}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 2570679709206805434, guid: f81bdf6e2b9cf0f40b393ea11c0da01e, type: 3}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: itemsNeeded.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: itemsNeeded.Array.data[0]
+      value: 
+      objectReference: {fileID: 5300840274177935995, guid: 4866d97c01912544088cfd927b458134, type: 3}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: numberOfEnemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: numberOfEnemies.Array.data[0]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: numberOfEnemies.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: numberOfEnemies.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+--- !u!4 &8734124134442797688 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+  m_PrefabInstance: {fileID: 497796428943921103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &497796428980187060
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 497796428080607816}
+    m_Modifications:
+    - target: {fileID: 9213609099651450292, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_Name
+      value: Quest1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: title
+      value: Busca la espada.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: questID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: needsItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: startText
+      value: Encuentra la espada para poder abrirte paso hasta el laboratorio.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: completeText
+      value: Has encontrado la espada. Es hora de ir al laboratorio.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: itemsNeeded.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: itemsNeeded.Array.data[0]
+      value: 
+      objectReference: {fileID: 5300840274177935995, guid: 4866d97c01912544088cfd927b458134, type: 3}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+--- !u!4 &8734124134480112131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+  m_PrefabInstance: {fileID: 497796428980187060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8734124134480112130 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+  m_PrefabInstance: {fileID: 497796428980187060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1575d7603e997c440812fd5cf46a1d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8734124133590418603
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 497796428080607816}
+    m_Modifications:
+    - target: {fileID: 9213609099651450292, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_Name
+      value: Quest0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: nextQuest
+      value: 
+      objectReference: {fileID: 8734124134480112130}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: startText
+      value: Encuentra al capitan para saber que ha pasado.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: completeText
+      value: Perfecto! Has encontrado al capitan!! Habla con el
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+--- !u!4 &497796428225757468 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+  m_PrefabInstance: {fileID: 8734124133590418603}
+  m_PrefabAsset: {fileID: 0}

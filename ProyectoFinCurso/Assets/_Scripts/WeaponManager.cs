@@ -36,4 +36,9 @@ public class WeaponManager : MonoBehaviour
     {
         return weapons;
     }
+
+    public WeaponDamage GetWeaponAt(int pos) 
+    {
+        return weapons[pos].GetComponent<WeaponDamage>(); ;
+    }
 }

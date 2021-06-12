@@ -5,16 +5,18 @@ using UnityEngine;
 public class QuestItem : MonoBehaviour
 {
     public int questID;
-    private QuestManager manager;
+    private QuestManager questManager;
     public string itemName;
+    private ItemsManager itemManager;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name.Equals("Player")) 
         {
-            manager = FindObjectOfType<QuestManager>();
-            Quest q = manager.QuestWithID(questID);
+            questManager = FindObjectOfType<QuestManager>();
+            itemManager = FindObjectOfType<ItemsManager>();
+            Quest q = questManager.QuestWithID(questID);
             if (q == null) 
             {
                 Debug.LogErrorFormat("La misión con ID {0} no existe", questID);
@@ -22,7 +24,8 @@ public class QuestItem : MonoBehaviour
             }
             if (q.gameObject.activeInHierarchy && !q.questCompleted) 
             {
-                manager.itemCollected = this;
+                questManager.itemCollected = this;
+                itemManager.AddQuestItem(this.gameObject);
                 gameObject.SetActive(false);
             }
         }

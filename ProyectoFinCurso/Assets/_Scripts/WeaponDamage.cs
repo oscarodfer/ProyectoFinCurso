@@ -6,7 +6,7 @@ public class WeaponDamage : MonoBehaviour
 {
     [Tooltip("Cantidad de daño que hace el arma")]
     public int damage;
-
+    public string weaponName;
     public GameObject bloodAnimation;
     private GameObject hitPoint;
     public GameObject canvasDamage;

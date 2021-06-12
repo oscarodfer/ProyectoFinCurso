@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Quest : MonoBehaviour
 {
@@ -17,12 +18,66 @@ public class Quest : MonoBehaviour
     public List<int> numberOfEnemies;
     public Quest nextQuest;
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    //Método para cargar enemigos o items de una escena a otra
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (needsItem) 
+        {
+            ActivateItems();
+        }
+        if (killsEnemy) 
+        {
+            ActivateEnemies();
+        }
+    }
+
     public void StartQuest() 
     {
         questManager = FindObjectOfType<QuestManager>();
         questManager.ShowQuestText("Misión: " + title + "\n" + startText);
+
+        if (needsItem) 
+        {
+            ActivateItems();
+        }
+        if (killsEnemy) 
+        {
+            ActivateEnemies();
+        }
     }
 
+    void ActivateItems() 
+    {
+        Object[] items = Resources.FindObjectsOfTypeAll<QuestItem>();
+        foreach (QuestItem item in items)
+        {
+            if (item.questID == questID)
+            {
+                item.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    void ActivateEnemies() 
+    {
+        Object[] qEnemies = Resources.FindObjectsOfTypeAll<QuestEnemy>();
+        foreach (QuestEnemy enemy in qEnemies)
+        {
+            if (enemy.questID == questID)
+            {
+                enemy.gameObject.SetActive(true);
+            }
+        }
+    }
     public void CompleteQuest() 
     {
         questManager = FindObjectOfType<QuestManager>();
@@ -62,7 +117,6 @@ public class Quest : MonoBehaviour
 
         if (killsEnemy && questManager.enemyKilled!=null)
         {
-            Debug.Log("Tenemos un enemigo recién matado.");
             for (int i = 0; i < enemies.Count; i++) 
             {
                 if (enemies[i].enemyName == questManager.enemyKilled.enemyName) 
