@@ -8,7 +8,13 @@ public class WeaponManager : MonoBehaviour
     private List<GameObject> weapons;
     public int activeWeapon;
 
-    
+    private List<GameObject> armors;
+    public int activeArmor;
+
+    private List<GameObject> rings;
+    public int activeRing1, activeRing2;
+
+
     void Start()
     {
         weapons = new List<GameObject>();
@@ -23,6 +29,11 @@ public class WeaponManager : MonoBehaviour
         {
             weapons[i].SetActive(i==activeWeapon);
         }
+
+        //Rellenar con las armaduras del personaje, a futuro.
+        armors = new List<GameObject>();
+        //Rellenar con los anillos del personaje, a futuro.
+        rings = new List<GameObject>();
     }
 
     public void ChangeWeapon(int newWeapon) 
@@ -36,9 +47,27 @@ public class WeaponManager : MonoBehaviour
     {
         return weapons;
     }
+    public List<GameObject> GetAllArmors()
+    {
+        return armors;
+    }
+    public List<GameObject> GetAllRings()
+    {
+        return rings;
+    }
 
     public WeaponDamage GetWeaponAt(int pos) 
     {
         return weapons[pos].GetComponent<WeaponDamage>(); ;
+    }
+
+    public WeaponDamage GetArmorAt(int pos)
+    {
+        return armors[pos].GetComponent<WeaponDamage>(); ;
+    }
+
+    public WeaponDamage GetRingAt(int pos)
+    {
+        return rings[pos].GetComponent<WeaponDamage>(); ;
     }
 }

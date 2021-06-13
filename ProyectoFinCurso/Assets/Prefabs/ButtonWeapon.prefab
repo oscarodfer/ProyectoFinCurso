@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 851809595508800843}
   - component: {fileID: 851809595508800844}
   - component: {fileID: 7338404481299654329}
+  - component: {fileID: 4657065018456493885}
   m_Layer: 5
   m_Name: ButtonWeapon
   m_TagString: Untagged
@@ -135,3 +136,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIndex: 0
   type: 0
+--- !u!114 &4657065018456493885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851809595508800846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7338404481299654329}
+          m_TargetAssemblyTypeName: InventoryButton, Assembly-CSharp
+          m_MethodName: ShowDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7338404481299654329}
+          m_TargetAssemblyTypeName: InventoryButton, Assembly-CSharp
+          m_MethodName: ClearDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
