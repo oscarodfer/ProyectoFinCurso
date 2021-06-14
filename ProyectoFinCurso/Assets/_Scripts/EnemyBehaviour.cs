@@ -5,12 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(HealthManager))]
 public class EnemyBehaviour : MonoBehaviour
 {
+    private const string AXIS_H = "Horizontal";
+    private const string AXIS_V = "Vertical";
+    private const string LAST_H = "LastH";
+    private const string LAST_V = "LastV";
+    private const string IS_WALKING = "IsWalking";
+
     [Tooltip("Velocidad de movimiento del enemigo")]
     public float speed = 1.5f;
-    private Rigidbody2D _rigidbody;
+    private Rigidbody2D _rb;
     private Animator _animator;
-
-    private bool isWalking = false;
 
     [Tooltip("Tiempo que tarda el enemigo entre pasos sucesivos")]
     public float timeBetweenSteps;
@@ -24,40 +28,42 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
     public int currentDirection;
 
-    public Transform player;
-    private bool chasing = false;
+    private GameObject player;
     private Vector2 movement;
+    private Vector2 lastMovement;
+    private bool chasing = false;
+    private bool isWalking = false;
 
     void Start()
     {
         StarWalking();
-        _rigidbody = this.GetComponent<Rigidbody2D>();
+        _rb = this.GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        player = GameObject.Find("Player");
+        lastMovement = Vector2.zero;
+        isWalking = false;
         //timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
         //timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
     }
 
     private void Update()
     {
-        if (chasing)
+        if (!isWalking)
         {
-            Vector3 direction = player.position - transform.position;
-            direction.Normalize();
-            movement = direction;
+            _rb.velocity = Vector2.zero;
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (chasing)
         {
-            chasePlayer(movement);
+            isWalking = true;
+            _rb.velocity = player.GetComponent<Transform>().position - this.transform.position * speed;
+            ChasePlayer(_rb.velocity);
         }
         else
         {
             if (isWalking)
             {
-                _rigidbody.velocity = walkingDirections[currentDirection] * speed;
+                _rb.velocity = walkingDirections[currentDirection] * speed;
                 timeBetweenStepsCounter -= Time.fixedDeltaTime;
                 if (timeBetweenStepsCounter < 0)
                 {
@@ -68,32 +74,31 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 //_rigidbody.velocity = Vector2.zero;
                 timeToMakeStepCounter -= Time.fixedDeltaTime;
+
                 if (timeToMakeStepCounter < 0)
                 {
                     StarWalking();
                 }
             }
         }
-          
-    }
 
-    private void LateUpdate()
-    {
-        _animator.SetBool("Walking", isWalking);
-        _animator.SetFloat("Horizontal", walkingDirections[currentDirection].x);
-        _animator.SetFloat("Vertical", walkingDirections[currentDirection].y);
+        _animator.SetBool(IS_WALKING, isWalking);
+        _animator.SetFloat(AXIS_H, _rb.velocity.x);
+        _animator.SetFloat(AXIS_V, _rb.velocity.y);
+        _animator.SetFloat(LAST_H, this.lastMovement.x);
+        _animator.SetFloat(LAST_V, this.lastMovement.y);
     }
 
     public void StarWalking()
     {
-        currentDirection = Random.Range(0, walkingDirections.Length);
         isWalking = true;
+        currentDirection = Random.Range(0, walkingDirections.Length); 
         timeBetweenStepsCounter = timeBetweenSteps;
     }
 
-    public void chasePlayer(Vector2 direction)
+    public void ChasePlayer(Vector2 direction)
     {
-        _rigidbody.MovePosition((Vector2)transform.position + (speed * Time.deltaTime * direction));
+        _rb.MovePosition((Vector2)transform.position + (speed * Time.deltaTime * direction));
     }
 
     public void StopWalking()
@@ -117,5 +122,15 @@ public class EnemyBehaviour : MonoBehaviour
         {
             chasing = false;
         }
+    }
+
+    public Vector2 GetLastMovement()
+    {
+        return this.lastMovement;
+    }
+
+    public void SetLastMovement(Vector2 v2)
+    {
+        this.lastMovement = v2;
     }
 }

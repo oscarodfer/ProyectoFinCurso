@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Animator _animator;
-    public Vector2 lastMovement;
+    private Vector2 lastMovement;
 
     private bool isWalking = false;
     public bool isTalking;
@@ -30,15 +30,14 @@ public class PlayerController : MonoBehaviour
     public float attackTime;
     private float attackTimeCounter;
 
-
     void Start()
     {
         _animator = this.GetComponent<Animator>();
         _rb = this.GetComponent<Rigidbody2D>();
+        lastMovement = Vector2.zero;
         playerCreated = true;
         isTalking = false;
     }
-
 
     void Update()
     {
@@ -168,11 +167,21 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = Vector3.zero;
         }
 
+        _animator.SetBool(IS_WALKING, this.isWalking);
+        _animator.SetBool(ATT, this.isAttacking);
         _animator.SetFloat(AXIS_H, Input.GetAxisRaw(AXIS_H));
         _animator.SetFloat(AXIS_V, Input.GetAxisRaw(AXIS_V));
         _animator.SetFloat(LAST_H, this.lastMovement.x);
-        _animator.SetFloat(LAST_V, this.lastMovement.y);
-        _animator.SetBool(IS_WALKING, this.isWalking);
-        _animator.SetBool(ATT, this.isAttacking);
+        _animator.SetFloat(LAST_V, this.lastMovement.y);   
+    }
+
+    public Vector2 GetLastMovement()
+    {
+        return this.lastMovement;
+    }
+
+    public void SetLastMovement(Vector2 v2)
+    {
+        this.lastMovement = v2;
     }
 }

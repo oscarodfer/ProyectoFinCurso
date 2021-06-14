@@ -97,7 +97,7 @@ public class HealthManager : MonoBehaviour
                 ToggleColor(true);
 
                 PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
-                Vector2 lastPlayerMovement = player.lastMovement;
+                Vector2 lastPlayerMovement = player.GetLastMovement();
                 Vector3 currentPosition = player.transform.position;
                 Vector3 endPosition = currentPosition;
 
