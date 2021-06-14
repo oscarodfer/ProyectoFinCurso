@@ -59,8 +59,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (stunCounter != STUN_DURATION)
         {
-            
-            this._rb.velocity *= -1.0f;
+            this._rb.velocity = new Vector2(lastMovement.x, lastMovement.y);
 
             if (stunCounter <= 0.0f)
             {

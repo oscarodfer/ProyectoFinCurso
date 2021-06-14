@@ -95,30 +95,6 @@ public class HealthManager : MonoBehaviour
             if (flashCounter < flashLength && flashCounter >= flashLength * 0.8f)
             {
                 ToggleColor(true);
-
-                PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
-                Vector2 lastPlayerMovement = player.GetLastMovement();
-                Vector3 currentPosition = player.transform.position;
-                Vector3 endPosition = currentPosition;
-
-                if (lastPlayerMovement.x == 1.0f && lastPlayerMovement.y == 0.0f)
-                {
-                    endPosition.x = endPosition.x - 0.05f;
-                }
-                else if (lastPlayerMovement.x == -1.0f && lastPlayerMovement.y == 0.0f)
-                {
-                    endPosition.x = endPosition.x + 0.05f;
-                }
-                else if (lastPlayerMovement.x == -0.0f && lastPlayerMovement.y == 1.0f)
-                {
-                    endPosition.y = endPosition.y - 0.05f;
-                }
-                else if (lastPlayerMovement.x == 0.0f && lastPlayerMovement.y == -1.0f)
-                {
-                    endPosition.y = endPosition.y + 0.05f;
-                }
-
-                GameObject.Find("Player").GetComponent<PlayerController>().transform.position = Vector3.Lerp(currentPosition, endPosition, 30.0f);
             }
             else if (flashCounter < flashLength * 0.8f && flashCounter >= flashLength * 0.6f)
             {
