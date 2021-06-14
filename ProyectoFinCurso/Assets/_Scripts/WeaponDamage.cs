@@ -34,6 +34,8 @@ public class WeaponDamage : MonoBehaviour
         if (collision.gameObject.tag.Equals("Enemy") && GameObject.Find("Player").GetComponent<PlayerController>().isAttacking && GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack)
         {
             isCritical = false;
+            EnemyBehaviour enemy = collision.gameObject.GetComponent<EnemyBehaviour>();
+            enemy.GetStunned();
             GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack = false;
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             float plaFac = (1 + stats.strengthLevels[stats.level] / CharacterStats.MAX_STAT_VALUE);

@@ -106,7 +106,6 @@ MonoBehaviour:
   timeBetweenSteps: 1.5
   timeToMakeStep: 2
   currentDirection: 0
-  player: {fileID: 0}
 --- !u!50 &2770597973988605536
 Rigidbody2D:
   serializedVersion: 4
@@ -157,7 +156,7 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   flashActive: 0
-  flashLength: 0
+  flashLength: 1.5
   shot: {fileID: 0}
   expWhenDefeated: 2
   inmune: 0

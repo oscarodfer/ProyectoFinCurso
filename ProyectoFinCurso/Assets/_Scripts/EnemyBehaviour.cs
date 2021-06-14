@@ -10,6 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
     private const string LAST_H = "LastH";
     private const string LAST_V = "LastV";
     private const string IS_WALKING = "IsWalking";
+    private const float STUN_DURATION = 1.5f;
 
     [Tooltip("Velocidad de movimiento del enemigo")]
     public float speed = 1.5f;
@@ -29,10 +30,10 @@ public class EnemyBehaviour : MonoBehaviour
     public int currentDirection;
 
     private GameObject player;
-    private Vector2 movement;
     private Vector2 lastMovement;
-    private bool chasing = false;
+    private bool isChasing = false;
     private bool isWalking = false;
+    private float stunCounter;
 
     void Start()
     {
@@ -42,18 +43,41 @@ public class EnemyBehaviour : MonoBehaviour
         player = GameObject.Find("Player");
         lastMovement = Vector2.zero;
         isWalking = false;
+        stunCounter = STUN_DURATION;
         //timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
         //timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
     }
 
     private void Update()
     {
+        if (stunCounter != STUN_DURATION)
+        {
+            isWalking = false;
+            this._rb.velocity = Vector2.zero;
+
+            if (stunCounter <= 0.0f)
+            {
+                stunCounter = STUN_DURATION;
+            }
+            else
+            {
+                stunCounter -= Time.deltaTime;
+                return;
+
+            }
+        }
+
         if (!isWalking)
         {
             _rb.velocity = Vector2.zero;
         }
 
-        if (chasing)
+        if(_rb.velocity == Vector2.zero)
+        {
+            isWalking = false;
+        }
+
+        if (isChasing)
         {
             isWalking = true;
             _rb.velocity = player.GetComponent<Transform>().position - this.transform.position * speed;
@@ -63,7 +87,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             if (isWalking)
             {
-                _rb.velocity = walkingDirections[currentDirection] * speed;
+                _rb.velocity = walkingDirections[currentDirection].normalized * speed;
                 timeBetweenStepsCounter -= Time.fixedDeltaTime;
                 if (timeBetweenStepsCounter < 0)
                 {
@@ -112,7 +136,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            chasing = true;
+            isChasing = true;
         }
     }
 
@@ -120,7 +144,18 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            chasing = false;
+            isChasing = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Weapon" || collision.gameObject.name == "Player")
+        {
+            isWalking = false;
+            isChasing = false;
+
+            
         }
     }
 
@@ -132,5 +167,10 @@ public class EnemyBehaviour : MonoBehaviour
     public void SetLastMovement(Vector2 v2)
     {
         this.lastMovement = v2;
+    }
+
+    public void GetStunned()
+    {
+        this.stunCounter -= 0.001f;
     }
 }

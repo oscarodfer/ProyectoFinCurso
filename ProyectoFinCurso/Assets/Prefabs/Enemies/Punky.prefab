@@ -55,6 +55,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2770597973988605537, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: flashLength
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605537, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: expWhenDefeated
       value: 5
       objectReference: {fileID: 0}
@@ -120,7 +124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605551, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: m_Name
-      value: Enemy1
+      value: Punky
       objectReference: {fileID: 0}
     - target: {fileID: 2770597975740517121, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: m_Controller
