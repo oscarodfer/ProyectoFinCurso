@@ -13,16 +13,16 @@ public class EnemyBehaviour : MonoBehaviour
     private const float STUN_DURATION = 1.5f;
 
     [Tooltip("Velocidad de movimiento del enemigo")]
-    public float speed = 1.5f;
+    public float speed = 1.4f;
     private Rigidbody2D _rb;
     private Animator _animator;
 
     [Tooltip("Tiempo que tarda el enemigo entre pasos sucesivos")]
-    public float timeBetweenSteps;
+    private float timeBetweenSteps = 1.0f;
     private float timeBetweenStepsCounter;
 
     [Tooltip("Tiempo que tarda el enemigo en dar un paso")]
-    public float timeToMakeStep;
+    private float timeToMakeStep = 2.0f;
     private float timeToMakeStepCounter;
 
     [Tooltip("Dirección en la que se mueve el enemigo, se genera aleatoriamente")]
@@ -37,23 +37,30 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
-        StarWalking();
+        StartWalking();
         _rb = this.GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         player = GameObject.Find("Player");
         lastMovement = Vector2.zero;
         isWalking = false;
         stunCounter = STUN_DURATION;
+        timeBetweenStepsCounter = timeBetweenSteps;
+        timeToMakeStepCounter = timeToMakeStep;
         //timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
         //timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
     }
 
     private void Update()
     {
+        if (_rb.velocity != Vector2.zero)
+        {
+            isWalking = true;
+        }
+
         if (stunCounter != STUN_DURATION)
         {
-            isWalking = false;
-            this._rb.velocity = Vector2.zero;
+            
+            this._rb.velocity *= -1.0f;
 
             if (stunCounter <= 0.0f)
             {
@@ -63,74 +70,90 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 stunCounter -= Time.deltaTime;
                 return;
-
             }
-        }
-
-        if (!isWalking)
-        {
-            _rb.velocity = Vector2.zero;
-        }
-
-        if(_rb.velocity == Vector2.zero)
-        {
-            isWalking = false;
-        }
-
-        if (isChasing)
-        {
-            isWalking = true;
-            _rb.velocity = player.GetComponent<Transform>().position - this.transform.position * speed;
-            ChasePlayer(_rb.velocity);
         }
         else
         {
-            if (isWalking)
+            if (isChasing)
             {
-                _rb.velocity = walkingDirections[currentDirection].normalized * speed;
-                timeBetweenStepsCounter -= Time.fixedDeltaTime;
-                if (timeBetweenStepsCounter < 0)
-                {
-                    StopWalking();
-                }
+                isWalking = true;
+                _rb.velocity = player.GetComponent<Transform>().position - this.transform.position * speed;
+                ChasePlayer(_rb.velocity);
             }
             else
             {
-                //_rigidbody.velocity = Vector2.zero;
-                timeToMakeStepCounter -= Time.fixedDeltaTime;
+                timeBetweenStepsCounter -= Time.fixedDeltaTime;
 
-                if (timeToMakeStepCounter < 0)
+                if (timeBetweenStepsCounter <= 0)
                 {
-                    StarWalking();
+                    StopWalking();
+                    _rb.velocity = Vector2.zero;
+                }
+                else
+                {
+                    //_rigidbody.velocity = Vector2.zero;
+                    timeToMakeStepCounter -= Time.fixedDeltaTime;
+
+                    if (timeToMakeStepCounter < 0)
+                    {
+                        StartWalking();
+                        _rb.velocity = walkingDirections[currentDirection] * speed;
+                    }
                 }
             }
         }
 
+        if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) <= 0.2f)
+        {
+            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed, 0);
+            isWalking = true;
+            lastMovement = new Vector2(Input.GetAxisRaw(AXIS_H), 0);
+        }
+
+        if (Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_H)) <= 0.2f)
+        {
+            _rb.velocity = new Vector2(0, Input.GetAxisRaw(AXIS_V) * speed);
+            isWalking = true;
+            lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
+        }
+
+        if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f)
+        {
+            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.6f, Input.GetAxisRaw(AXIS_V) * speed * 0.6f);
+            isWalking = true;
+            lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
+        }
+
+        Vector2 movement = _rb.velocity;
+        movement.Normalize();
+
         _animator.SetBool(IS_WALKING, isWalking);
-        _animator.SetFloat(AXIS_H, _rb.velocity.x);
-        _animator.SetFloat(AXIS_V, _rb.velocity.y);
-        _animator.SetFloat(LAST_H, this.lastMovement.x);
-        _animator.SetFloat(LAST_V, this.lastMovement.y);
+        _animator.SetFloat(AXIS_H, movement.x);
+        _animator.SetFloat(AXIS_V, movement.y);
+        _animator.SetFloat(LAST_H, lastMovement.x);
+        _animator.SetFloat(LAST_V, lastMovement.y);
     }
 
-    public void StarWalking()
+    public void StartWalking()
     {
         isWalking = true;
         currentDirection = Random.Range(0, walkingDirections.Length); 
+        
+        timeToMakeStepCounter = timeToMakeStep;
+    }
+
+    public void StopWalking()
+    {
+        isWalking = false;
         timeBetweenStepsCounter = timeBetweenSteps;
+        //_rigidbody.velocity = Vector2.zero;
     }
 
     public void ChasePlayer(Vector2 direction)
     {
         _rb.MovePosition((Vector2)transform.position + (speed * Time.deltaTime * direction));
     }
-
-    public void StopWalking()
-    {
-        isWalking = false;
-        timeToMakeStepCounter = timeToMakeStep;
-        //_rigidbody.velocity = Vector2.zero;
-    }
+    
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -150,12 +173,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Weapon" || collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             isWalking = false;
             isChasing = false;
 
-            
+            GetStunned();
         }
     }
 
