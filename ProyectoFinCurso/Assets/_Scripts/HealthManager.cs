@@ -18,7 +18,6 @@ public class HealthManager : MonoBehaviour
     public float flashLength;
     private float flashCounter;
     private SpriteRenderer _characterRenderer;
-    public GameObject shot;
 
     public int expWhenDefeated;
     private QuestEnemy quest;

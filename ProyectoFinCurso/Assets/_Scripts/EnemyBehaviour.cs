@@ -171,7 +171,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.tag.Equals("SafeZone"))
         {
-            Retreat();
+            isChasing = false;
+            transform.position = Vector2.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("SafeZone").transform.position, -speed * 3 * Time.deltaTime);
         }
     }
 
@@ -180,6 +181,12 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.name == "Player")
         {
             isChasing = true;
+        }
+
+        if (other.tag.Equals("SafeZone"))
+        {
+            isChasing = false;
+            transform.position = Vector2.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("SafeZone").transform.position, -speed * 3 * Time.deltaTime);
         }
     }
 
