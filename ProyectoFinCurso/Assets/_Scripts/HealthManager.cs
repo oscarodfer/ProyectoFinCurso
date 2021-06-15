@@ -83,6 +83,12 @@ public class HealthManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (this.currentHealth <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+
+
         if (flashActive)
         {
             inmune = true;
