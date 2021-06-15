@@ -13,7 +13,7 @@ public class EnemyBehaviour : MonoBehaviour
     private const float STUN_DURATION = 1.5f;
 
     [Tooltip("Velocidad de movimiento del enemigo")]
-    public float speed = 1.4f;
+    public float speed;
     private Rigidbody2D _rb;
     private Animator _animator;
 
@@ -29,24 +29,33 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
     public int currentDirection;
 
-    private GameObject player;
+    private Transform player;
     private Vector2 lastMovement;
     private bool isChasing = false;
     private bool isWalking = false;
     private float stunCounter;
+
+    //Para el enemigo ranged
+    public float stoppingDistance;
+    public float retreatDistance;
+    private float timeBetweenShots;
+    public float startTimeBetweenShots;
+    public GameObject shot;
+
 
     void Start()
     {
         StartWalking();
         _rb = this.GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         lastMovement = Vector2.zero;
         isWalking = false;
         isChasing = false;
         stunCounter = STUN_DURATION;
         timeBetweenStepsCounter = timeBetweenSteps;
         timeToMakeStepCounter = timeToMakeStep;
+        timeBetweenShots = startTimeBetweenShots;
         //timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
         //timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
     }
@@ -60,7 +69,15 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (stunCounter != STUN_DURATION)
         {
-            this._rb.velocity = new Vector2(lastMovement.x * -1.5f, lastMovement.y * -1.5f);
+            if (tag.Equals("EnemyRanged"))
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * 3 * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            }
+              
 
             if (stunCounter <= 0.0f)
             {
@@ -77,8 +94,36 @@ public class EnemyBehaviour : MonoBehaviour
             if (isChasing)
             {
                 isWalking = true;
-                _rb.velocity = player.GetComponent<Transform>().position - this.transform.position * speed;
-                ChasePlayer(_rb.velocity);
+
+                if(tag.Equals("EnemyRanged"))
+                {
+                    if (timeBetweenShots <= 0)
+                    {
+                        Instantiate(shot, transform.position, Quaternion.identity);
+                        timeBetweenShots = startTimeBetweenShots;
+                    }
+                    else
+                    {
+                        timeBetweenShots -= Time.deltaTime;
+                    }
+
+                    if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * 2 * Time.deltaTime);
+                    }
+                    else if (Vector2.Distance(transform.position, player.position) <= stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+                    {
+                        transform.position = this.transform.position;
+                    }
+                    else if (Vector2.Distance(transform.position, player.position) <= retreatDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * 1.5f * Time.deltaTime);
+                    }
+                }
+                else
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * 3 * Time.deltaTime);
+                }
             }
             else
             {
@@ -129,14 +174,9 @@ public class EnemyBehaviour : MonoBehaviour
             lastMovement.y = 0.0f;
         }
 
-        Vector2 movement = _rb.velocity;
-        movement.Normalize();
-
         _animator.SetBool(IS_WALKING, isWalking);
-        _animator.SetFloat(AXIS_H, movement.x);
-        _animator.SetFloat(AXIS_V, movement.y);
-        _animator.SetFloat(LAST_H, walkingDirections[currentDirection].x);
-        _animator.SetFloat(LAST_V, walkingDirections[currentDirection].y);
+        _animator.SetFloat(AXIS_H, walkingDirections[currentDirection].x);
+        _animator.SetFloat(AXIS_V, walkingDirections[currentDirection].y);
     }
 
     public void StartWalking()
@@ -156,7 +196,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void ChasePlayer(Vector2 direction)
     {
-        _rb.MovePosition((Vector2)transform.position + (speed * 1.1f * Time.deltaTime * direction));
+        
     }
     
 

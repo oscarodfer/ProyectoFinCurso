@@ -31,7 +31,7 @@ public class WeaponDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy") && GameObject.Find("Player").GetComponent<PlayerController>().isAttacking && GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack)
+        if ((collision.gameObject.tag.Equals("Enemy") || collision.gameObject.tag.Equals("EnemyRanged")) && GameObject.Find("Player").GetComponent<PlayerController>().isAttacking && GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack)
         {
             isCritical = false;
             EnemyBehaviour enemy = collision.gameObject.GetComponent<EnemyBehaviour>();

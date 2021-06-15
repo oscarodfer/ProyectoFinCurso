@@ -31,7 +31,6 @@ public class HealthManager : MonoBehaviour
         _characterRenderer = GetComponent<SpriteRenderer>();
         UpdateMaxHealth(maxHealth);
         currentHealth = maxHealth;
-        shot = GameObject.FindGameObjectWithTag("Escupe Babas");
         quest = GetComponent<QuestEnemy>();
         questManager = FindObjectOfType<QuestManager>();
     }
@@ -50,15 +49,10 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0) 
         {
-            if (gameObject.tag.Equals("Enemy")) 
+            if (gameObject.tag.Equals("Enemy") || gameObject.tag.Equals("EnemyRanged")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
-                questManager.enemyKilled = quest;
-
-                if (gameObject.name.Equals("Enemy3") && currentHealth <= 0) 
-                {
-                    Destroy(shot);
-                }            
+                questManager.enemyKilled = quest;           
             }
             this.gameObject.SetActive(false); 
         }

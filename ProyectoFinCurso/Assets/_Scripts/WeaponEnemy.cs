@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponEnemy : MonoBehaviour
 {
-
     public GameObject shot;
     public Transform shotSpawn;
     public float delay = 1.0f;

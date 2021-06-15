@@ -4,41 +4,54 @@ using UnityEngine;
 
 public class MoveBullet : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
-    private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-    public int direction;
-    public float speed = 1.5f;
-    public int damage = 20;
+    public int damage;
     public GameObject canvasDamage;
+
+    public float speed;
+    private Transform player;
+    private Vector2 target;
 
 
     void Start()
     {
-        direction = GameObject.Find("Enemy3").GetComponent<EnemyBehaviour>().currentDirection;
-        _rigidbody = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        target = new Vector2(player.position.x, player.position.y);
     }
 
     private void Update()
     {
-   
+        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+        if (transform.position.x == target.x && transform.position.y == target.y)
+        {
+            DestroyShot();
+        }
     }
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
-        _rigidbody.velocity = walkingDirections[direction] * speed;
-    }
+        playerPosition.Normalize();
+        _rigidbody.velocity = playerPosition * 2 - _rigidbody.velocity * 1.0f;
+        //Double shot:
+        //_rigidbody.velocity = playerPosition - _rigidbody.velocity * 1.1f;
+    }*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("NPC") || collision.gameObject.tag.Equals("Boundary"))
         {
-            Destroy(this.gameObject);
+            DestroyShot();
         }
+         
         if (collision.gameObject.tag.Equals("Player") && GameObject.Find("Player").GetComponent<HealthManager>().inmune == false)
         {
             var clone = (GameObject)Instantiate(canvasDamage, collision.gameObject.transform.position, Quaternion.Euler(Vector3.zero));
             clone.GetComponent<DamageNumber>().damagePoint = damage;
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
-            Destroy(this.gameObject);
-        }
-       
+            DestroyShot();
+        }     
+    }
+
+    private void DestroyShot ()
+    {
+        Destroy(gameObject);
     }
 }

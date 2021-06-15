@@ -76,24 +76,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
---- !u!114 &245621427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5358363822337347346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a81c7d3ed4b05d84b94b2824e973154d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shot: {fileID: 1036873054410135635, guid: faf2a174fddbd51458304d69e91cb982, type: 3}
-  shotSpawn: {fileID: 1416755933}
-  delay: 0.5
-  fireRate: 1.5
-  characterVision: 0
+  m_Radius: 10
 --- !u!1001 &7795625042036470141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,16 +85,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2770597973988605537, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: maxHealth
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605537, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: expWhenDefeated
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: shot
+      value: 
+      objectReference: {fileID: 1036873054410135635, guid: faf2a174fddbd51458304d69e91cb982, type: 3}
+    - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: speed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: timeToMakeStep
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: retreatDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: stoppingDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: timeBetweenSteps
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: startTimeBetweenShots
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605542, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: damage
@@ -139,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605549, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605549, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -175,7 +182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605551, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: m_Name
-      value: Enemy3
+      value: Escupe Babas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605551, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: m_TagString
+      value: EnemyRanged
       objectReference: {fileID: 0}
     - target: {fileID: 2770597975740517121, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: m_Controller
@@ -187,11 +198,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
---- !u!1 &5358363822337347346 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2770597973988605551, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
-  m_PrefabInstance: {fileID: 7795625042036470141}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5358363822337347344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2770597973988605549, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
