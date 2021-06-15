@@ -31,7 +31,7 @@ public class HealthManager : MonoBehaviour
         _characterRenderer = GetComponent<SpriteRenderer>();
         UpdateMaxHealth(maxHealth);
         currentHealth = maxHealth;
-        shot = GameObject.Find("Enemy3");
+        shot = GameObject.FindGameObjectWithTag("Escupe Babas");
         quest = GetComponent<QuestEnemy>();
         questManager = FindObjectOfType<QuestManager>();
     }
