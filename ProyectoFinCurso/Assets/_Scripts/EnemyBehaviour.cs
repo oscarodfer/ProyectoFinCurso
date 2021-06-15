@@ -7,8 +7,6 @@ public class EnemyBehaviour : MonoBehaviour
 {
     private const string AXIS_H = "Horizontal";
     private const string AXIS_V = "Vertical";
-    private const string LAST_H = "LastH";
-    private const string LAST_V = "LastV";
     private const string IS_WALKING = "IsWalking";
     private const float STUN_DURATION = 1.5f;
 
@@ -18,19 +16,19 @@ public class EnemyBehaviour : MonoBehaviour
     private Animator _animator;
 
     [Tooltip("Tiempo que tarda el enemigo entre pasos sucesivos")]
-    private float timeBetweenSteps = 1.0f;
+    public float timeBetweenSteps;
     private float timeBetweenStepsCounter;
 
     [Tooltip("Tiempo que tarda el enemigo en dar un paso")]
-    private float timeToMakeStep = 2.0f;
+    public float timeToMakeStep;
     private float timeToMakeStepCounter;
 
     [Tooltip("Dirección en la que se mueve el enemigo, se genera aleatoriamente")]
     private Vector2[] walkingDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
+    private Vector2 direction;
     public int currentDirection;
 
     private Transform player;
-    private Vector2 lastMovement;
     private bool isChasing = false;
     private bool isWalking = false;
     private float stunCounter;
@@ -49,7 +47,6 @@ public class EnemyBehaviour : MonoBehaviour
         _rb = this.GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        lastMovement = Vector2.zero;
         isWalking = false;
         isChasing = false;
         stunCounter = STUN_DURATION;
@@ -94,8 +91,9 @@ public class EnemyBehaviour : MonoBehaviour
             if (isChasing)
             {
                 isWalking = true;
+                direction = player.position - transform.position;
 
-                if(tag.Equals("EnemyRanged"))
+                if (tag.Equals("EnemyRanged"))
                 {
                     if (timeBetweenShots <= 0)
                     {
@@ -122,11 +120,14 @@ public class EnemyBehaviour : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * 3 * Time.deltaTime);
-                }
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * 2 * Time.deltaTime);
+                }      
             }
             else
             {
+                direction = _rb.velocity;
+                direction.Normalize();
+
                 timeBetweenStepsCounter -= Time.fixedDeltaTime;
 
                 if (timeBetweenStepsCounter <= 0)
@@ -148,35 +149,9 @@ public class EnemyBehaviour : MonoBehaviour
             }
         }
 
-        if (_rb.velocity.x > 0.0f)
-        {
-            lastMovement.x = 1.0f;
-        }
-        else if (_rb.velocity.x < 0.0f)
-        {
-            lastMovement.x = -1.0f;
-        }
-        else
-        {
-            lastMovement.x = 0.0f;
-        }
-
-        if (_rb.velocity.y > 0.0f)
-        {
-            lastMovement.y = 1.0f;
-        }
-        else if (_rb.velocity.y < 0.0f)
-        {
-            lastMovement.y = -1.0f;
-        }
-        else
-        {
-            lastMovement.y = 0.0f;
-        }
-
         _animator.SetBool(IS_WALKING, isWalking);
-        _animator.SetFloat(AXIS_H, walkingDirections[currentDirection].x);
-        _animator.SetFloat(AXIS_V, walkingDirections[currentDirection].y);
+        _animator.SetFloat(AXIS_H, direction.x);
+        _animator.SetFloat(AXIS_V, direction.y);
     }
 
     public void StartWalking()
@@ -225,16 +200,6 @@ public class EnemyBehaviour : MonoBehaviour
 
             GetStunned();
         }
-    }
-
-    public Vector2 GetLastMovement()
-    {
-        return this.lastMovement;
-    }
-
-    public void SetLastMovement(Vector2 v2)
-    {
-        this.lastMovement = v2;
     }
 
     public void GetStunned()

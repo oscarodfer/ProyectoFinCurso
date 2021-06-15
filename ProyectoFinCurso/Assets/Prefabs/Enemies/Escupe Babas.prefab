@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: timeToMakeStep
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: retreatDistance
@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: timeBetweenSteps
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: startTimeBetweenShots

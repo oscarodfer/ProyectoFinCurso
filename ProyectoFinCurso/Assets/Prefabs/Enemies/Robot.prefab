@@ -102,8 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45501a83f24b33d48a86dc4fae5fdbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 1.2
+  timeBetweenSteps: 3
+  timeToMakeStep: 1
   currentDirection: 0
+  stoppingDistance: 0
+  retreatDistance: 0
+  startTimeBetweenShots: 0
+  shot: {fileID: 0}
 --- !u!50 &2770597973988605536
 Rigidbody2D:
   serializedVersion: 4
@@ -151,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b806042d0d60044199caa6de4be029d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 150
   currentHealth: 0
   flashActive: 0
   flashLength: 1.5
