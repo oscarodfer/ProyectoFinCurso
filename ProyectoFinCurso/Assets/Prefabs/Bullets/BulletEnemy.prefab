@@ -87,6 +87,7 @@ MonoBehaviour:
   damage: 20
   canvasDamage: {fileID: 4548729616114375039, guid: ecf0838e09297e848a73fb7b40e7a47d, type: 3}
   speed: 10
+  acidAnimation: {fileID: 8144189146994727505, guid: ae9f8dbb5316cdb46b97e0feaf6dddba, type: 3}
 --- !u!212 &8728710275707788196
 SpriteRenderer:
   m_ObjectHideFlags: 0

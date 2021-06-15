@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
                     canMove = true;
                     isWalking = false;
 
-                    if (Input.GetMouseButtonDown(0) && !isDamaged)
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) && !isDamaged)
                     {
                         canMove = false;
                         isAttacking = true;

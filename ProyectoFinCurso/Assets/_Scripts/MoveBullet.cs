@@ -10,7 +10,7 @@ public class MoveBullet : MonoBehaviour
     public float speed;
     private Transform player;
     private Vector2 target;
-
+    public GameObject acidAnimation;
 
     void Start()
     {
@@ -52,6 +52,8 @@ public class MoveBullet : MonoBehaviour
 
     private void DestroyShot ()
     {
+        Destroy(Instantiate(acidAnimation, transform.position, Quaternion.identity), 0.5f);
         Destroy(gameObject);
+       
     }
 }

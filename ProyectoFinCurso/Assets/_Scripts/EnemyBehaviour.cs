@@ -66,14 +66,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (stunCounter != STUN_DURATION)
         {
-            if (tag.Equals("EnemyRanged"))
-            {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * 3 * Time.deltaTime);
-            }
-            else
-            {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-            }
+            Retreat();
               
 
             if (stunCounter <= 0.0f)
@@ -173,7 +166,14 @@ public class EnemyBehaviour : MonoBehaviour
     {
         
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("SafeZone"))
+        {
+            Retreat();
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -205,5 +205,17 @@ public class EnemyBehaviour : MonoBehaviour
     public void GetStunned()
     {
         this.stunCounter -= 0.001f;
+    }
+
+    private void Retreat ()
+    {
+        if (tag.Equals("EnemyRanged"))
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * 3 * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+        }
     }
 }
