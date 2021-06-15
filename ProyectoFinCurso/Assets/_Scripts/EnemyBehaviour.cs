@@ -108,7 +108,7 @@ public class EnemyBehaviour : MonoBehaviour
                     }
                     else if (Vector2.Distance(transform.position, player.position) <= retreatDistance)
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * 1.5f * Time.deltaTime);
+                        transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
                     }
                 }
                 else

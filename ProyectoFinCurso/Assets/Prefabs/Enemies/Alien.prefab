@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: stoppingDistance
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: timeBetweenSteps
