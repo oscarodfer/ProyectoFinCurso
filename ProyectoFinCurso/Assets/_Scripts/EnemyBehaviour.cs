@@ -43,6 +43,7 @@ public class EnemyBehaviour : MonoBehaviour
         player = GameObject.Find("Player");
         lastMovement = Vector2.zero;
         isWalking = false;
+        isChasing = false;
         stunCounter = STUN_DURATION;
         timeBetweenStepsCounter = timeBetweenSteps;
         timeToMakeStepCounter = timeToMakeStep;
@@ -59,7 +60,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (stunCounter != STUN_DURATION)
         {
-            this._rb.velocity = new Vector2(lastMovement.x, lastMovement.y);
+            this._rb.velocity = new Vector2(lastMovement.x * -1.5f, lastMovement.y * -1.5f);
 
             if (stunCounter <= 0.0f)
             {
@@ -102,25 +103,30 @@ public class EnemyBehaviour : MonoBehaviour
             }
         }
 
-        if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) <= 0.2f)
+        if (_rb.velocity.x > 0.0f)
         {
-            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed, 0);
-            isWalking = true;
-            lastMovement = new Vector2(Input.GetAxisRaw(AXIS_H), 0);
+            lastMovement.x = 1.0f;
+        }
+        else if (_rb.velocity.x < 0.0f)
+        {
+            lastMovement.x = -1.0f;
+        }
+        else
+        {
+            lastMovement.x = 0.0f;
         }
 
-        if (Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_H)) <= 0.2f)
+        if (_rb.velocity.y > 0.0f)
         {
-            _rb.velocity = new Vector2(0, Input.GetAxisRaw(AXIS_V) * speed);
-            isWalking = true;
-            lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
+            lastMovement.y = 1.0f;
         }
-
-        if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f && Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f)
+        else if (_rb.velocity.y < 0.0f)
         {
-            _rb.velocity = new Vector2(Input.GetAxisRaw(AXIS_H) * speed * 0.6f, Input.GetAxisRaw(AXIS_V) * speed * 0.6f);
-            isWalking = true;
-            lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
+            lastMovement.y = -1.0f;
+        }
+        else
+        {
+            lastMovement.y = 0.0f;
         }
 
         Vector2 movement = _rb.velocity;
@@ -129,8 +135,8 @@ public class EnemyBehaviour : MonoBehaviour
         _animator.SetBool(IS_WALKING, isWalking);
         _animator.SetFloat(AXIS_H, movement.x);
         _animator.SetFloat(AXIS_V, movement.y);
-        _animator.SetFloat(LAST_H, lastMovement.x);
-        _animator.SetFloat(LAST_V, lastMovement.y);
+        _animator.SetFloat(LAST_H, walkingDirections[currentDirection].x);
+        _animator.SetFloat(LAST_V, walkingDirections[currentDirection].y);
     }
 
     public void StartWalking()
@@ -150,7 +156,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void ChasePlayer(Vector2 direction)
     {
-        _rb.MovePosition((Vector2)transform.position + (speed * Time.deltaTime * direction));
+        _rb.MovePosition((Vector2)transform.position + (speed * 1.1f * Time.deltaTime * direction));
     }
     
 

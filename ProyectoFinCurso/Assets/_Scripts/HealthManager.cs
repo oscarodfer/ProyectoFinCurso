@@ -38,7 +38,6 @@ public class HealthManager : MonoBehaviour
 
     public void DamageCharacter(int damage) 
     {
-        
         if(inmune)
         {
             return;
@@ -51,7 +50,6 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0) 
         {
-            inmune = true;
             if (gameObject.tag.Equals("Enemy")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
@@ -62,7 +60,7 @@ public class HealthManager : MonoBehaviour
                     Destroy(shot);
                 }            
             }
-            gameObject.SetActive(false);  
+            this.gameObject.SetActive(false); 
         }
         if (flashLength > 0) 
         {
@@ -87,7 +85,6 @@ public class HealthManager : MonoBehaviour
     {
         if (flashActive)
         {
-            GameObject.Find("Player").GetComponent<PlayerController>().isAttacking = false;
             inmune = true;
             ToggleColor(true);
             flashCounter -= Time.fixedDeltaTime;
