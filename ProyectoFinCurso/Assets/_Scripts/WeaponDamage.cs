@@ -43,15 +43,8 @@ public class WeaponDamage : MonoBehaviour
             GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack = false;
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
             float plaFac = (1 + stats.strengthLevels[stats.level]);
-            Debug.Log("Factor player: " + plaFac);
-            Debug.Log("Fuerza player: " + stats.strengthLevels[stats.level]);
             float eneFac = (1 - enemyStats.defenseLevels[enemyStats.level]);
-            Debug.Log("Factor enemigo: " + eneFac);
-            Debug.Log("Defensa enemigo: " + enemyStats.defenseLevels[enemyStats.level]);
             int totalDamage = (int)(damage + plaFac  - eneFac);
-            Debug.Log("Daño total: " + totalDamage);
-            Debug.Log("Puntería player: " + stats.accuracyLevels[stats.level]);
-            Debug.Log("Puntería arma: " + weaponAccuracy);
 
             if (Random.Range(0, 100) < (stats.accuracyLevels[stats.level] + weaponAccuracy - enemyStats.luckLevels[enemyStats.level])) 
             {
