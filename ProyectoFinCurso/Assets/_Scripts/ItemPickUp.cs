@@ -14,7 +14,7 @@ public class ItemPickUp : MonoBehaviour
 
     public string item;
     private bool destroyAfterInteract = true;
-    private bool elevatorClosed = true;
+    private bool isActivated = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -76,15 +76,15 @@ public class ItemPickUp : MonoBehaviour
 
     private void ElevatorSwitch ()
     {
-        if(elevatorClosed)
+        if(isActivated)
         {
-            elevatorClosed = false;         
+            isActivated = false;         
         }
         else
         {
-            elevatorClosed = true;
+            isActivated = true;
         }
 
-        GameObject.Find("Elevator").SetActive(elevatorClosed);
+        GameObject.Find("Grid").transform.Find("Elevator").gameObject.SetActive(isActivated);
     }
 }
