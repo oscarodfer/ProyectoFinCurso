@@ -114,7 +114,7 @@ public class HealthManager : MonoBehaviour
             {
                 _characterRenderer.color = new Color(255, 255, 255, 1);
                 flashActive = false;
-                GetComponent<BoxCollider2D>().enabled = true;
+                GetComponent<CircleCollider2D>().enabled = true;
                 GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
                 GameObject.Find("Player").GetComponent<PlayerController>().isDamaged = false;
                 inmune = false;

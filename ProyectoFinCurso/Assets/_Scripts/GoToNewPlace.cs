@@ -13,7 +13,10 @@ public class GoToNewPlace : MonoBehaviour
     {
         if (collision.tag.Equals("Player"))
         {
-            gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            if (transform.childCount > 0)
+            {
+                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }      
         }
         TeleportByTag(collision.gameObject.tag);
     }
@@ -22,7 +25,10 @@ public class GoToNewPlace : MonoBehaviour
     {
         if (collision.tag.Equals("Player"))
         {
-            gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            if (transform.childCount > 0)
+            {
+                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
     }
 

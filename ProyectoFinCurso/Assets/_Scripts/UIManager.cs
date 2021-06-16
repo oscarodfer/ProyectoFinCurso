@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     private ItemsManager itemsManager;
     public Text inventoryText;
 
+    private static bool isGamePaused = false;
+
     private void Start()
     {
         weaponManager = FindObjectOfType<WeaponManager>();
@@ -55,9 +57,10 @@ public class UIManager : MonoBehaviour
 
         playerExpText.text = stringBuilder2.ToString();
 
-        if (Input.GetKeyDown(KeyCode.I)) 
+        if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             ToggleInventory();
+            PauseGame();
         }
     }
 
@@ -131,6 +134,20 @@ public class UIManager : MonoBehaviour
         foreach (Transform t in invetoryPanel.transform) 
         {
             t.gameObject.SetActive(true);
+        }
+    }
+
+    private void PauseGame ()
+    {
+        isGamePaused = !isGamePaused;
+
+        if (isGamePaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 }
