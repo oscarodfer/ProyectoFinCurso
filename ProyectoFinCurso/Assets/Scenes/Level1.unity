@@ -3646,31 +3646,6 @@ Transform:
   m_Father: {fileID: 1867723612}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &738863165 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3229683480054716952, guid: cb46669022ee6e84da3a923e6a063df6, type: 3}
-  m_PrefabInstance: {fileID: 3229683479883965028}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &738863166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738863165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 64
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!4 &797298548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2770597973988605549, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
@@ -67757,14 +67732,6 @@ PrefabInstance:
     - target: {fileID: 3229683480054716952, guid: cb46669022ee6e84da3a923e6a063df6, type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 3229683480054716955, guid: cb46669022ee6e84da3a923e6a063df6, type: 3}
-      propertyPath: near clip plane
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3229683480054716955, guid: cb46669022ee6e84da3a923e6a063df6, type: 3}
-      propertyPath: orthographic size
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3229683480054717156, guid: cb46669022ee6e84da3a923e6a063df6, type: 3}
       propertyPath: m_RootOrder
