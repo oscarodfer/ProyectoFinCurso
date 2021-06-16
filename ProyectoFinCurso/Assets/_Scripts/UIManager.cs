@@ -89,7 +89,10 @@ public class UIManager : MonoBehaviour
         //Hacemos un bucle para cada arma.
         foreach (GameObject w in weapons) 
         {
-            AddItemToInventory(w, InventoryButton.ItemType.WEAPON, i);
+            if (w.gameObject.GetComponent<WeaponDamage>().isInInventory == true)
+            {
+                AddItemToInventory(w, InventoryButton.ItemType.WEAPON, i);
+            }
             i++;
         }
         i = 0;

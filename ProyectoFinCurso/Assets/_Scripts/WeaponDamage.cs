@@ -14,6 +14,7 @@ public class WeaponDamage : MonoBehaviour
     private CharacterStats stats;
 
     public bool isCritical = false;
+    public bool isInInventory = false;
 
     private void Start()
     {

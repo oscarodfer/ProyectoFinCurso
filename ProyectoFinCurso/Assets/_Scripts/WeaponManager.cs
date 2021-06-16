@@ -25,15 +25,15 @@ public class WeaponManager : MonoBehaviour
             weapons.Add(weapon.gameObject);
         }
 
-        for (int i = 0; i < weapons.Count; i++) 
-        {
-            weapons[i].SetActive(i==activeWeapon);
-        }
-
         //Rellenar con las armaduras del personaje, a futuro.
         armors = new List<GameObject>();
         //Rellenar con los anillos del personaje, a futuro.
         rings = new List<GameObject>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void ChangeWeapon(int newWeapon) 
@@ -69,5 +69,11 @@ public class WeaponManager : MonoBehaviour
     public WeaponDamage GetRingAt(int pos)
     {
         return rings[pos].GetComponent<WeaponDamage>(); ;
+    }
+
+    public void ActivateWeapon (int i)
+    {
+        weapons[i].SetActive(true);
+        weapons[i].gameObject.GetComponent<WeaponDamage>().isInInventory = true;
     }
 }
