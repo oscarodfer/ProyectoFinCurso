@@ -59,7 +59,7 @@ public class ItemPickUp : MonoBehaviour
                 case "AXE":
                     GameObject.Find("Weapon").GetComponent<WeaponManager>().ActivateWeapon(AXE);
                     break;
-                case "ELEVATOR_SWITCH":
+                case "ELEVATOR_DOORS":
                     destroyAfterInteract = false;
                     ElevatorSwitch();
                     break;
@@ -85,6 +85,6 @@ public class ItemPickUp : MonoBehaviour
             isActivated = true;
         }
 
-        GameObject.Find("Grid").transform.Find("Elevator").gameObject.SetActive(isActivated);
+        GameObject.Find("Grid").transform.Find("Elevator Doors").gameObject.SetActive(isActivated);
     }
 }

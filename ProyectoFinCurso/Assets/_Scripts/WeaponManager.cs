@@ -73,7 +73,6 @@ public class WeaponManager : MonoBehaviour
 
     public void ActivateWeapon (int i)
     {
-        weapons[i].SetActive(true);
         weapons[i].gameObject.GetComponent<WeaponDamage>().isInInventory = true;
     }
 }

@@ -11,7 +11,19 @@ public class GoToNewPlace : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag.Equals("Player"))
+        {
+            gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
         TeleportByTag(collision.gameObject.tag);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Player"))
+        {
+            gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
