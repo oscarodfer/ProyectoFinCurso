@@ -104,6 +104,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: accuracy
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: critDamage
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: weaponName
+      value: Martillo de Guerra
+      objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: weaponAccuracy
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2599208671927989075, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5591

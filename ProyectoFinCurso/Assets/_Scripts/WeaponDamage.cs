@@ -13,6 +13,9 @@ public class WeaponDamage : MonoBehaviour
 
     private CharacterStats stats;
 
+    public float critDamage;
+    public float critChance;
+    public int weaponAccuracy;
     public bool isCritical = false;
     public bool isInInventory = false;
 
@@ -39,22 +42,31 @@ public class WeaponDamage : MonoBehaviour
             enemy.GetStunned();
             GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack = false;
             CharacterStats enemyStats = collision.gameObject.GetComponent<CharacterStats>();
-            float plaFac = (1 + stats.strengthLevels[stats.level] / CharacterStats.MAX_STAT_VALUE);
-            float eneFac = (1 - enemyStats.defenseLevels[enemyStats.level] / CharacterStats.MAX_STAT_VALUE);
-            int totalDamage = (int)(damage * eneFac* plaFac);
+            float plaFac = (1 + stats.strengthLevels[stats.level]);
+            Debug.Log("Factor player: " + plaFac);
+            Debug.Log("Fuerza player: " + stats.strengthLevels[stats.level]);
+            float eneFac = (1 - enemyStats.defenseLevels[enemyStats.level]);
+            Debug.Log("Factor enemigo: " + eneFac);
+            Debug.Log("Defensa enemigo: " + enemyStats.defenseLevels[enemyStats.level]);
+            int totalDamage = (int)(damage + plaFac  - eneFac);
+            Debug.Log("Daño total: " + totalDamage);
+            Debug.Log("Puntería player: " + stats.accuracyLevels[stats.level]);
+            Debug.Log("Puntería arma: " + weaponAccuracy);
 
-            if (Random.Range(0, CharacterStats.MAX_STAT_VALUE) < stats.accuracyLevels[stats.level]) 
+            if (Random.Range(0, 100) < (stats.accuracyLevels[stats.level] + weaponAccuracy - enemyStats.luckLevels[enemyStats.level])) 
             {
-                if (Random.Range(0,CharacterStats.MAX_STAT_VALUE) < enemyStats.luckLevels[enemyStats.level]) 
+                if (Random.Range(0, 100) < ( stats.luckLevels[stats.level] + critChance))
                 {
-                    totalDamage = 0;
-                }
-                else 
-                { 
                     //Crítico
-                    totalDamage *= 2;
+                    float totalCriticalDamage = totalDamage;
+                    totalCriticalDamage *= critDamage;
+                    totalDamage = (int)totalCriticalDamage;
                     isCritical = true;
                 }
+            }
+            else
+            {
+                totalDamage = 0;
             }
 
             if (bloodAnimation != null && hitPoint!=null) 

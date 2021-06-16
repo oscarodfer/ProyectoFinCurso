@@ -91,5 +91,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: accuracy
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: critChance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: critDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: weaponName
+      value: Cuchillo de combate
+      objectReference: {fileID: 0}
+    - target: {fileID: 835453560972144718, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
+      propertyPath: weaponAccuracy
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}

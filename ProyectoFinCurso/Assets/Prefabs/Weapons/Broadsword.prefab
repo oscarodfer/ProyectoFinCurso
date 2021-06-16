@@ -123,10 +123,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a11d5ff9e55ae48a9ff5dba047e4d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 30
+  weaponName: "Espad\xF3n Real"
   bloodAnimation: {fileID: 8144189146994727505, guid: 7fed8fcef32e1654d96ba8ba76ae12bf, type: 3}
   canvasDamage: {fileID: 8190432178748370827, guid: c43cc0227b637bf42b45368ec6efef03, type: 3}
+  critDamage: 2
+  critChance: 20
+  weaponAccuracy: 50
   isCritical: 0
+  isInInventory: 0
 --- !u!1 &9150071520980990035
 GameObject:
   m_ObjectHideFlags: 0
