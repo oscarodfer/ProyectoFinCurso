@@ -13,6 +13,8 @@ public class ItemPickUp : MonoBehaviour
     private const int AXE = 6;
 
     public string item;
+    private bool destroyAfterInteract = true;
+    private bool elevatorClosed = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -57,11 +59,32 @@ public class ItemPickUp : MonoBehaviour
                 case "AXE":
                     GameObject.Find("Weapon").GetComponent<WeaponManager>().ActivateWeapon(AXE);
                     break;
+                case "ELEVATOR_SWITCH":
+                    destroyAfterInteract = false;
+                    ElevatorSwitch();
+                    break;
                 default:
                     break;
             }
             
-            Destroy(this.gameObject);
+            if (destroyAfterInteract)
+            {
+                Destroy(this.gameObject);
+            }
         }
+    }
+
+    private void ElevatorSwitch ()
+    {
+        if(elevatorClosed)
+        {
+            elevatorClosed = false;         
+        }
+        else
+        {
+            elevatorClosed = true;
+        }
+
+        GameObject.Find("Elevator").SetActive(elevatorClosed);
     }
 }
