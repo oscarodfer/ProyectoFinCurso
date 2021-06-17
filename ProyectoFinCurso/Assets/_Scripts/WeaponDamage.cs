@@ -64,6 +64,14 @@ public class WeaponDamage : MonoBehaviour
 
             if (bloodAnimation != null && hitPoint!=null) 
             {
+                if (isCritical)
+                {
+                    FindObjectOfType<AudioManager>().Play("Blood Crit");
+                }
+                else
+                {
+                    FindObjectOfType<AudioManager>().Play("Blood");
+                }
                 Destroy(Instantiate(bloodAnimation, hitPoint.transform.position, hitPoint.transform.rotation),0.5f);
             }
 

@@ -16,6 +16,7 @@ public class MoveBullet : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x, player.position.y);
+        FindObjectOfType<AudioManager>().Play("Acid Bullet");
     }
 
     private void Update()
@@ -37,7 +38,7 @@ public class MoveBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("NPC") || collision.gameObject.tag.Equals("Boundary"))
-        {
+        {  
             DestroyShot();
         }
          
@@ -53,7 +54,6 @@ public class MoveBullet : MonoBehaviour
     private void DestroyShot ()
     {
         Destroy(Instantiate(acidAnimation, transform.position, Quaternion.identity), 0.5f);
-        Destroy(gameObject);
-       
+        Destroy(this.gameObject);   
     }
 }

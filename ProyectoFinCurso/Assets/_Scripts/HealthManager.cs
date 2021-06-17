@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
+    private const string IS_DEAD = "IsDead";
+
     public int maxHealth;
     [SerializeField]
     private int currentHealth;
     public int Health
     {
-        get {
+        get 
+        {
             return currentHealth;
         }
     }
 
     public bool flashActive;
+    private bool isDead = false;
+    private Animator _animator;
     public float flashLength;
     private float flashCounter;
     private SpriteRenderer _characterRenderer;
+    public Animation punkDeathAnimation;
 
     public int expWhenDefeated;
     private QuestEnemy quest;
@@ -32,6 +38,13 @@ public class HealthManager : MonoBehaviour
         currentHealth = maxHealth;
         quest = GetComponent<QuestEnemy>();
         questManager = FindObjectOfType<QuestManager>();
+        isDead = false;
+        _animator = this.GetComponent<Animator>();
+    }
+
+    void LateUpdate ()
+    {
+        _animator.SetBool(IS_DEAD, this.isDead);
     }
 
     public void DamageCharacter(int damage) 
@@ -48,12 +61,15 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0) 
         {
+            FindObjectOfType<AudioManager>().Play("Explosion");
+
             if (gameObject.tag.Equals("Enemy") || gameObject.tag.Equals("EnemyRanged")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
                 questManager.enemyKilled = quest;           
             }
-            this.gameObject.SetActive(false); 
+            //this.gameObject.SetActive(false);
+            isDead = true;
         }
         if (flashLength > 0) 
         {
@@ -114,7 +130,6 @@ public class HealthManager : MonoBehaviour
             {
                 _characterRenderer.color = new Color(255, 255, 255, 1);
                 flashActive = false;
-                GetComponent<CircleCollider2D>().enabled = true;
                 GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
                 GameObject.Find("Player").GetComponent<PlayerController>().isDamaged = false;
                 inmune = false;

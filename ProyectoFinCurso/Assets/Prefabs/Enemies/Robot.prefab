@@ -161,6 +161,7 @@ MonoBehaviour:
   currentHealth: 0
   flashActive: 0
   flashLength: 1.5
+  punkDeathAnimation: {fileID: 0}
   expWhenDefeated: 2
   inmune: 0
 --- !u!58 &267864692108407036

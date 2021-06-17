@@ -123,6 +123,8 @@ public class PlayerController : MonoBehaviour
 
                     if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) && !isDamaged)
                     {
+                        int number = Random.Range(0, 7) + 1;
+                        FindObjectOfType<AudioManager>().Play("Sword Slash " + number);
                         canMove = false;
                         isAttacking = true;
                         isWalking = false;
