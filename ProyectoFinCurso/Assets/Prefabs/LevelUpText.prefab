@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 679722946700208208}
   - component: {fileID: 679722946700208211}
   - component: {fileID: 8889320396950739269}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LevelUpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,3 +183,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e9b9242431af44dace97aaec497952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyTime: 3
