@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7719105495984414767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7719105495984414760}
+  - component: {fileID: 7719105495984414761}
+  - component: {fileID: 7719105495984414762}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7719105495984414760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719105495984414767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7719105495984414761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719105495984414767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0f6ca093757a548a8cd2ee26709573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Acid Bullet
+    clip: {fileID: 8300000, guid: a1c4ba180b05f264b93cda23b2501d28, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Blood
+    clip: {fileID: 8300000, guid: 13c0c96bcc13fc14084ea8d528ce9d8d, type: 3}
+    volume: 0.65
+    pitch: 1
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Blood Crit
+    clip: {fileID: 8300000, guid: 1ea6084d81c17654283c804dfb84ba9e, type: 3}
+    volume: 0.8
+    pitch: 0.8
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: d2127cd62a1c0ab4caa8a111acfc4393, type: 3}
+    volume: 1
+    pitch: 1.2
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Player Hurt
+    clip: {fileID: 8300000, guid: 726ad60fd99baaf4c920e74162f8c60a, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Level Up
+    clip: {fileID: 8300000, guid: 59b380a123d1c7543a77ea0343e894e0, type: 3}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: MissionComplete
+    clip: {fileID: 8300000, guid: a1c4ba180b05f264b93cda23b2501d28, type: 3}
+    volume: 0.5
+    pitch: 0.6
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Sword Slash 1
+    clip: {fileID: 8300000, guid: 7ea088e27b90f7e4f92f92584670db9f, type: 3}
+    volume: 0.65
+    pitch: 0.4
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Sword Slash 2
+    clip: {fileID: 8300000, guid: 7ea088e27b90f7e4f92f92584670db9f, type: 3}
+    volume: 0.65
+    pitch: 0.6
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Sword Slash 3
+    clip: {fileID: 8300000, guid: 7ea088e27b90f7e4f92f92584670db9f, type: 3}
+    volume: 0.65
+    pitch: 0.8
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Sword Slash 4
+    clip: {fileID: 8300000, guid: 7ea088e27b90f7e4f92f92584670db9f, type: 3}
+    volume: 0.65
+    pitch: 1
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Sword Slash 5
+    clip: {fileID: 8300000, guid: 7ea088e27b90f7e4f92f92584670db9f, type: 3}
+    volume: 0.65
+    pitch: 1.2
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Sword Slash 6
+    clip: {fileID: 8300000, guid: 7ea088e27b90f7e4f92f92584670db9f, type: 3}
+    volume: 0.65
+    pitch: 1.4
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Level 1
+    clip: {fileID: 8300000, guid: 801615f2493b4864eb7156f1629dc7c2, type: 3}
+    volume: 0.114
+    pitch: 1
+    isLoop: 1
+    isOneShot: 0
+    source: {fileID: 0}
+  - name: Level 2
+    clip: {fileID: 8300000, guid: 2c6d4014e73505240a26802bfc146062, type: 3}
+    volume: 0.5
+    pitch: 1
+    isLoop: 1
+    isOneShot: 0
+    source: {fileID: 0}
+  - name: Level 3
+    clip: {fileID: 8300000, guid: 7c9a0a97c4ed6324bbab4aa3835f779e, type: 3}
+    volume: 0.5
+    pitch: 1
+    isLoop: 1
+    isOneShot: 0
+    source: {fileID: 0}
+--- !u!114 &7719105495984414762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719105495984414767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710ad48c91aac63479b7acbf6c6decca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -211,6 +211,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Player Hurt");
             Destroy(Instantiate(bloodAnimation, player.transform.position, Quaternion.identity), 0.5f);
             isWalking = false;
             isChasing = false;

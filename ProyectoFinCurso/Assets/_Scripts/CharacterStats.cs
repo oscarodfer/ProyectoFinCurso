@@ -53,6 +53,7 @@ public class CharacterStats : MonoBehaviour
         if (this.exp >= expToLevelUp[level])
         {
             level++;
+            FindObjectOfType<AudioManager>().Play("Level Up");
             healthManager.UpdateMaxHealth(hpLevels[level]);
             /* Hay que implementar el attackTime en el playerController.
             playerController.attackTime -= speedLevels[level]/MAX_STAT_VALUE;
