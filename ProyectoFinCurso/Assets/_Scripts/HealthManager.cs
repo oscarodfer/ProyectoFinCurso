@@ -16,7 +16,6 @@ public class HealthManager : MonoBehaviour
     }
 
     public bool flashActive;
-    private bool isDead = false;
     private Animator _animator;
     public float flashLength;
     private float flashCounter;
@@ -27,7 +26,7 @@ public class HealthManager : MonoBehaviour
     private QuestEnemy quest;
     private QuestManager questManager;
 
-    public bool inmune = false;
+    public bool isInmune = false;
 
     void Start()
     {
@@ -36,13 +35,12 @@ public class HealthManager : MonoBehaviour
         currentHealth = maxHealth;
         quest = GetComponent<QuestEnemy>();
         questManager = FindObjectOfType<QuestManager>();
-        isDead = false;
         _animator = this.GetComponent<Animator>();
     }
 
     public void DamageCharacter(int damage) 
     {
-        if(inmune)
+        if(isInmune)
         {
             return;
         }
@@ -90,10 +88,9 @@ public class HealthManager : MonoBehaviour
             this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
         }
 
-
         if (flashActive)
         {
-            inmune = true;
+            isInmune = true;
             ToggleColor(true);
             flashCounter -= Time.fixedDeltaTime;
 
@@ -125,8 +122,13 @@ public class HealthManager : MonoBehaviour
                 flashActive = false;
                 GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
                 GameObject.Find("Player").GetComponent<PlayerController>().isDamaged = false;
-                inmune = false;
+                isInmune = false;
             }
         } 
+    }
+
+    public void SetInmune (bool inmune)
+    {
+
     }
 }

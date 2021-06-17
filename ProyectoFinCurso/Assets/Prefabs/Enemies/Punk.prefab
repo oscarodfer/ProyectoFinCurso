@@ -56,7 +56,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2770597973988605537, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: maxHealth
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605537, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: flashLength
@@ -68,7 +68,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: speed
-      value: 1.7
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605538, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: timeToMakeStep

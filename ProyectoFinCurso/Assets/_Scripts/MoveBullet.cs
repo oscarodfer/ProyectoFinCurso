@@ -42,7 +42,7 @@ public class MoveBullet : MonoBehaviour
             DestroyShot();
         }
          
-        if (collision.gameObject.tag.Equals("Player") && GameObject.Find("Player").GetComponent<HealthManager>().inmune == false)
+        if (collision.gameObject.tag.Equals("Player") && GameObject.Find("Player").GetComponent<HealthManager>().isInmune == false)
         {
             var clone = (GameObject)Instantiate(canvasDamage, collision.gameObject.transform.position, Quaternion.Euler(Vector3.zero));
             clone.GetComponent<DamageNumber>().damagePoint = damage;
