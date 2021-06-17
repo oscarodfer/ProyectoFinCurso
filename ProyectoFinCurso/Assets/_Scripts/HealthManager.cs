@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    private const string IS_DEAD = "IsDead";
-
     public int maxHealth;
     [SerializeField]
     private int currentHealth;
@@ -42,11 +40,6 @@ public class HealthManager : MonoBehaviour
         _animator = this.GetComponent<Animator>();
     }
 
-    void LateUpdate ()
-    {
-        _animator.SetBool(IS_DEAD, this.isDead);
-    }
-
     public void DamageCharacter(int damage) 
     {
         if(inmune)
@@ -61,15 +54,14 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0) 
         {
-            FindObjectOfType<AudioManager>().Play("Explosion");
+            this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
 
             if (gameObject.tag.Equals("Enemy") || gameObject.tag.Equals("EnemyRanged")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
                 questManager.enemyKilled = quest;           
             }
-            //this.gameObject.SetActive(false);
-            isDead = true;
+            //this.gameObject.SetActive(false);    
         }
         if (flashLength > 0) 
         {
@@ -94,7 +86,7 @@ public class HealthManager : MonoBehaviour
     {
         if (this.currentHealth <= 0)
         {
-            this.gameObject.SetActive(false);
+            this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
         }
 
 

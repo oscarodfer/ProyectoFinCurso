@@ -19,21 +19,21 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0.2
+    - time: 0
       value: {fileID: -8092295105046505211, guid: 5f4797afa23e87f4f9c4328c6a30fc95, type: 3}
-    - time: 0.25
+    - time: 0.05
       value: {fileID: -5243772346084840235, guid: 5f4797afa23e87f4f9c4328c6a30fc95, type: 3}
-    - time: 0.3
+    - time: 0.1
       value: {fileID: -4009157606203222040, guid: 5f4797afa23e87f4f9c4328c6a30fc95, type: 3}
-    - time: 0.35
+    - time: 0.15
       value: {fileID: 3730887761424324059, guid: 5f4797afa23e87f4f9c4328c6a30fc95, type: 3}
-    - time: 0.4
+    - time: 0.2
       value: {fileID: -4927540249515241657, guid: 5f4797afa23e87f4f9c4328c6a30fc95, type: 3}
-    - time: 0.45
+    - time: 0.25
       value: {fileID: 5684552838703836615, guid: 5f4797afa23e87f4f9c4328c6a30fc95, type: 3}
-    - time: 0.5
+    - time: 0.3
       value: {fileID: -1000500801407918923, guid: 5f4797afa23e87f4f9c4328c6a30fc95, type: 3}
-    - time: 0.55
+    - time: 0.35
       value: {fileID: -3556220708966662747, guid: 5f4797afa23e87f4f9c4328c6a30fc95, type: 3}
     attribute: m_Sprite
     path: 
@@ -67,7 +67,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -86,4 +86,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlayDeathSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.35
+    functionName: Die
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

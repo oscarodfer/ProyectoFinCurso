@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     private const string AXIS_H = "Horizontal";
     private const string AXIS_V = "Vertical";
     private const string IS_WALKING = "IsWalking";
+    private const string IS_DEAD = "IsDead";
     private const float STUN_DURATION = 1.5f;
 
     [Tooltip("Velocidad de movimiento del enemigo")]
@@ -31,6 +32,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform player;
     private bool isChasing = false;
     private bool isWalking = false;
+    private bool isDead;
     private float stunCounter;
 
     //Para el enemigo ranged
@@ -49,6 +51,7 @@ public class EnemyBehaviour : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         isWalking = false;
         isChasing = false;
+        isDead = false;
         stunCounter = STUN_DURATION;
         timeBetweenStepsCounter = timeBetweenSteps;
         timeToMakeStepCounter = timeToMakeStep;
@@ -59,89 +62,93 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (_rb.velocity != Vector2.zero)
+        if (!isDead)
         {
-            isWalking = true;
-        }
-
-        if (stunCounter != STUN_DURATION)
-        {
-            Retreat();
-              
-
-            if (stunCounter <= 0.0f)
+            if (_rb.velocity != Vector2.zero)
             {
-                stunCounter = STUN_DURATION;
+                isWalking = true;
+            }
+
+            if (stunCounter != STUN_DURATION)
+            {
+                Retreat();
+
+
+                if (stunCounter <= 0.0f)
+                {
+                    stunCounter = STUN_DURATION;
+                }
+                else
+                {
+                    stunCounter -= Time.deltaTime;
+                    return;
+                }
             }
             else
             {
-                stunCounter -= Time.deltaTime;
-                return;
-            }
-        }
-        else
-        {
-            if (isChasing)
-            {
-                isWalking = true;
-                direction = player.position - transform.position;
-
-                if (tag.Equals("EnemyRanged"))
+                if (isChasing)
                 {
-                    if (timeBetweenShots <= 0)
+                    isWalking = true;
+                    direction = player.position - transform.position;
+
+                    if (tag.Equals("EnemyRanged"))
                     {
-                        Instantiate(shot, transform.position, Quaternion.identity);
-                        timeBetweenShots = startTimeBetweenShots;
+                        if (timeBetweenShots <= 0)
+                        {
+                            Instantiate(shot, transform.position, Quaternion.identity);
+                            timeBetweenShots = startTimeBetweenShots;
+                        }
+                        else
+                        {
+                            timeBetweenShots -= Time.deltaTime;
+                        }
+
+                        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * 2 * Time.deltaTime);
+                        }
+                        else if (Vector2.Distance(transform.position, player.position) <= stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+                        {
+                            transform.position = this.transform.position;
+                        }
+                        else if (Vector2.Distance(transform.position, player.position) <= retreatDistance)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+                        }
                     }
                     else
                     {
-                        timeBetweenShots -= Time.deltaTime;
-                    }
-
-                    if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
-                    {
                         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * 2 * Time.deltaTime);
                     }
-                    else if (Vector2.Distance(transform.position, player.position) <= stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-                    {
-                        transform.position = this.transform.position;
-                    }
-                    else if (Vector2.Distance(transform.position, player.position) <= retreatDistance)
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-                    }
                 }
                 else
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * 2 * Time.deltaTime);
-                }      
-            }
-            else
-            {
-                direction = _rb.velocity;
-                direction.Normalize();
+                    direction = _rb.velocity;
+                    direction.Normalize();
 
-                timeBetweenStepsCounter -= Time.fixedDeltaTime;
+                    timeBetweenStepsCounter -= Time.fixedDeltaTime;
 
-                if (timeBetweenStepsCounter <= 0)
-                {
-                    StopWalking();
-                    _rb.velocity = Vector2.zero;
-                }
-                else
-                {
-                    //_rigidbody.velocity = Vector2.zero;
-                    timeToMakeStepCounter -= Time.fixedDeltaTime;
-
-                    if (timeToMakeStepCounter < 0)
+                    if (timeBetweenStepsCounter <= 0)
                     {
-                        StartWalking();
-                        _rb.velocity = walkingDirections[currentDirection] * speed;
+                        StopWalking();
+                        _rb.velocity = Vector2.zero;
+                    }
+                    else
+                    {
+                        //_rigidbody.velocity = Vector2.zero;
+                        timeToMakeStepCounter -= Time.fixedDeltaTime;
+
+                        if (timeToMakeStepCounter < 0)
+                        {
+                            StartWalking();
+                            _rb.velocity = walkingDirections[currentDirection] * speed;
+                        }
                     }
                 }
             }
         }
 
+        _animator.SetBool(IS_DEAD, isDead);
         _animator.SetBool(IS_WALKING, isWalking);
         _animator.SetFloat(AXIS_H, direction.x);
         _animator.SetFloat(AXIS_V, direction.y);
@@ -224,5 +231,20 @@ public class EnemyBehaviour : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
+    }
+
+    public void SetDead (bool dead)
+    {
+        this.isDead = dead;
+    }
+
+    public void Die ()
+    {
+        this.gameObject.SetActive(false);
+    }
+
+    public void PlayDeathSound()
+    {
+        FindObjectOfType<AudioManager>().Play("Explosion");
     }
 }
