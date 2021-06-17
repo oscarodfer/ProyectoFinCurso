@@ -87,6 +87,10 @@ public class Quest : MonoBehaviour
         {
             Invoke("ActivateNextQuest", 5.0f);
         }
+        if (questID == 2) 
+        {
+            GameObject.Find("Weapon").GetComponent<WeaponManager>().ActivateWeapon(2);
+        }
         gameObject.SetActive(false);
     }
 
