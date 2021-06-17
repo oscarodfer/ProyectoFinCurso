@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CharacterStats : MonoBehaviour
 {
-
+    public GameObject levelUpText;
+    public GameObject sparksAnimation;
     public const int MAX_STAT_VALUE = 100;
     public const int MAX_HEALTH_VALUE = 9999;
     public const int MIN_HEALTH_VALUE = 1;
@@ -53,11 +55,25 @@ public class CharacterStats : MonoBehaviour
         if (this.exp >= expToLevelUp[level])
         {
             level++;
+
+            if(levelUpText)
+            {
+                LevelUp();
+            }
+            
             FindObjectOfType<AudioManager>().Play("Level Up");
             healthManager.UpdateMaxHealth(hpLevels[level]);
             /* Hay que implementar el attackTime en el playerController.
             playerController.attackTime -= speedLevels[level]/MAX_STAT_VALUE;
             */
         }
+    }
+
+    public void LevelUp ()
+    {
+        Destroy(Instantiate(sparksAnimation, transform.position, Quaternion.identity), 0.5f);
+        Vector2 newPosition = transform.position;
+        newPosition.y += 1f;
+        Instantiate(levelUpText, newPosition, Quaternion.identity, transform);
     }
 }
