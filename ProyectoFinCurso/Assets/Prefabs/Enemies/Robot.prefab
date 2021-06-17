@@ -106,6 +106,7 @@ MonoBehaviour:
   timeBetweenSteps: 3
   timeToMakeStep: 1
   currentDirection: 0
+  bloodAnimation: {fileID: 8144189146994727505, guid: 7fed8fcef32e1654d96ba8ba76ae12bf, type: 3}
   stoppingDistance: 0
   retreatDistance: 0
   startTimeBetweenShots: 0

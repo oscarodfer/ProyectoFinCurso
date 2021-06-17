@@ -1002,11 +1002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5967891169198950243, guid: 2235928dcf3d2214c92de2bd6963e089, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.31
+      value: -53.38
       objectReference: {fileID: 0}
     - target: {fileID: 5967891169198950243, guid: 2235928dcf3d2214c92de2bd6963e089, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.26
+      value: 23.87
       objectReference: {fileID: 0}
     - target: {fileID: 5967891169198950243, guid: 2235928dcf3d2214c92de2bd6963e089, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1200,6 +1200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478985540}
   - component: {fileID: 478985541}
+  - component: {fileID: 478985542}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1257,8 +1258,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Explosion
     clip: {fileID: 8300000, guid: d2127cd62a1c0ab4caa8a111acfc4393, type: 3}
-    volume: 0.8
-    pitch: 0.7
+    volume: 1
+    pitch: 1.2
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Level Up
+    clip: {fileID: 8300000, guid: 59b380a123d1c7543a77ea0343e894e0, type: 3}
+    volume: 0.5
+    pitch: 1
     isLoop: 0
     isOneShot: 1
     source: {fileID: 0}
@@ -1306,7 +1314,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Level 1
     clip: {fileID: 8300000, guid: 801615f2493b4864eb7156f1629dc7c2, type: 3}
-    volume: 0.5
+    volume: 0.114
     pitch: 1
     isLoop: 1
     isOneShot: 0
@@ -1325,6 +1333,25 @@ MonoBehaviour:
     isLoop: 1
     isOneShot: 0
     source: {fileID: 0}
+  - name: MissionComplete
+    clip: {fileID: 8300000, guid: a1c4ba180b05f264b93cda23b2501d28, type: 3}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+--- !u!114 &478985542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478985539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710ad48c91aac63479b7acbf6c6decca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &493915477
 GameObject:
   m_ObjectHideFlags: 0
@@ -34898,7 +34925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 835453560972144714, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 835453560972144717, guid: 0b3908b26b462ca4d9c4412afd7137cc, type: 3}
       propertyPath: m_RootOrder

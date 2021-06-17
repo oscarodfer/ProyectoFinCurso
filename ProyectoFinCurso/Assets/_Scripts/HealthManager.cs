@@ -55,6 +55,7 @@ public class HealthManager : MonoBehaviour
         if (currentHealth <= 0) 
         {
             this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
+            this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
             if (gameObject.tag.Equals("Enemy") || gameObject.tag.Equals("EnemyRanged")) 
             {

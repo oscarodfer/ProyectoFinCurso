@@ -35,6 +35,8 @@ public class EnemyBehaviour : MonoBehaviour
     private bool isDead;
     private float stunCounter;
 
+    public GameObject bloodAnimation;
+
     //Para el enemigo ranged
     public float stoppingDistance;
     public float retreatDistance;
@@ -72,7 +74,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (stunCounter != STUN_DURATION)
             {
                 Retreat();
-
+              
 
                 if (stunCounter <= 0.0f)
                 {
@@ -119,7 +121,7 @@ public class EnemyBehaviour : MonoBehaviour
                     else
                     {
                         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * 2 * Time.deltaTime);
-                    }
+                    }      
                 }
                 else
                 {
@@ -209,6 +211,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+            Destroy(Instantiate(bloodAnimation, player.transform.position, Quaternion.identity), 0.5f);
             isWalking = false;
             isChasing = false;
 

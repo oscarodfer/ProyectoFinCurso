@@ -63,6 +63,10 @@ public class ItemPickUp : MonoBehaviour
                     destroyAfterInteract = false;
                     ElevatorSwitch();
                     break;
+                case "ELEVATOR_KEY":
+                    destroyAfterInteract = true;
+                    GetKey();
+                    break;
                 default:
                     break;
             }
@@ -72,6 +76,11 @@ public class ItemPickUp : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    private void GetKey()
+    {
+
     }
 
     private void ElevatorSwitch ()
