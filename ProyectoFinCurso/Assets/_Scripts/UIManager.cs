@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
     //Abrir/cerrar inventario.
     public void ToggleInventory() 
     {
-        
+        PauseGame();
         invetoryPanel.SetActive(!invetoryPanel.activeInHierarchy);
         menuPanel.SetActive(!menuPanel.activeInHierarchy);
         inventoryText.text = "";

@@ -7,6 +7,7 @@ public class NPCDialogue : MonoBehaviour
     public string npcName;
     public string[] npcDialogueLines;
     public Sprite npcSprite;
+    public GameObject weaponQuest;
 
     private DialogueManager dialogueManager;
     private bool playerInTheZone;
@@ -40,6 +41,11 @@ public class NPCDialogue : MonoBehaviour
             if (gameObject.GetComponentInParent<NPCMovement>() != null) 
             {
                 gameObject.GetComponentInParent<NPCMovement>().isTalking = true;
+            }
+            if (npcName == "Capitan Bartholomew") 
+            {
+                GameObject.Find("Weapon").GetComponent<WeaponManager>().ActivateWeapon(0);
+
             }
         }
     }
