@@ -463,19 +463,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 242173067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5112505961858085456}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ToggleInventory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &340019371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,7 +2197,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press E for continue
+  m_Text: Press right mouse button to continue
 --- !u!1 &1399691920
 GameObject:
   m_ObjectHideFlags: 0
