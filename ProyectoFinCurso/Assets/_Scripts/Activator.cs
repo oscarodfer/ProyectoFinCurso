@@ -11,6 +11,7 @@ public class Activator : MonoBehaviour
         if(collision.tag.Equals("Player"))
         {
             GameObject.Find("Grid").transform.Find(objectName).gameObject.SetActive(true);
+            GameObject.Find("Grid").transform.Find("Alien Mother").gameObject.SetActive(true);
             FindObjectOfType<AudioManager>().Play("Laser Door");
             FindObjectOfType<AudioManager>().Stop("Level 1");
             FindObjectOfType<AudioManager>().Play("Level 3");

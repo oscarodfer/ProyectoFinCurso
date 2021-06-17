@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public bool isTalking;
     public bool isAttacking = false;
     public bool isFirstAttack = true;
+    public bool isDead = false;
     public bool canMove = true;
     public bool isDamaged = false;
     public float speed = 5.0f;
@@ -186,6 +187,8 @@ public class PlayerController : MonoBehaviour
                 canMove = false;
                 isDamaged = true;
                 isAttacking = false;
+
+                Retreat(collision);
             }       
         }
     }
@@ -218,5 +221,10 @@ public class PlayerController : MonoBehaviour
     public void GetStunned()
     {
         this.stunCounter -= 0.001f;
+    }
+
+    private void Retreat(Collision2D col)
+    {
+        transform.position = Vector2.MoveTowards(transform.position, col.transform.position, -speed * Time.deltaTime);
     }
 }

@@ -37,6 +37,10 @@ public class WeaponDamage : MonoBehaviour
     {
         if ((collision.gameObject.tag.Equals("Enemy") || collision.gameObject.tag.Equals("EnemyRanged")) && GameObject.Find("Player").GetComponent<PlayerController>().isAttacking && GameObject.Find("Player").GetComponent<PlayerController>().isFirstAttack && collision.GetComponent<HealthManager>().isInmune == false)
         {
+            if (collision.gameObject.GetComponent<EnemyBehaviour>().isBoss)
+            {
+                FindObjectOfType<AudioManager>().Play("Monster Roar");
+            }
             isCritical = false;
             EnemyBehaviour enemy = collision.gameObject.GetComponent<EnemyBehaviour>();
             enemy.GetStunned();

@@ -11,6 +11,9 @@ public class EnemyBehaviour : MonoBehaviour
     private const string IS_DEAD = "IsDead";
     private const float STUN_DURATION = 1.5f;
 
+    public bool isBoss;
+    private int bulletCount;
+
     [Tooltip("Velocidad de movimiento del enemigo")]
     public float speed;
     private Rigidbody2D _rb;
@@ -42,6 +45,10 @@ public class EnemyBehaviour : MonoBehaviour
     public float retreatDistance;
     private float timeBetweenShots;
     public float startTimeBetweenShots;
+    public float startMachinegun;
+    private float machinegun;
+    public int maxNumberOfShots;
+    private int numberOfShots;
     public GameObject shot;
 
 
@@ -57,7 +64,10 @@ public class EnemyBehaviour : MonoBehaviour
         stunCounter = STUN_DURATION;
         timeBetweenStepsCounter = timeBetweenSteps;
         timeToMakeStepCounter = timeToMakeStep;
-        timeBetweenShots = startTimeBetweenShots;
+        timeBetweenShots = 0;
+        machinegun = 0;
+        bulletCount = 0;
+        numberOfShots = Random.Range(0, maxNumberOfShots) + 1;
         //timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);
         //timeBetweenStepsCounter = timeBetweenSteps * Random.Range(0.5f, 1.5f);
     }
@@ -75,7 +85,6 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 Retreat();
               
-
                 if (stunCounter <= 0.0f)
                 {
                     stunCounter = STUN_DURATION;
@@ -97,8 +106,33 @@ public class EnemyBehaviour : MonoBehaviour
                     {
                         if (timeBetweenShots <= 0)
                         {
-                            Instantiate(shot, transform.position, Quaternion.identity);
-                            timeBetweenShots = startTimeBetweenShots;
+                            if(!isBoss)
+                            {  
+                                Instantiate(shot, transform.position, Quaternion.identity);
+                                timeBetweenShots = startTimeBetweenShots;
+                            }
+                            else
+                            {
+                                if (machinegun <= 0)
+                                {
+                                    if (bulletCount < numberOfShots)
+                                    {
+                                        Instantiate(shot, transform.position, Quaternion.identity);
+                                        bulletCount++;
+                                        machinegun = startMachinegun;
+                                        numberOfShots = Random.Range(0, maxNumberOfShots) + 1;
+                                    }
+                                    else
+                                    {
+                                        bulletCount = 0;
+                                        timeBetweenShots = startTimeBetweenShots;
+                                    }
+                                }
+                                else
+                                {
+                                    machinegun -= Time.deltaTime;
+                                }
+                            }
                         }
                         else
                         {
@@ -229,7 +263,17 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (tag.Equals("EnemyRanged"))
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * 3 * Time.deltaTime);
+            if(!isBoss)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * 3 * Time.deltaTime);
+            }
+            else
+            {
+                Vector2 destination = GameObject.Find("Puntos").transform.position;
+
+                transform.position = Vector2.MoveTowards(transform.position, destination, speed * 10 * Time.deltaTime);
+                this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            }
         }
         else
         {

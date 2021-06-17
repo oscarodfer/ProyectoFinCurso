@@ -20,6 +20,7 @@ public class HealthManager : MonoBehaviour
     public float flashLength;
     private float flashCounter;
     private SpriteRenderer _characterRenderer;
+    private Color characterColor;
     public Animation punkDeathAnimation;
 
     public int expWhenDefeated;
@@ -36,6 +37,7 @@ public class HealthManager : MonoBehaviour
         quest = GetComponent<QuestEnemy>();
         questManager = FindObjectOfType<QuestManager>();
         _animator = this.GetComponent<Animator>();
+        characterColor = _characterRenderer.color;
     }
 
     public void DamageCharacter(int damage) 
@@ -52,7 +54,17 @@ public class HealthManager : MonoBehaviour
 
         if (currentHealth <= 0) 
         {
-            this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
+            if (gameObject.GetComponent<EnemyBehaviour>())
+            {
+                this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
+            }
+            
+            if (gameObject.GetComponent<PlayerController>())
+            {
+                gameObject.GetComponent<PlayerController>().isDead = true;
+                gameObject.SetActive(false);
+            }
+
             this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
             if (gameObject.tag.Equals("Enemy") || gameObject.tag.Equals("EnemyRanged")) 
@@ -90,7 +102,16 @@ public class HealthManager : MonoBehaviour
     {
         if (this.currentHealth <= 0)
         {
-            this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
+            if (gameObject.GetComponent<EnemyBehaviour>())
+            {
+                this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
+            }
+
+            if (gameObject.GetComponent<PlayerController>())
+            {
+                gameObject.GetComponent<PlayerController>().isDead = true;
+                gameObject.SetActive(false);
+            }
         }
 
         if (flashActive)
@@ -123,13 +144,23 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                _characterRenderer.color = new Color(255, 255, 255, 1);
+                _characterRenderer.color = characterColor;
                 flashActive = false;
                 GameObject.Find("Player").GetComponent<PlayerController>().canMove = true;
                 GameObject.Find("Player").GetComponent<PlayerController>().isDamaged = false;
                 isInmune = false;
+
+                if(this.gameObject.GetComponent<EnemyBehaviour>().isBoss)
+                {
+                    this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                }
             }
-        } 
+        }
+        else
+        {
+            isInmune = false;
+            this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        }
     }
 
     public void SetInmune (bool inmune)
