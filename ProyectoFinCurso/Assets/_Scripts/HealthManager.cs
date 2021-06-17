@@ -76,6 +76,11 @@ public class HealthManager : MonoBehaviour
         currentHealth += offsetHealth;
     }
 
+    public void Curar() 
+    {
+        currentHealth = maxHealth;
+    }
+
     void ToggleColor(bool visible) 
     {
         _characterRenderer.color = new Color(255, 0, 0, (visible ? 1 : 0));

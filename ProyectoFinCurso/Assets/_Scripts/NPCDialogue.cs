@@ -8,6 +8,8 @@ public class NPCDialogue : MonoBehaviour
     public string[] npcDialogueLines;
     public Sprite npcSprite;
     public GameObject weaponQuest;
+    public int maxHealth;
+    private HealthManager healthManager;
 
     private DialogueManager dialogueManager;
     private bool playerInTheZone;
@@ -16,6 +18,7 @@ public class NPCDialogue : MonoBehaviour
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
+        healthManager = FindObjectOfType<HealthManager>();
     }
 
     
@@ -45,7 +48,14 @@ public class NPCDialogue : MonoBehaviour
             if (npcName == "Capitan Bartholomew") 
             {
                 GameObject.Find("Weapon").GetComponent<WeaponManager>().ActivateWeapon(0);
-
+            }
+            if (npcName == "Doctor House")
+            {
+                healthManager.Curar();
+            }
+            if (npcName == "Alexander Fleming")
+            {
+                
             }
         }
     }

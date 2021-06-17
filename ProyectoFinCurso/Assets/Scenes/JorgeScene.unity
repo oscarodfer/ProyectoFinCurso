@@ -557,6 +557,127 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6235470901822102168, guid: cb09609d84829b640a96af20883161bb, type: 3}
   m_PrefabInstance: {fileID: 362318086}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &415557480
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 497796427618010011}
+    m_Modifications:
+    - target: {fileID: 9213609099651450292, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_Name
+      value: Quest3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: title
+      value: "Encuentra al cient\xEDfico."
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: questID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: needsItem
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: startText
+      value: "Busca al cient\xEDfico en el laboratorio para que te entregue el ant\xEDdoto."
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: killsEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: completeText
+      value: "Enhorabuena!! Has encontrado al cient\xEDfico."
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: enemies.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 5729559762751343303, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 7963737647576612508, guid: 7cf8c4e4c826b0a478a80d85fc6cd3c1, type: 3}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 2570679709206805434, guid: f81bdf6e2b9cf0f40b393ea11c0da01e, type: 3}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: itemsNeeded.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: itemsNeeded.Array.data[0]
+      value: 
+      objectReference: {fileID: 5300840274177935995, guid: 4866d97c01912544088cfd927b458134, type: 3}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: numberOfEnemies.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: numberOfEnemies.Array.data[0]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: numberOfEnemies.Array.data[1]
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: numberOfEnemies.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
 --- !u!1001 &424682705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -574,11 +695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5967891169198950243, guid: 2235928dcf3d2214c92de2bd6963e089, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: -54.1
       objectReference: {fileID: 0}
     - target: {fileID: 5967891169198950243, guid: 2235928dcf3d2214c92de2bd6963e089, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 22.43
       objectReference: {fileID: 0}
     - target: {fileID: 5967891169198950243, guid: 2235928dcf3d2214c92de2bd6963e089, type: 3}
       propertyPath: m_LocalPosition.z
@@ -80710,56 +80831,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quest Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 497796428225757469, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: nextQuest
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134442797689, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: enemies.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134442797689, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 2570679709206805434, guid: f81bdf6e2b9cf0f40b393ea11c0da01e, type: 3}
-    - target: {fileID: 8734124134442797689, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: numberOfEnemies.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134442797689, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: numberOfEnemies.Array.data[0]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134442797689, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: numberOfEnemies.Array.data[1]
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134442797689, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: numberOfEnemies.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134480112130, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: title
-      value: Encuentra la llave
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134480112130, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: needsItem
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134480112130, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: startText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134480112130, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: completeText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8734124134480112130, guid: af0c020665dfa2d44851296017807fb9, type: 3}
-      propertyPath: itemsNeeded.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af0c020665dfa2d44851296017807fb9, type: 3}
+--- !u!4 &497796427618010011 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 497796428080607816, guid: af0c020665dfa2d44851296017807fb9, type: 3}
+  m_PrefabInstance: {fileID: 497796427618010010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3229683479883965028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80907,23 +80985,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3977610918558833, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.24
+      value: -10.14
       objectReference: {fileID: 0}
-    - target: {fileID: 3977610918558847, guid: 51579420c87d568429d36f0233cbd724, type: 3}
+    - target: {fileID: 4459677937336953206, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Size.x
-      value: 0.50004196
+      value: 2.7601266
       objectReference: {fileID: 0}
-    - target: {fileID: 3977610918558847, guid: 51579420c87d568429d36f0233cbd724, type: 3}
+    - target: {fileID: 4459677937336953206, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Size.y
-      value: 13.999481
+      value: 3.2510102
       objectReference: {fileID: 0}
-    - target: {fileID: 3977610918558847, guid: 51579420c87d568429d36f0233cbd724, type: 3}
+    - target: {fileID: 4459677937336953206, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Offset.x
-      value: -0.21427727
+      value: 0.1815865
       objectReference: {fileID: 0}
-    - target: {fileID: 3977610918558847, guid: 51579420c87d568429d36f0233cbd724, type: 3}
+    - target: {fileID: 4459677937336953206, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Offset.y
-      value: -0.14285183
+      value: 0.10141003
       objectReference: {fileID: 0}
     - target: {fileID: 4459677937424257130, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Name
@@ -80975,19 +81053,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4459677937749392360, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Size.x
-      value: 0.3353262
+      value: 0.79866505
       objectReference: {fileID: 0}
     - target: {fileID: 4459677937749392360, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Size.y
-      value: 14.076016
+      value: 11.813738
       objectReference: {fileID: 0}
     - target: {fileID: 4459677937749392360, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Offset.x
-      value: -0.5823369
+      value: -0.2003808
       objectReference: {fileID: 0}
     - target: {fileID: 4459677937749392360, guid: 51579420c87d568429d36f0233cbd724, type: 3}
       propertyPath: m_Offset.y
-      value: -3.8054185
+      value: -2.6771526
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51579420c87d568429d36f0233cbd724, type: 3}

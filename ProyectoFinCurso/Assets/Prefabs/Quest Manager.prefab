@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: enemies.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: enemies.Array.data[0]
@@ -124,15 +124,15 @@ PrefabInstance:
       objectReference: {fileID: 5300840274177935995, guid: 4866d97c01912544088cfd927b458134, type: 3}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: numberOfEnemies.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: numberOfEnemies.Array.data[0]
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: numberOfEnemies.Array.data[1]
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: numberOfEnemies.Array.data[2]
@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: title
-      value: Busca la espada.
+      value: Encuentra la llave
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: questID
@@ -214,11 +214,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: startText
-      value: Encuentra la espada para poder abrirte paso hasta el laboratorio.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: completeText
-      value: Has encontrado la espada. Es hora de ir al laboratorio.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: itemsNeeded.Array.size
@@ -227,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: itemsNeeded.Array.data[0]
       value: 
-      objectReference: {fileID: 5300840274177935995, guid: 4866d97c01912544088cfd927b458134, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -279,17 +279,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9213609099651450295, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
   m_PrefabInstance: {fileID: 497796428980187060}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8734124134480112130 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
-  m_PrefabInstance: {fileID: 497796428980187060}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1575d7603e997c440812fd5cf46a1d2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8734124133590418603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -304,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: nextQuest
       value: 
-      objectReference: {fileID: 8734124134480112130}
+      objectReference: {fileID: 0}
     - target: {fileID: 9213609099651450294, guid: a01f403dfad5e4f4a8e45940545e22f2, type: 3}
       propertyPath: startText
       value: Encuentra al capitan para saber que ha pasado.
