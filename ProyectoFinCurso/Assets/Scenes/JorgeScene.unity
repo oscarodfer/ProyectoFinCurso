@@ -224,6 +224,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1330001544, guid: f069f09da83425b488c47bc740566c34, type: 3}
+      propertyPath: m_Text
+      value: "Pulsa el bot\xF3n derecho del rat\xF3n para continuar"
+      objectReference: {fileID: 0}
     - target: {fileID: 1829116527, guid: f069f09da83425b488c47bc740566c34, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -81125,7 +81129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5099041094105257514, guid: 8f659d92ef1d5494886932a6a4d38972, type: 3}
       propertyPath: level
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8377992606333435316, guid: 8f659d92ef1d5494886932a6a4d38972, type: 3}
       propertyPath: m_IsActive
