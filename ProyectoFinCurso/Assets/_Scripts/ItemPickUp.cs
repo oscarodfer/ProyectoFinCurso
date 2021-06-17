@@ -34,9 +34,9 @@ public class ItemPickUp : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (collision.tag.Equals("Player") && Input.GetKeyDown(KeyCode.E))
         {
-            switch (item)
+            switch (this.gameObject.GetComponent<ItemPickUp>().item)
             {
                 case "SWORD":
                     GameObject.Find("Weapon").GetComponent<WeaponManager>().ActivateWeapon(SWORD);
