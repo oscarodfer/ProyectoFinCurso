@@ -138,24 +138,31 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Level 1
     clip: {fileID: 8300000, guid: 801615f2493b4864eb7156f1629dc7c2, type: 3}
-    volume: 0.114
+    volume: 0.15
     pitch: 1
     isLoop: 1
     isOneShot: 0
     source: {fileID: 0}
   - name: Level 2
     clip: {fileID: 8300000, guid: 2c6d4014e73505240a26802bfc146062, type: 3}
-    volume: 0.5
+    volume: 0.15
     pitch: 1
     isLoop: 1
     isOneShot: 0
     source: {fileID: 0}
   - name: Level 3
     clip: {fileID: 8300000, guid: 7c9a0a97c4ed6324bbab4aa3835f779e, type: 3}
-    volume: 0.5
+    volume: 0.15
     pitch: 1
     isLoop: 1
     isOneShot: 0
+    source: {fileID: 0}
+  - name: Laser Door
+    clip: {fileID: 8300000, guid: d04526855c08df646acabec833d76edc, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    isOneShot: 1
     source: {fileID: 0}
 --- !u!114 &7719105495984414762
 MonoBehaviour:

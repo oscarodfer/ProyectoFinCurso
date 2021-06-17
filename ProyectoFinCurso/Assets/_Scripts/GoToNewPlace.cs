@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GoToNewPlace : MonoBehaviour
 {
+    public Animator transition;
+    public float transitionTime = 1f;
     public string newPlaceName = "New scene name here";
     public bool needsAction = false;
     public string destinationUuid;
@@ -43,9 +45,18 @@ public class GoToNewPlace : MonoBehaviour
         {
             if (!needsAction || (needsAction && Input.GetKey(KeyCode.E)))
             {
+                
                 FindObjectOfType<PlayerController>().nextUuid = this.destinationUuid;
-                SceneManager.LoadScene(newPlaceName);
+                StartCoroutine(LoadLevel());       
             }
         }    
+    }
+
+    IEnumerator LoadLevel()
+    {
+        transition.SetTrigger("Start");
+        FindObjectOfType<AudioManager>().Play("TransitionSound");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(newPlaceName);
     }
 }

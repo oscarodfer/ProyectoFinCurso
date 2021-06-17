@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/JorgeScene.unity
-    guid: 2aebb11ebff573248a6e28703e8a406b
+    path: Assets/Scenes/Level1.unity
+    guid: b0e6e71d8718a834a92b63ce556575dd
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: c3ee5c891ab375c48a41d00754745da3
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 2219d096d93dd4044a0dfe9d788ac4c2
+  - enabled: 1
+    path: Assets/Scenes/JorgeScene.unity
+    guid: 2aebb11ebff573248a6e28703e8a406b
   m_configObjects: {}

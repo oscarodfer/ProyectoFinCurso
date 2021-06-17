@@ -94,6 +94,7 @@ public class ItemPickUp : MonoBehaviour
             isActivated = true;
         }
 
+        FindObjectOfType<AudioManager>().Play("TransitionSound");
         GameObject.Find("Grid").transform.Find("Elevator Doors").gameObject.SetActive(isActivated);
     }
 }
