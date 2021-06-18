@@ -26,6 +26,7 @@ public class QuestItem : MonoBehaviour
             {
                 questManager.itemCollected = this;
                 itemManager.AddQuestItem(this.gameObject);
+                GameObject.Find("Player").GetComponent<PlayerController>().hasKey = true;
                 gameObject.SetActive(false);
             }
         }

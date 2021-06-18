@@ -85,16 +85,22 @@ public class ItemPickUp : MonoBehaviour
 
     private void ElevatorSwitch ()
     {
-        if(isActivated)
+        if (GameObject.Find("Player").GetComponent<PlayerController>().hasKey) 
         {
-            isActivated = false;         
-        }
-        else
-        {
-            isActivated = true;
+            if (isActivated)
+            {
+                isActivated = false;
+            }
+            else
+            {
+                isActivated = true;
+            }
+
+         FindObjectOfType<AudioManager>().Play("TransitionSound");
+         GameObject.Find("Grid").transform.Find("Elevator Doors").gameObject.SetActive(isActivated);
         }
 
-        FindObjectOfType<AudioManager>().Play("TransitionSound");
-        GameObject.Find("Grid").transform.Find("Elevator Doors").gameObject.SetActive(isActivated);
+
+
     }
 }

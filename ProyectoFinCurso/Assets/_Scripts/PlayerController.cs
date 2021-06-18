@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public float attackTime;
     private float attackTimeCounter;
     private float stunCounter;
+    public bool hasKey = false;
 
     void Start()
     {

@@ -85,7 +85,7 @@ public class Quest : MonoBehaviour
         questCompleted = true;
         if (nextQuest != null) 
         {
-            Invoke("ActivateNextQuest", 5.0f);
+            Invoke("ActivateNextQuest", 10.0f);
         }
         if (questID == 2) 
         {
