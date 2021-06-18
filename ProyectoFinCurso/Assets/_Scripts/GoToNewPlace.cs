@@ -15,7 +15,7 @@ public class GoToNewPlace : MonoBehaviour
     {
         if (collision.tag.Equals("Player"))
         {
-            if (transform.childCount > 0)
+            if (transform.childCount > 1)
             {
                 gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }      
@@ -27,7 +27,7 @@ public class GoToNewPlace : MonoBehaviour
     {
         if (collision.tag.Equals("Player"))
         {
-            if (transform.childCount > 0)
+            if (transform.childCount > 1)
             {
                 gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }

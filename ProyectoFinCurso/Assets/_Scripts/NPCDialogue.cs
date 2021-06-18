@@ -18,7 +18,7 @@ public class NPCDialogue : MonoBehaviour
     void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
-        healthManager = FindObjectOfType<HealthManager>();
+        healthManager = GameObject.Find("Player").GetComponent<HealthManager>();
     }
 
     
