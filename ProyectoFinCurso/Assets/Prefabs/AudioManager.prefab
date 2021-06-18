@@ -164,6 +164,20 @@ MonoBehaviour:
     isLoop: 1
     isOneShot: 0
     source: {fileID: 0}
+  - name: Monster Roar
+    clip: {fileID: 8300000, guid: 159c10b8cbff4bc4f9b8bb8ac5d3442b, type: 3}
+    volume: 0.8
+    pitch: 0.8
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
+  - name: Laser Door
+    clip: {fileID: 8300000, guid: d04526855c08df646acabec833d76edc, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    isOneShot: 1
+    source: {fileID: 0}
 --- !u!114 &7719105495984414762
 MonoBehaviour:
   m_ObjectHideFlags: 0
