@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1301043960, guid: f069f09da83425b488c47bc740566c34, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8232565030718892697, guid: f0aaaae1cf6252148bdf7edfcfc3edb0, type: 3}
     - target: {fileID: 1829116527, guid: f069f09da83425b488c47bc740566c34, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -300,6 +304,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5112505961858085456, guid: f069f09da83425b488c47bc740566c34, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1042547889}
     - target: {fileID: 5112505961858085456, guid: f069f09da83425b488c47bc740566c34, type: 3}
       propertyPath: playerStats
       value: 
