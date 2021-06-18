@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
+    public int scoreOnDeath;
+
     public int maxHealth;
     [SerializeField]
     private int currentHealth;
@@ -77,6 +79,7 @@ public class HealthManager : MonoBehaviour
             if (gameObject.tag.Equals("Enemy") || gameObject.tag.Equals("EnemyRanged")) 
             {
                 GameObject.Find("Player").GetComponent<CharacterStats>().AddExperience(expWhenDefeated);
+                GameObject.Find("Player").GetComponent<CharacterStats>().AddScore(scoreOnDeath);
                 questManager.enemyKilled = quest;           
             }
             //this.gameObject.SetActive(false);    

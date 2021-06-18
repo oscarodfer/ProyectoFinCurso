@@ -29,6 +29,8 @@ public class CharacterStats : MonoBehaviour
     [Tooltip("Probabilidad de que el personaje falle el ataque")]
     public int[] accuracyLevels;
 
+    public int totalScore;
+
     private HealthManager healthManager;
     private PlayerController playerController;
 
@@ -42,6 +44,7 @@ public class CharacterStats : MonoBehaviour
             EnemyBehaviour controller = GetComponent<EnemyBehaviour>();
             controller.speed += speedLevels[level] / MAX_STAT_VALUE;
         }
+        totalScore = 0;
     }
 
     public void AddExperience(int exp) 
@@ -75,5 +78,10 @@ public class CharacterStats : MonoBehaviour
         Vector2 newPosition = transform.position;
         newPosition.y += 1f;
         Instantiate(levelUpText, newPosition, Quaternion.identity, transform);
+    }
+
+    public void AddScore(int score)
+    {
+        totalScore += score;
     }
 }
