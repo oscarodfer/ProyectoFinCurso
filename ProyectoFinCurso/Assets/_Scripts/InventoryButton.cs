@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryButton : MonoBehaviour
 {
-    public enum ItemType { WEAPON = 0, ITEM = 1, ARMOR = 2, RING = 3, SPECIAL_ITEMS = 4 };
+    public enum ItemType { WEAPON = 0, ITEM = 1, ARMOR = 2, RING = 3, SPECIAL_ITEMS = 4, LEAVE = 5 };
     
     public int itemIndex;
     public ItemType type;
@@ -60,6 +60,9 @@ public class InventoryButton : MonoBehaviour
             case ItemType.SPECIAL_ITEMS:
                 QuestItem item = FindObjectOfType<ItemsManager>().GetItemAt(itemIndex);
                 description = item.itemName;
+                break;
+            case ItemType.LEAVE:
+                Application.Quit();
                 break;
         }
         FindObjectOfType<UIManager>().inventoryText.text = description;
