@@ -14,13 +14,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level1old.unity
     guid: b0e6e71d8718a834a92b63ce556575dd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AccessMenu.unity
     guid: f2bf5a09419776841938786f728e4b42
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RegisterMenu.unity
     guid: bbe9ed26b74d202499ebb7703e13b9ee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoginMenu.unity
     guid: 22c59cea11a1fc846951af62bd5e182a
   - enabled: 1
