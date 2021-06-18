@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "" + playerStats.totalScore;
+        scoreText.text = "Score: " + playerStats.totalScore;
         playerHealthBar.maxValue = playerHealthManager.maxHealth;
         playerHealthBar.value = playerHealthManager.Health;
 
