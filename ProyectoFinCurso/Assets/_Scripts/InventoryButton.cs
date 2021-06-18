@@ -30,6 +30,10 @@ public class InventoryButton : MonoBehaviour
             case ItemType.ARMOR:
                 Debug.Log("Cambiar armadura (En el futuro...)");
                 break;
+
+            case ItemType.LEAVE:
+                Application.Quit();
+                break;
         }
         ShowDescription();
     }
@@ -61,9 +65,7 @@ public class InventoryButton : MonoBehaviour
                 QuestItem item = FindObjectOfType<ItemsManager>().GetItemAt(itemIndex);
                 description = item.itemName;
                 break;
-            case ItemType.LEAVE:
-                Application.Quit();
-                break;
+
         }
         FindObjectOfType<UIManager>().inventoryText.text = description;
     }

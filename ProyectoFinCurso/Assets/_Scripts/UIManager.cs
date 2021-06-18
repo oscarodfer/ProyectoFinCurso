@@ -129,6 +129,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void LeaveGame()
+    {
+        Application.Quit();
+    }
+
     public void ShowAll()
     {
         foreach (Transform t in invetoryPanel.transform)
