@@ -26,6 +26,7 @@ public class Web : MonoBehaviour
         StartCoroutine(CorrutinaEscribirVariosSinJson());
     }
 
+    [System.Obsolete]
     IEnumerator CorrutinaEscribirVariosSinJson()
     {
         WWWForm form = new WWWForm();
