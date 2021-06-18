@@ -51,7 +51,7 @@ public class NPCDialogue : MonoBehaviour
             }
             if (npcName == "Doctor House")
             {
-                healthManager.Curar();
+                healthManager.Heal();
             }
             if (npcName == "Alexander Fleming")
             {

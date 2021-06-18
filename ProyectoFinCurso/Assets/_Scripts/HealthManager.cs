@@ -88,7 +88,7 @@ public class HealthManager : MonoBehaviour
         currentHealth += offsetHealth;
     }
 
-    public void Curar() 
+    public void Heal() 
     {
         currentHealth = maxHealth;
     }
@@ -150,9 +150,11 @@ public class HealthManager : MonoBehaviour
                 GameObject.Find("Player").GetComponent<PlayerController>().isDamaged = false;
                 isInmune = false;
 
-                if(this.gameObject.GetComponent<EnemyBehaviour>().isBoss)
+                if(this.gameObject.GetComponent<EnemyBehaviour>())
                 {
-                    this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                    if(this.gameObject.GetComponent<EnemyBehaviour>().isBoss){
+                        this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                    }
                 }
             }
         }
