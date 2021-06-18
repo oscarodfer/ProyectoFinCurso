@@ -82,15 +82,22 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Level Up
     clip: {fileID: 8300000, guid: 59b380a123d1c7543a77ea0343e894e0, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     isLoop: 0
     isOneShot: 1
     source: {fileID: 0}
+  - name: TransitionSound
+    clip: {fileID: 8300000, guid: 61cc8c5777cb2864cb873e4cf324d273, type: 3}
+    volume: 1
+    pitch: 2.5
+    isLoop: 0
+    isOneShot: 0
+    source: {fileID: 0}
   - name: MissionComplete
-    clip: {fileID: 8300000, guid: a1c4ba180b05f264b93cda23b2501d28, type: 3}
-    volume: 0.5
-    pitch: 0.6
+    clip: {fileID: 8300000, guid: 6d67df058785d23489ae63ad0206e8fb, type: 3}
+    volume: 1
+    pitch: 1
     isLoop: 0
     isOneShot: 1
     source: {fileID: 0}
@@ -138,7 +145,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Level 1
     clip: {fileID: 8300000, guid: 801615f2493b4864eb7156f1629dc7c2, type: 3}
-    volume: 0.15
+    volume: 0.114
     pitch: 1
     isLoop: 1
     isOneShot: 0
@@ -152,23 +159,9 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Level 3
     clip: {fileID: 8300000, guid: 7c9a0a97c4ed6324bbab4aa3835f779e, type: 3}
-    volume: 0.15
+    volume: 0.5
     pitch: 1
     isLoop: 1
-    isOneShot: 0
-    source: {fileID: 0}
-  - name: Laser Door
-    clip: {fileID: 8300000, guid: d04526855c08df646acabec833d76edc, type: 3}
-    volume: 1
-    pitch: 1
-    isLoop: 0
-    isOneShot: 1
-    source: {fileID: 0}
-  - name: Monster Roar
-    clip: {fileID: 8300000, guid: 159c10b8cbff4bc4f9b8bb8ac5d3442b, type: 3}
-    volume: 0.8
-    pitch: 0.8
-    isLoop: 0
     isOneShot: 0
     source: {fileID: 0}
 --- !u!114 &7719105495984414762
