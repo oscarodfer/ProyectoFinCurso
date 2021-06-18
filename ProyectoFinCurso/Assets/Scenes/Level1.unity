@@ -438,6 +438,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveStats: {fileID: 467344936}
+--- !u!114 &224367833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224367830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a560210c5f3df444c83666f63f1693ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1777992864}
+  score: 0
+  level: 0
 --- !u!1001 &255914132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3278,10 +3293,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 224367832}
-        m_TargetAssemblyTypeName: SaveGame, Assembly-CSharp
-        m_MethodName: SaveStats
-        m_Mode: 3
+      - m_Target: {fileID: 224367833}
+        m_TargetAssemblyTypeName: Web, Assembly-CSharp
+        m_MethodName: EscribirVariosSinJson
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -34055,7 +34070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 665320343286433343, guid: 1428241a370a70e4fa2d4db9b50cc076, type: 3}
+  m_Sprite: {fileID: -6941947573735959931, guid: 1428241a370a70e4fa2d4db9b50cc076, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -34224,7 +34239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 665320343286433343, guid: 1428241a370a70e4fa2d4db9b50cc076, type: 3}
+  m_Sprite: {fileID: -2230846602583954849, guid: 1428241a370a70e4fa2d4db9b50cc076, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -34536,10 +34551,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 224367832}
-        m_TargetAssemblyTypeName: SaveGame, Assembly-CSharp
-        m_MethodName: LoadStats
-        m_Mode: 3
+      - m_Target: {fileID: 224367833}
+        m_TargetAssemblyTypeName: Web, Assembly-CSharp
+        m_MethodName: LeerVariosSinJson
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
