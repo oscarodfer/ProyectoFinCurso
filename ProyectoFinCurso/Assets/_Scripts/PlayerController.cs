@@ -166,23 +166,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        /*
-        if (Mathf.Abs(Input.GetAxisRaw(AXIS_H)) > 0.2f)
-        {
-            Vector3 translation = new Vector3(Input.GetAxisRaw(AXIS_H) * speed * Time.deltaTime, 0, 0);
-            this.transform.Translate(translation);
-            this.isWalking = true;
-            this.lastMovement = new Vector2(Input.GetAxisRaw(AXIS_H), 0);
-        }
-
-        if (Mathf.Abs(Input.GetAxisRaw(AXIS_V)) > 0.2f)
-        {  
-            Vector3 translation = new Vector3(0, Input.GetAxisRaw(AXIS_V) * speed * Time.deltaTime, 0);
-            this.transform.Translate(translation);
-            this.isWalking = true;
-            this.lastMovement = new Vector2(0, Input.GetAxisRaw(AXIS_V));
-        }
-        */
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
