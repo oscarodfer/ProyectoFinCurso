@@ -64,8 +64,8 @@ public class EnemyBehaviour : MonoBehaviour
         stunCounter = STUN_DURATION;
         timeBetweenStepsCounter = timeBetweenSteps;
         timeToMakeStepCounter = timeToMakeStep;
-        timeBetweenShots = 0;
-        machinegun = 0;
+        timeBetweenShots = 0.5f;
+        machinegun = 0.5f;
         bulletCount = 0;
         numberOfShots = Random.Range(0, maxNumberOfShots) + 1;
         //timeToMakeStepCounter = timeToMakeStep * Random.Range(0.5f, 1.5f);

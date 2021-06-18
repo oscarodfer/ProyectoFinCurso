@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1017577659550957058}
   - component: {fileID: 5879092499654669751}
   m_Layer: 5
-  m_Name: Sparks
+  m_Name: Heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,8 +225,8 @@ ParticleSystem:
       maxColor: {r: 0.9716981, g: 0.01375042, b: 0.01375042, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.9420621, b: 0, a: 1}
-        key1: {r: 1, g: 0.8377491, b: 0, a: 1}
+        key0: {r: 0.12673402, g: 1, b: 0, a: 1}
+        key1: {r: 0.3329252, g: 1, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
