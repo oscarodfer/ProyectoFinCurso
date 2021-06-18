@@ -70,7 +70,7 @@ public class HealthManager : MonoBehaviour
             
             if (gameObject.GetComponent<PlayerController>())
             {
-                GameObject.Find("Status").GetComponent<GameStatus>().GameOver();
+                //GameObject.Find("Status").GetComponent<GameStatus>().GameOver();
                 gameObject.GetComponent<PlayerController>().isDead = true;
             }
 
@@ -119,7 +119,7 @@ public class HealthManager : MonoBehaviour
 
             if (gameObject.GetComponent<PlayerController>())
             {
-                GameObject.Find("Status").GetComponent<GameStatus>().GameOver();
+                //GameObject.Find("Status").GetComponent<GameStatus>().GameOver();
                 gameObject.GetComponent<PlayerController>().isDead = true;
             }
         }
@@ -175,8 +175,4 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void SetInmune (bool inmune)
-    {
-
-    }
 }

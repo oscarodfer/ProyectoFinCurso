@@ -84,4 +84,5 @@ public class CharacterStats : MonoBehaviour
     {
         totalScore += score;
     }
+
 }
