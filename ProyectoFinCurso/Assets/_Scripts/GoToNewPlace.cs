@@ -7,6 +7,8 @@ public class GoToNewPlace : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1f;
+    public string oldMusic = "Old music here";
+    public string newMusic = "New music here";
     public string newPlaceName = "New scene name here";
     public bool needsAction = false;
     public string destinationUuid;
@@ -45,7 +47,9 @@ public class GoToNewPlace : MonoBehaviour
         {
             if (!needsAction || (needsAction && Input.GetKey(KeyCode.E)))
             {
-                
+                FindObjectOfType<AudioManager>().Stop(oldMusic);
+                FindObjectOfType<AudioManager>().Play(newMusic);
+
                 FindObjectOfType<PlayerController>().nextUuid = this.destinationUuid;
                 StartCoroutine(LoadLevel());       
             }

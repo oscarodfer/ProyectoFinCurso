@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Play("Level 1");    
+        Play("Level 1");
     }
 
     void Awake()

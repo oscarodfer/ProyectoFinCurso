@@ -44,6 +44,7 @@ public class MoveBullet : MonoBehaviour
          
         if (collision.gameObject.tag.Equals("Player") && GameObject.Find("Player").GetComponent<HealthManager>().isInmune == false)
         {
+            FindObjectOfType<AudioManager>().Play("Player Hurt");
             var clone = (GameObject)Instantiate(canvasDamage, collision.gameObject.transform.position, Quaternion.Euler(Vector3.zero));
             clone.GetComponent<DamageNumber>().damagePoint = damage;
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
