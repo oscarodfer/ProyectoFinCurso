@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45501a83f24b33d48a86dc4fae5fdbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBoss: 0
   speed: 1.2
   timeBetweenSteps: 3
   timeToMakeStep: 1
@@ -110,6 +111,8 @@ MonoBehaviour:
   stoppingDistance: 0
   retreatDistance: 0
   startTimeBetweenShots: 0
+  startMachinegun: 0
+  maxNumberOfShots: 0
   shot: {fileID: 0}
 --- !u!50 &2770597973988605536
 Rigidbody2D:
@@ -158,13 +161,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b806042d0d60044199caa6de4be029d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreOnDeath: 50
   maxHealth: 150
   currentHealth: 0
   flashActive: 0
   flashLength: 1.5
   punkDeathAnimation: {fileID: 0}
   expWhenDefeated: 2
-  inmune: 0
+  isInmune: 0
 --- !u!58 &267864692108407036
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -193,6 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4648ef8d51016c4693fca8fa595d267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelUpText: {fileID: 0}
+  sparksAnimation: {fileID: 0}
   level: 0
   exp: 0
   expToLevelUp: 

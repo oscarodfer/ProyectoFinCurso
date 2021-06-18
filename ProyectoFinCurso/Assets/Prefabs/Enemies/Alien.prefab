@@ -89,6 +89,10 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605537, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: scoreOnDeath
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605537, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: expWhenDefeated
       value: 10
       objectReference: {fileID: 0}
@@ -139,6 +143,10 @@ PrefabInstance:
     - target: {fileID: 2770597973988605543, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: level
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770597973988605543, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
+      propertyPath: scoreOnDeath
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2770597973988605548, guid: f805caa6f47095a4c8db2f06f894754b, type: 3}
       propertyPath: m_Sprite

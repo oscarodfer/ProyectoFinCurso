@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public Button inventoryButton;
     private ItemsManager itemsManager;
     public Text inventoryText;
+    public Text scoreText;
 
     private static bool isGamePaused = false;
 
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        scoreText.text = "" + playerStats.totalScore;
         playerHealthBar.maxValue = playerHealthManager.maxHealth;
         playerHealthBar.value = playerHealthManager.Health;
 
