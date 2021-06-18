@@ -1534,9 +1534,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1532162673}
     m_Modifications:
+    - target: {fileID: 820906551596060041, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 820906551596060086, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 820906552486778065, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 820906552486778077, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 820906552486778079, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7625910976972995502, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
       propertyPath: m_Name
       value: Level 3 Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625910976972995502, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7625910976972995504, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
       propertyPath: m_RootOrder
@@ -22619,6 +22643,10 @@ PrefabInstance:
     - target: {fileID: 7625910976972995502, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
       propertyPath: m_Name
       value: Level 2 Hole
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625910976972995502, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7625910976972995504, guid: e3fa0198148053a4bb3b51be002e9328, type: 3}
       propertyPath: m_RootOrder
