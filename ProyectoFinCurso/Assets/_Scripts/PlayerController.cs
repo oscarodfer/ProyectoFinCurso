@@ -42,10 +42,19 @@ public class PlayerController : MonoBehaviour
         playerCreated = true;
         isTalking = false;
         stunCounter = STUN_DURATION;
+        gameObject.SetActive(true);
     }
 
     void Update()
     {
+        if (isDead)
+        {
+            canMove = false;
+            isWalking = false;
+            isDamaged = true;
+            isAttacking = false;
+        }
+
         if (isTalking) 
         {
             _rb.velocity = Vector2.zero;

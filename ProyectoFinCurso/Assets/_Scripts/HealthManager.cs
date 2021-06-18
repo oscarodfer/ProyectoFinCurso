@@ -57,12 +57,19 @@ public class HealthManager : MonoBehaviour
             if (gameObject.GetComponent<EnemyBehaviour>())
             {
                 this.gameObject.GetComponent<EnemyBehaviour>().SetDead(true);
+
+                if (gameObject.GetComponent<EnemyBehaviour>().isBoss)
+                {
+                    FindObjectOfType<AudioManager>().Stop("Level 3");
+                    FindObjectOfType<AudioManager>().Play("Mission Complete");
+                    GameObject.Find("Status").GetComponent<GameStatus>().GameOver();
+                }
             }
             
             if (gameObject.GetComponent<PlayerController>())
             {
+                GameObject.Find("Status").GetComponent<GameStatus>().GameOver();
                 gameObject.GetComponent<PlayerController>().isDead = true;
-                gameObject.SetActive(false);
             }
 
             this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
@@ -109,8 +116,8 @@ public class HealthManager : MonoBehaviour
 
             if (gameObject.GetComponent<PlayerController>())
             {
+                GameObject.Find("Status").GetComponent<GameStatus>().GameOver();
                 gameObject.GetComponent<PlayerController>().isDead = true;
-                gameObject.SetActive(false);
             }
         }
 
